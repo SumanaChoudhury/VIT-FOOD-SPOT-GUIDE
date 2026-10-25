@@ -48,7 +48,7 @@
         <ul>
           <li><a href="#explore" class="nav-link active" data-view="explore">Explore</a></li>
           <li><a href="#hostels" class="nav-link" data-view="hostels">Hostels</a></li>
-          <li><a href="#academic-blocks" class="nav-link" data-view="academic-blocks">Pearl Research Park</a></li>
+          <li><a href="#academic-blocks" class="nav-link" data-view="academic-blocks">Academic Blocks</a></li>
           <li><a href="#chatbot" class="nav-link" data-view="chatbot">AI Chat</a></li>
           <li><a href="#feedback" class="nav-link" data-view="feedback">Feedback</a></li>
           <li><a href="#suggestions" class="nav-link" data-view="suggestions">Suggestions</a></li>
@@ -63,23 +63,12 @@
 
       <!-- Navigation Actions -->
       <div class="nav-actions">
-        <!-- Theme Toggle Button & Popover (Gear Icon) -->
-        <div class="settings-menu-wrapper">
-          <button class="nav-action-icon-btn" id="btn-theme-settings" title="Display Theme" aria-label="Theme Settings">
-            <svg id="theme-btn-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3"></circle>
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-            </svg>
-          </button>
-          <div class="settings-popover" id="settings-popover" style="display:none;">
-            <div class="settings-popover-header">Display Theme</div>
-            <div class="theme-options-list">
-              <button type="button" class="theme-option-btn active" data-theme-val="light">Light</button>
-              <button type="button" class="theme-option-btn" data-theme-val="dark">Dark</button>
-              <button type="button" class="theme-option-btn" data-theme-val="system">System</button>
-            </div>
-          </div>
-        </div>
+        <!-- Theme Toggle Button (Instant 1-Click Light/Dark Switcher) -->
+        <button class="nav-action-icon-btn" id="btn-theme-settings" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+          <svg id="theme-btn-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
 
         <div id="auth-nav-container">
           <button class="btn-pill-signin" id="btn-auth-modal">
@@ -90,7 +79,6 @@
             Sign In
           </button>
         </div>
-        <button class="btn-pill-admin" id="btn-admin-modal" title="Administrator Portal">Admin</button>
       </div>
     </div>
   </header>
@@ -907,18 +895,19 @@
     </div>
   </div>
 
-  <!-- Student Auth Modal (Sign In / Register) -->
+  <!-- Student & Admin Auth Modal (Sign In / Register / Admin) -->
   <div class="modal-overlay" id="auth-modal">
     <div class="modal-content" style="max-width: 440px;">
       <button class="modal-close-btn" id="btn-close-auth-modal" aria-label="Close dialog">&times;</button>
       
-      <!-- Auth Tabs -->
-      <div class="segmented-toggle" style="margin-bottom:20px; width:100%; display:flex;">
+      <!-- Auth Tabs: Sign In, Create Account, Admin Portal -->
+      <div class="segmented-toggle" style="margin-bottom:20px; width:100%; display:flex; gap:4px;">
         <button class="segmented-btn active" id="tab-auth-login" style="flex:1;">Sign In</button>
-        <button class="segmented-btn" id="tab-auth-register" style="flex:1;">Create Account</button>
+        <button class="segmented-btn" id="tab-auth-register" style="flex:1;">Register</button>
+        <button class="segmented-btn" id="tab-auth-admin" style="flex:1;">Admin</button>
       </div>
 
-      <!-- Login Form -->
+      <!-- Login Form (Student) -->
       <div id="auth-login-view">
         <h3 style="color:var(--text-dark); margin-bottom:4px; font-size:1.3rem;">Welcome back</h3>
         <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:18px;">Sign in with your VIT student email to access saved favorites and submit reviews.</p>
@@ -926,15 +915,19 @@
         <form id="student-login-form">
           <div class="form-group">
             <label class="form-label" for="login-email">VIT Student Email</label>
-            <input type="email" id="login-email" class="form-control" placeholder="firstname.lastname@vitstudent.ac.in" required>
+            <input type="email" id="login-email" class="form-control" placeholder="firstname.lastname@vitstudent.ac.in" required autocomplete="email">
           </div>
           <div class="form-group">
             <label class="form-label" for="login-password">Password</label>
-            <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+            <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
           </div>
           <div id="login-error-msg" style="color:var(--color-error); font-size:0.84rem; margin-bottom:12px; display:none;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;">Sign in</button>
         </form>
+
+        <div style="text-align:center; margin-top:16px; padding-top:12px; border-top:1px solid var(--border-subtle);">
+          <a href="javascript:void(0)" id="link-switch-to-admin" style="font-size:0.83rem; color:var(--text-muted); text-decoration:underline; cursor:pointer;">Campus Administrator? Sign in to Admin Portal &rarr;</a>
+        </div>
       </div>
 
       <!-- Register Form -->
@@ -947,18 +940,40 @@
         <form id="student-register-form">
           <div class="form-group">
             <label class="form-label" for="reg-name">Full Name</label>
-            <input type="text" id="reg-name" class="form-control" placeholder="e.g. Student Name" required>
+            <input type="text" id="reg-name" class="form-control" placeholder="e.g. Student Name" required autocomplete="name">
           </div>
           <div class="form-group">
             <label class="form-label" for="reg-email">VIT Student Email</label>
-            <input type="email" id="reg-email" class="form-control" placeholder="firstname.lastname@vitstudent.ac.in" required>
+            <input type="email" id="reg-email" class="form-control" placeholder="firstname.lastname@vitstudent.ac.in" required autocomplete="email">
           </div>
           <div class="form-group">
             <label class="form-label" for="reg-password">Password</label>
-            <input type="password" id="reg-password" class="form-control" placeholder="At least 6 characters" minlength="6" required>
+            <input type="password" id="reg-password" class="form-control" placeholder="At least 6 characters" minlength="6" required autocomplete="new-password">
           </div>
           <div id="reg-error-msg" style="color:var(--color-error); font-size:0.84rem; margin-bottom:12px; display:none;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;">Register</button>
+        </form>
+      </div>
+
+      <!-- Admin Login Form (Merged inside Sign In Modal) -->
+      <div id="auth-admin-view" style="display:none;">
+        <h3 style="color:var(--text-dark); margin-bottom:4px; font-size:1.3rem;">Administrator Portal</h3>
+        <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:18px;">Sign in to view database metrics, manage restaurants, edit menus, and review user suggestions.</p>
+
+        <form id="auth-admin-login-form">
+          <div class="form-group">
+            <label class="form-label" for="auth-admin-user">Username</label>
+            <input type="text" id="auth-admin-user" class="form-control" value="admin" required autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="auth-admin-pass">Password</label>
+            <input type="password" id="auth-admin-pass" class="form-control" placeholder="Enter admin password" required autocomplete="current-password">
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px; background:var(--bg-sage-light); padding:8px 12px; border-radius:var(--radius-xs);">
+            Credentials: <code>admin</code> / <code>vitfoodguide2026</code>
+          </div>
+          <div id="auth-admin-error-msg" style="color:var(--color-error); font-size:0.84rem; margin-bottom:12px; display:none;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="btn-auth-admin-submit">Sign in to Dashboard</button>
         </form>
       </div>
     </div>

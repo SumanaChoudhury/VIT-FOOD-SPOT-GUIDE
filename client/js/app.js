@@ -97,12 +97,12 @@ const CATEGORY_IMAGE_MAP = {
 
 // Light / Dark / System Theme Manager
 const ThemeManager = {
-  currentTheme: localStorage.getItem('vit_food_theme') || 'system',
+  currentTheme: localStorage.getItem('vit_food_theme') || 'light',
 
   init() {
     this.applyTheme(this.currentTheme);
 
-    // Watch system changes
+    // Watch system changes if in system mode
     if (window.matchMedia) {
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (this.currentTheme === 'system') {
@@ -111,24 +111,24 @@ const ThemeManager = {
       });
     }
 
-    // Toggle popover
-    $('#btn-theme-settings').on('click', function(e) {
-      e.stopPropagation();
-      $('#settings-popover').toggle();
+    // Direct 1-Click Toggle Light/Dark on Theme Button
+    $('#btn-theme-settings').on('click', (e) => {
+      e.preventDefault();
+      this.toggleTheme();
     });
 
-    $(document).on('click', function(e) {
-      if (!$(e.target).closest('.settings-menu-wrapper').length) {
-        $('#settings-popover').hide();
-      }
-    });
-
-    // Theme buttons
+    // Theme option buttons (if used anywhere)
     $('.theme-option-btn').on('click', function() {
       const chosen = $(this).attr('data-theme-val');
       ThemeManager.setTheme(chosen);
       $('#settings-popover').hide();
     });
+  },
+
+  toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const nextTheme = isDark ? 'light' : 'dark';
+    this.setTheme(nextTheme);
   },
 
   setTheme(val) {
@@ -152,10 +152,17 @@ const ThemeManager = {
   },
 
   updateDOMTheme(effective) {
+    const $themeBtn = $('#btn-theme-settings');
     const $themeBtnSvg = $('#theme-btn-svg');
+
     if (effective === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
+      if ($themeBtn.length) {
+        $themeBtn.attr('title', 'Switch to Light theme');
+        $themeBtn.attr('aria-label', 'Switch to Light theme');
+      }
       if ($themeBtnSvg.length) {
+        // Sun icon for switching to light theme
         $themeBtnSvg.html(`
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -170,7 +177,12 @@ const ThemeManager = {
       }
     } else {
       document.documentElement.removeAttribute('data-theme');
+      if ($themeBtn.length) {
+        $themeBtn.attr('title', 'Switch to Dark theme');
+        $themeBtn.attr('aria-label', 'Switch to Dark theme');
+      }
       if ($themeBtnSvg.length) {
+        // Moon icon for switching to dark theme
         $themeBtnSvg.html(`
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         `);
@@ -544,23 +556,18 @@ function bindEventHandlers() {
   $('#btn-close-admin-modal').on('click', () => $('#admin-modal').removeClass('open'));
   $('#btn-admin-modal, #footer-admin-btn').on('click', () => $('#admin-modal').addClass('open'));
 
-  // Auth Tabs
-  $('#tab-auth-login').on('click', function() {
-    $(this).addClass('active');
-    $('#tab-auth-register').removeClass('active');
-    $('#auth-login-view').show();
-    $('#auth-register-view').hide();
-  });
-
-  $('#tab-auth-register').on('click', function() {
-    $(this).addClass('active');
-    $('#tab-auth-login').removeClass('active');
-    $('#auth-login-view').hide();
-    $('#auth-register-view').show();
+  // Auth Tabs (Sign In / Register / Admin Portal)
+  $('#tab-auth-login').on('click', () => switchAuthTab('login'));
+  $('#tab-auth-register').on('click', () => switchAuthTab('register'));
+  $('#tab-auth-admin').on('click', () => switchAuthTab('admin'));
+  $('#link-switch-to-admin').on('click', function(e) {
+    e.preventDefault();
+    switchAuthTab('admin');
   });
 
   $('#student-login-form').on('submit', handleStudentLogin);
   $('#student-register-form').on('submit', handleStudentRegister);
+  $('#auth-admin-login-form').on('submit', handleAdminAuthModalLogin);
   $('#btn-auth-modal').on('click', () => openAuthModal());
 
   // Feedback Form
@@ -1223,14 +1230,34 @@ function renderModalDishes(items, counterFilter = null, categoryFilter = null, s
   }).join('');
 }
 
-// Student Authentication
-function openAuthModal(notice = '') {
+// Student & Admin Authentication Coordinator
+function switchAuthTab(tab) {
+  $('.segmented-btn', '#auth-modal').removeClass('active');
+  $('#auth-login-view, #auth-register-view, #auth-admin-view').hide();
+
+  if (tab === 'register') {
+    $('#tab-auth-register').addClass('active');
+    $('#auth-register-view').show();
+  } else if (tab === 'admin') {
+    $('#tab-auth-admin').addClass('active');
+    $('#auth-admin-view').show();
+    $('#auth-admin-user').focus();
+  } else {
+    $('#tab-auth-login').addClass('active');
+    $('#auth-login-view').show();
+    $('#login-email').focus();
+  }
+}
+
+function openAuthModal(notice = '', initialTab = 'login') {
   if (notice) {
     $('#login-error-msg').text(notice).show();
   } else {
     $('#login-error-msg').hide();
   }
   $('#reg-error-msg').hide();
+  $('#auth-admin-error-msg').hide();
+  switchAuthTab(initialTab);
   $('#auth-modal').addClass('open');
 }
 
@@ -1238,26 +1265,83 @@ function closeAuthModal() {
   $('#auth-modal').removeClass('open');
 }
 
-function updateAuthUI(isLoggedIn, user = null) {
+function updateAuthUI(isLoggedIn, user = null, admin = null) {
   const $nav = $('#auth-nav-container');
+  const hasAdminToken = localStorage.getItem('vit_admin_token');
+
   if (isLoggedIn && user) {
     $nav.html(`
       <div style="display:flex; align-items:center; gap:8px;">
         <div class="user-profile-badge">
           ${SVG_ICONS.user}
-          <span>${user.name || user.email.split('@')[0]}</span>
+          <span>${escapeHtml(user.name || user.email.split('@')[0])}</span>
         </div>
         <button class="btn btn-outline btn-sm" onclick="handleStudentLogout()">Sign Out</button>
       </div>
     `);
+  } else if (admin || hasAdminToken) {
+    $nav.html(`
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button class="btn btn-primary btn-sm" onclick="$('#admin-modal').addClass('open'); if(window.AdminManager) window.AdminManager.checkSessionState();" style="display:flex; align-items:center; gap:5px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          Admin Portal
+        </button>
+        <button class="btn btn-outline btn-sm" onclick="handleAdminLogout()">Sign Out</button>
+      </div>
+    `);
   } else {
     $nav.html(`
-      <button class="btn btn-outline btn-sm" id="btn-auth-modal" onclick="openAuthModal()">
-        ${SVG_ICONS.user}
-        <span>Sign In</span>
+      <button class="btn-pill-signin" id="btn-auth-modal" onclick="openAuthModal()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:5px; vertical-align:-2px;">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        Sign In
       </button>
     `);
   }
+}
+
+async function handleAdminAuthModalLogin(e) {
+  e.preventDefault();
+  const username = $('#auth-admin-user').val().trim();
+  const password = $('#auth-admin-pass').val();
+  const $err = $('#auth-admin-error-msg');
+  const $btn = $('#btn-auth-admin-submit');
+
+  $err.hide().text('');
+  $btn.prop('disabled', true).text('Verifying credentials...');
+
+  try {
+    const res = await API.adminLogin(username, password);
+    if (res && res.token) {
+      localStorage.setItem('vit_admin_token', res.token);
+      closeAuthModal();
+      showToast('Welcome, Administrator!', 'success');
+
+      if (window.AdminManager && window.AdminManager.showDashboard) {
+        window.AdminManager.showDashboard(res.admin);
+      }
+      $('#admin-modal').addClass('open');
+      updateAuthUI(false, null, res.admin);
+    } else {
+      throw new Error(res.error || 'Authentication failed');
+    }
+  } catch (err) {
+    $err.text(err.message || 'Invalid administrator username or password').show();
+  } finally {
+    $btn.prop('disabled', false).text('Sign in to Dashboard');
+  }
+}
+
+async function handleAdminLogout() {
+  try {
+    await API.adminLogout();
+  } catch (e) {}
+  localStorage.removeItem('vit_admin_token');
+  $('#admin-modal').removeClass('open');
+  updateAuthUI(false, null);
+  showToast('Signed out of Administrator Portal', 'info');
 }
 
 async function handleStudentLogin(e) {
