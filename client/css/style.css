@@ -4849,3 +4849,126 @@ textarea {
   }
 }
 
+/* ==========================================================================
+   Toast Notification System
+   ========================================================================== */
+.vit-toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.vit-toast-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  color: #1C231F;
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-sm);
+  padding: 12px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  pointer-events: auto;
+  max-width: 380px;
+}
+
+.vit-toast-item.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.vit-toast-item.toast-success {
+  border-left-color: #16a34a;
+}
+
+.vit-toast-item.toast-error {
+  border-left-color: #dc2626;
+}
+
+[data-theme="dark"] .vit-toast-item {
+  background: #171E28;
+  color: #F7F4ED;
+  border-color: rgba(197, 160, 89, 0.25);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Admin Tabs Dark Theme Contrast */
+[data-theme="dark"] .admin-tab-btn {
+  color: #A09A8F !important;
+}
+
+[data-theme="dark"] .admin-tab-btn:hover {
+  color: #DFBA73 !important;
+  background: rgba(223, 186, 115, 0.08) !important;
+}
+
+[data-theme="dark"] .admin-tab-btn.active {
+  color: #FFFFFF !important;
+  border-bottom-color: #DFBA73 !important;
+}
+
+/* Password Visibility Toggle */
+.password-input-wrapper {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.password-input-wrapper .form-control {
+  padding-right: 44px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.btn-toggle-password {
+  position: absolute !important;
+  right: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 6px !important;
+  cursor: pointer !important;
+  color: var(--text-muted) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--radius-xs) !important;
+  transition: all 0.2s ease !important;
+  z-index: 5 !important;
+  line-height: 1 !important;
+}
+
+.btn-toggle-password:hover {
+  color: var(--text-dark) !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+
+.btn-toggle-password:focus-visible {
+  outline: 2px solid var(--gold) !important;
+  outline-offset: 1px !important;
+}
+
+[data-theme="dark"] .btn-toggle-password {
+  color: #A09A8F !important;
+}
+
+[data-theme="dark"] .btn-toggle-password:hover {
+  color: #DFBA73 !important;
+  background: rgba(223, 186, 115, 0.12) !important;
+}
+
+
+

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3.5">
+  <link rel="stylesheet" href="css/style.css?v=3.8">
   <link rel="stylesheet" href="css/bitewise.css?v=3.2">
   <link rel="stylesheet" href="css/responsive.css?v=3.2">
   <script>
@@ -834,8 +834,11 @@
         </div>
       </div>
 
-      <div class="footer-bottom-row">
-        <p>&copy; 2026 VIT Food Spot Guide &bull; Campus Food Discovery for VIT Vellore</p>
+      <div class="footer-bottom-row" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <p style="margin:0;">&copy; 2026 VIT Food Spot Guide &bull; Campus Food Discovery for VIT Vellore</p>
+        <div>
+          <a href="javascript:void(0)" id="footer-admin-link" onclick="openAdminModalDirect(); return false;" style="font-size:0.82rem; color:var(--text-muted); text-decoration:underline;">Administrator Portal</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -904,7 +907,7 @@
       <div class="segmented-toggle" style="margin-bottom:20px; width:100%; display:flex; gap:4px;">
         <button class="segmented-btn active" id="tab-auth-login" style="flex:1;">Sign In</button>
         <button class="segmented-btn" id="tab-auth-register" style="flex:1;">Register</button>
-        <button class="segmented-btn" id="tab-auth-admin" style="flex:1;">Admin</button>
+        <button class="segmented-btn" id="tab-auth-admin" style="flex:1;">Admin Portal</button>
       </div>
 
       <!-- Login Form (Student) -->
@@ -919,14 +922,29 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="login-password">Password</label>
-            <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+            <div class="password-input-wrapper">
+              <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+              <button type="button" class="btn-toggle-password" aria-label="Toggle password visibility" title="Show password">
+                <svg class="eye-icon eye-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-icon eye-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
           </div>
           <div id="login-error-msg" style="color:var(--color-error); font-size:0.84rem; margin-bottom:12px; display:none;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;">Sign in</button>
         </form>
 
-        <div style="text-align:center; margin-top:16px; padding-top:12px; border-top:1px solid var(--border-subtle);">
-          <a href="javascript:void(0)" id="link-switch-to-admin" style="font-size:0.83rem; color:var(--text-muted); text-decoration:underline; cursor:pointer;">Campus Administrator? Sign in to Admin Portal &rarr;</a>
+        <div style="text-align:center; margin-top:16px; padding:10px 14px; background:var(--bg-sage-light); border-radius:var(--radius-sm); border:1px dashed var(--border-subtle);">
+          <a href="javascript:void(0)" id="link-switch-to-admin" style="font-size:0.86rem; font-weight:700; color:var(--text-dark); text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            Campus Administrator? Switch to Admin Portal &rarr;
+          </a>
         </div>
       </div>
 
@@ -948,7 +966,19 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="reg-password">Password</label>
-            <input type="password" id="reg-password" class="form-control" placeholder="At least 6 characters" minlength="6" required autocomplete="new-password">
+            <div class="password-input-wrapper">
+              <input type="password" id="reg-password" class="form-control" placeholder="At least 6 characters" minlength="6" required autocomplete="new-password">
+              <button type="button" class="btn-toggle-password" aria-label="Toggle password visibility" title="Show password">
+                <svg class="eye-icon eye-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-icon eye-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
           </div>
           <div id="reg-error-msg" style="color:var(--color-error); font-size:0.84rem; margin-bottom:12px; display:none;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;">Register</button>
@@ -967,7 +997,19 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="auth-admin-pass">Password</label>
-            <input type="password" id="auth-admin-pass" class="form-control" placeholder="Enter admin password" required autocomplete="current-password">
+            <div class="password-input-wrapper">
+              <input type="password" id="auth-admin-pass" class="form-control" placeholder="Enter admin password" required autocomplete="current-password">
+              <button type="button" class="btn-toggle-password" aria-label="Toggle password visibility" title="Show password">
+                <svg class="eye-icon eye-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-icon eye-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
           </div>
           <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px; background:var(--bg-sage-light); padding:8px 12px; border-radius:var(--radius-xs);">
             Credentials: <code>admin</code> / <code>vitfoodguide2026</code>
@@ -995,7 +1037,19 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="admin-pass-input">Password</label>
-            <input type="password" id="admin-pass-input" class="form-control" placeholder="Enter password" required>
+            <div class="password-input-wrapper">
+              <input type="password" id="admin-pass-input" class="form-control" placeholder="Enter password" required>
+              <button type="button" class="btn-toggle-password" aria-label="Toggle password visibility" title="Show password">
+                <svg class="eye-icon eye-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-icon eye-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
           </div>
           <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px;">Credentials: <code>admin</code> / <code>vitfoodguide2026</code></p>
           <button type="submit" class="btn btn-primary" id="btn-admin-login-submit">Sign in to Dashboard</button>
@@ -1339,10 +1393,10 @@
 
   <!-- Scripts -->
   <script src="js/jquery.min.js"></script>
-  <script src="js/api.js?v=3.7"></script>
-  <script src="js/chat.js?v=3.7"></script>
-  <script src="js/admin.js?v=3.7"></script>
-  <script src="js/app.js?v=3.7"></script>
+  <script src="js/api.js?v=3.8"></script>
+  <script src="js/chat.js?v=3.8"></script>
+  <script src="js/admin.js?v=3.8"></script>
+  <script src="js/app.js?v=3.8"></script>
 
 </body>
 </html>

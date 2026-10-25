@@ -38,10 +38,25 @@ $(document).ready(function() {
       const res = await API.checkAdminSession();
       if (res && res.authenticated) {
         showDashboard(res.admin);
+        if (typeof updateAuthUI === 'function') {
+          updateAuthUI(false, null, res.admin);
+        }
       } else {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.removeItem('vit_admin_token');
+        }
+        if (typeof updateAuthUI === 'function') {
+          updateAuthUI(false);
+        }
         showLoginForm();
       }
     } catch (e) {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.removeItem('vit_admin_token');
+      }
+      if (typeof updateAuthUI === 'function') {
+        updateAuthUI(false);
+      }
       showLoginForm();
     }
   }
@@ -74,6 +89,12 @@ $(document).ready(function() {
     try {
       const res = await API.adminLogin(username, password);
       showDashboard(res.admin);
+      if (typeof updateAuthUI === 'function') {
+        updateAuthUI(false, null, res.admin);
+      }
+      if (typeof showToast === 'function') {
+        showToast('Welcome, Administrator!', 'success');
+      }
     } catch (err) {
       alert(`Login failed: ${err.message}`);
     } finally {
@@ -85,7 +106,17 @@ $(document).ready(function() {
   $('#btn-admin-logout').on('click', async function() {
     try {
       await API.adminLogout();
-      showLoginForm();
+      if (typeof handleAdminLogout === 'function') {
+        handleAdminLogout();
+      } else {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.removeItem('vit_admin_token');
+        }
+        if (typeof updateAuthUI === 'function') {
+          updateAuthUI(false);
+        }
+        showLoginForm();
+      }
     } catch (err) {
       console.error('Logout error:', err);
       showLoginForm();
@@ -207,7 +238,8 @@ $(document).ready(function() {
     const currentFilterVal = $('#admin-dish-spot-filter').val();
     let filterOptions = '<option value="">-- All Restaurants --</option>';
     spots.forEach(s => {
-      filterOptions += `<option value="${escapeHtml(s.id)}">${escapeHtml(s.name)} (${escapeHtml(s.locationId.toUpperCase())})</option>`;
+      const locTag = (s.locationId || s.location || 'campus').toUpperCase();
+      filterOptions += `<option value="${escapeHtml(s.id)}">${escapeHtml(s.name)} (${escapeHtml(locTag)})</option>`;
     });
     $('#admin-dish-spot-filter').html(filterOptions);
     if (currentFilterVal) $('#admin-dish-spot-filter').val(currentFilterVal);
@@ -215,7 +247,8 @@ $(document).ready(function() {
     // 2. Dish Form restaurant dropdown
     let formOptions = '<option value="">Select Restaurant...</option>';
     spots.forEach(s => {
-      formOptions += `<option value="${escapeHtml(s.id)}">${escapeHtml(s.name)} (${escapeHtml(s.locationId.toUpperCase())})</option>`;
+      const locTag = (s.locationId || s.location || 'campus').toUpperCase();
+      formOptions += `<option value="${escapeHtml(s.id)}">${escapeHtml(s.name)} (${escapeHtml(locTag)})</option>`;
     });
     $('#dish-form-spot-id').html(formOptions);
   }
@@ -257,10 +290,10 @@ $(document).ready(function() {
             <div style="font-size:0.75rem; color:var(--text-muted); font-family:monospace;">${escapeHtml(s.slug || s.id)}</div>
           </td>
           <td>
-            <div style="font-weight:600; color:#1C231F;">${escapeHtml(locName)}</div>
+            <div style="font-weight:600; color:var(--text-dark);">${escapeHtml(locName)}</div>
             <div style="font-size:0.75rem; color:var(--text-muted);">${escapeHtml(s.specificLocation || 'VIT Campus')}</div>
           </td>
-          <td><span style="font-size:0.82rem; color:#4A443C;">${escapeHtml(s.zone || 'Academic')}</span></td>
+          <td><span style="font-size:0.82rem; color:var(--text-muted);">${escapeHtml(s.zone || 'Academic')}</span></td>
           <td><span style="font-size:0.82rem; font-style:italic;">${escapeHtml(s.mustTryItem || '—')}</span></td>
           <td>${statusPill}</td>
           <td>
@@ -462,7 +495,7 @@ $(document).ready(function() {
             <div style="font-size:0.72rem; color:var(--text-muted); font-family:monospace;">${escapeHtml(d.id)}</div>
           </td>
           <td>
-            <span style="font-weight:600; color:#1C231F;">${escapeHtml(d.foodSpotName || d.foodSpotId)}</span>
+            <span style="font-weight:600; color:var(--text-dark);">${escapeHtml(d.foodSpotName || d.foodSpotId)}</span>
           </td>
           <td>
             <span class="admin-badge admin-badge-neutral">${escapeHtml(d.category || 'General')}</span>

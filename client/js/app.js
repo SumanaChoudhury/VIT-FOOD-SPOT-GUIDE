@@ -321,7 +321,23 @@ async function initializeApp() {
       AppState.currentUser = userRes.user;
       updateAuthUI(true, userRes.user);
     } else {
-      updateAuthUI(false);
+      const hasAdminToken = (typeof localStorage !== 'undefined') ? localStorage.getItem('vit_admin_token') : null;
+      if (hasAdminToken) {
+        try {
+          const adminSession = await API.checkAdminSession();
+          if (adminSession && adminSession.authenticated) {
+            updateAuthUI(false, null, adminSession.admin);
+          } else {
+            localStorage.removeItem('vit_admin_token');
+            updateAuthUI(false);
+          }
+        } catch (e) {
+          localStorage.removeItem('vit_admin_token');
+          updateAuthUI(false);
+        }
+      } else {
+        updateAuthUI(false);
+      }
     }
     await loadUserFavorites();
 
@@ -569,6 +585,26 @@ function bindEventHandlers() {
   $('#student-register-form').on('submit', handleStudentRegister);
   $('#auth-admin-login-form').on('submit', handleAdminAuthModalLogin);
   $('#btn-auth-modal').on('click', () => openAuthModal());
+
+  // Password Visibility Toggle (Show / Hide Password via Eye Icon)
+  $(document).on('click', '.btn-toggle-password', function(e) {
+    e.preventDefault();
+    const $btn = $(this);
+    const $input = $btn.siblings('input');
+    const isPassword = $input.attr('type') === 'password';
+
+    if (isPassword) {
+      $input.attr('type', 'text');
+      $btn.attr('title', 'Hide password').attr('aria-label', 'Hide password');
+      $btn.find('.eye-show').hide();
+      $btn.find('.eye-hide').show();
+    } else {
+      $input.attr('type', 'password');
+      $btn.attr('title', 'Show password').attr('aria-label', 'Show password');
+      $btn.find('.eye-show').show();
+      $btn.find('.eye-hide').hide();
+    }
+  });
 
   // Feedback Form
   $('#inline-feedback-form').on('submit', handleInlineFeedbackSubmit);
@@ -1234,6 +1270,49 @@ function renderModalDishes(items, counterFilter = null, categoryFilter = null, s
 window.openSpotDetailModal = openSpotDetailModal;
 
 // Student & Admin Authentication Coordinator
+function showToast(message, type = 'info') {
+  let $toastContainer = $('#vit-toast-container');
+  if ($toastContainer.length === 0) {
+    $('body').append('<div id="vit-toast-container" class="vit-toast-container"></div>');
+    $toastContainer = $('#vit-toast-container');
+  }
+
+  const iconSvg = type === 'success'
+    ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>'
+    : (type === 'error'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>');
+
+  const $toast = $(`
+    <div class="vit-toast-item toast-${escapeHtml(type)}">
+      <span class="toast-icon">${iconSvg}</span>
+      <span class="toast-msg">${escapeHtml(message)}</span>
+    </div>
+  `);
+
+  $toastContainer.append($toast);
+  setTimeout(() => $toast.addClass('show'), 15);
+
+  setTimeout(() => {
+    $toast.removeClass('show');
+    setTimeout(() => $toast.remove(), 300);
+  }, 3200);
+}
+window.showToast = showToast;
+
+function openAdminModalDirect() {
+  const hasAdminToken = (typeof localStorage !== 'undefined') ? localStorage.getItem('vit_admin_token') : null;
+  if (hasAdminToken) {
+    $('#admin-modal').addClass('open');
+    if (window.AdminManager && typeof window.AdminManager.checkSessionState === 'function') {
+      window.AdminManager.checkSessionState();
+    }
+  } else {
+    openAuthModal('', 'admin');
+  }
+}
+window.openAdminModalDirect = openAdminModalDirect;
+
 function switchAuthTab(tab) {
   $('.segmented-btn', '#auth-modal').removeClass('active');
   $('#auth-login-view, #auth-register-view, #auth-admin-view').hide();
