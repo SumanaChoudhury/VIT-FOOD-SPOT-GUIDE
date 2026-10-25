@@ -792,13 +792,11 @@ async function handleGlobalDishSearch(query, shouldScroll = false) {
     $('#cravings-section').hide();
     $('#food-spots-directory').hide();
     $('#blocks-quicknav-section').hide();
-    $('#dish-search-section').slideDown(150, function() {
-      if (shouldScroll) {
-        $('html, body').stop().animate({
-          scrollTop: $('#dish-search-section').offset().top - 85
-        }, 250);
-      }
-    });
+    $('#dish-search-section').show();
+    if (shouldScroll) {
+      const targetTop = $('#dish-search-section').offset().top - 85;
+      $('html, body').stop().animate({ scrollTop: targetTop }, 250);
+    }
 
     // Matching Food Spots
     if (spots.length > 0) {
