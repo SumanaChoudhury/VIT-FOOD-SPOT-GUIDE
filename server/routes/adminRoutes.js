@@ -24,8 +24,16 @@ router.get('/recommendations', requireAdminAuth, adminController.getAllRecommend
 router.patch('/recommendations/:id', requireAdminAuth, adminController.updateRecommendationStatus);
 router.post('/import', requireAdminAuth, upload.single('datasetFile'), adminController.handleDatasetImport);
 
+// Food Spots (Restaurants) CRUD
+router.get('/food-spots', requireAdminAuth, adminController.getAdminFoodSpots);
 router.post('/food-spots', requireAdminAuth, adminController.addFoodSpot);
 router.put('/food-spots/:id', requireAdminAuth, adminController.updateFoodSpot);
 router.delete('/food-spots/:id', requireAdminAuth, adminController.deleteFoodSpot);
+
+// Menu Items CRUD
+router.get('/menu-items', requireAdminAuth, adminController.getAdminMenuItems);
+router.post('/menu-items', requireAdminAuth, adminController.addMenuItem);
+router.put('/menu-items/:id', requireAdminAuth, adminController.updateMenuItem);
+router.delete('/menu-items/:id', requireAdminAuth, adminController.deleteMenuItem);
 
 module.exports = router;

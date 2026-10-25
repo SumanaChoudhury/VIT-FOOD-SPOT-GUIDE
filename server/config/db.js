@@ -109,17 +109,22 @@ async function initSchema() {
   }
 }
 
+function sanitizeParams(params = []) {
+  return Array.isArray(params) ? params.map(p => (p === undefined ? null : p)) : [];
+}
+
 /**
  * Universal Query Execution
  * Returns array of rows
  */
 async function query(sql, params = []) {
+  const safeParams = sanitizeParams(params);
   if (dbEngine === 'mysql') {
-    const [rows] = await mysqlPool.execute(sql, params);
+    const [rows] = await mysqlPool.execute(sql, safeParams);
     return rows;
   } else if (dbEngine === 'sqlite') {
     const stmt = sqliteDb.prepare(sql);
-    return stmt.all(...params);
+    return stmt.all(...safeParams);
   }
   throw new Error('Database not initialized');
 }
@@ -136,15 +141,16 @@ async function queryOne(sql, params = []) {
  * Universal DML Execute (INSERT, UPDATE, DELETE)
  */
 async function execute(sql, params = []) {
+  const safeParams = sanitizeParams(params);
   if (dbEngine === 'mysql') {
-    const [result] = await mysqlPool.execute(sql, params);
+    const [result] = await mysqlPool.execute(sql, safeParams);
     return {
       affectedRows: result.affectedRows,
       insertId: result.insertId
     };
   } else if (dbEngine === 'sqlite') {
     const stmt = sqliteDb.prepare(sql);
-    const result = stmt.run(...params);
+    const result = stmt.run(...safeParams);
     return {
       affectedRows: result.changes,
       insertId: result.lastInsertRowid

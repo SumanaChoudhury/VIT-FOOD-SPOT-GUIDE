@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3.3">
+  <link rel="stylesheet" href="css/style.css?v=3.4">
   <link rel="stylesheet" href="css/bitewise.css?v=3.2">
   <link rel="stylesheet" href="css/responsive.css?v=3.2">
   <script>
@@ -855,12 +855,13 @@
 
   <!-- Admin Modal -->
   <div class="modal-overlay" id="admin-modal">
-    <div class="modal-content" style="max-width: 820px;">
+    <div class="modal-content admin-modal-container" style="max-width: 1060px; width: 95vw; max-height: 90vh; overflow-y: auto;">
       <button class="modal-close-btn" id="btn-close-admin-modal" aria-label="Close dialog">&times;</button>
       
+      <!-- Admin Login View -->
       <div id="admin-login-view">
-        <h3 style="color:var(--text-dark); margin-bottom:6px;">Administrator Portal</h3>
-        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:20px;">Sign in to view database metrics and manage campus listings.</p>
+        <h3 style="color:var(--text-dark); margin-bottom:6px; font-family:var(--font-title);">Administrator Portal</h3>
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:20px;">Sign in to view database metrics, manage restaurants, and update menus.</p>
         <form id="admin-login-form" style="max-width: 380px;">
           <div class="form-group">
             <label class="form-label" for="admin-user-input">Username</label>
@@ -871,32 +872,296 @@
             <input type="password" id="admin-pass-input" class="form-control" placeholder="Enter password" required>
           </div>
           <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px;">Credentials: <code>admin</code> / <code>vitfoodguide2026</code></p>
-          <button type="submit" class="btn btn-primary">Sign in to Dashboard</button>
+          <button type="submit" class="btn btn-primary" id="btn-admin-login-submit">Sign in to Dashboard</button>
         </form>
       </div>
 
+      <!-- Admin Dashboard View -->
       <div id="admin-dashboard-view" style="display:none;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:1px solid var(--border-subtle); padding-bottom:14px;">
+        <!-- Header -->
+        <div class="admin-dash-header">
           <div>
-            <h3 style="color:var(--text-dark);">Admin Dashboard</h3>
-            <span style="font-size:0.82rem; color:var(--lbrown); font-weight:700;" id="admin-session-text">Authenticated as admin</span>
+            <h3 class="admin-dash-title">ADMIN DASHBOARD</h3>
+            <span class="admin-dash-sub" id="admin-session-text">Authenticated as: admin (admin)</span>
           </div>
-          <button class="btn btn-outline btn-sm" id="btn-admin-logout">Sign Out</button>
+          <button class="btn btn-outline btn-sm" id="btn-admin-logout">SIGN OUT</button>
         </div>
 
-        <div id="admin-quality-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px;">
-          <!-- Populated dynamically -->
+        <!-- Admin Navigation Tabs -->
+        <div class="admin-tabs-bar">
+          <button type="button" class="admin-tab-btn active" id="tab-btn-quality">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"></path><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path></svg>
+            Overview &amp; Metrics
+          </button>
+          <button type="button" class="admin-tab-btn" id="tab-btn-spots">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V7l8-4v18"></path><path d="M19 21V11l-6-3"></path></svg>
+            Manage Restaurants (<span id="admin-spots-badge-count">31</span>)
+          </button>
+          <button type="button" class="admin-tab-btn" id="tab-btn-dishes">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+            Manage Menu Items (<span id="admin-dishes-badge-count">3,400+</span>)
+          </button>
         </div>
+
+        <!-- TAB 1: Quality Metrics Overview -->
+        <div class="admin-tab-content" id="tab-content-quality">
+          <div id="admin-quality-metrics" class="admin-metrics-grid">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- TAB 2: Manage Restaurants (Food Spots) -->
+        <div class="admin-tab-content" id="tab-content-spots" style="display:none;">
+          <div class="admin-section-toolbar">
+            <div class="admin-toolbar-left">
+              <input type="search" id="admin-spot-search" class="admin-search-input" placeholder="Search restaurants by name or block...">
+              <select id="admin-spot-location-filter" class="admin-filter-select">
+                <option value="">All Locations</option>
+                <option value="prp">PRP — Pearl Research Park</option>
+                <option value="sjt">SJT (Silver Jubilee Tower)</option>
+                <option value="tt">TT (Technology Tower)</option>
+                <option value="mgb">MGB (Mahatma Gandhi Block)</option>
+                <option value="gdn">GDN (G.D. Naidu Block)</option>
+                <option value="smv">SMV (Sir M. Visvesvaraya)</option>
+                <option value="lh">Ladies' Hostel (LH)</option>
+                <option value="mh">Men's Hostel (MH)</option>
+                <option value="library">Central Library &amp; Walkway</option>
+                <option value="kc">KC Food &amp; Gazebo Hub</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-open-add-spot">
+              + Add New Restaurant
+            </button>
+          </div>
+
+          <div class="admin-table-container">
+            <table class="admin-table" id="admin-spots-table">
+              <thead>
+                <tr>
+                  <th>Restaurant Name</th>
+                  <th>Campus Block / Location</th>
+                  <th>Zone</th>
+                  <th>Must-Try Item</th>
+                  <th>Status</th>
+                  <th>Menu Dishes</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-spots-tbody">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 3: Manage Menu Items -->
+        <div class="admin-tab-content" id="tab-content-dishes" style="display:none;">
+          <div class="admin-section-toolbar">
+            <div class="admin-toolbar-left">
+              <select id="admin-dish-spot-filter" class="admin-filter-select" style="min-width: 220px;">
+                <option value="">-- All Restaurants --</option>
+                <!-- Populated dynamically -->
+              </select>
+              <input type="search" id="admin-dish-search" class="admin-search-input" placeholder="Search dishes by name...">
+              <select id="admin-dish-diet-filter" class="admin-filter-select">
+                <option value="">All Diets</option>
+                <option value="veg">Vegetarian</option>
+                <option value="non-veg">Non-Vegetarian</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-open-add-dish">
+              + Add New Dish
+            </button>
+          </div>
+
+          <div class="admin-table-container">
+            <table class="admin-table" id="admin-dishes-table">
+              <thead>
+                <tr>
+                  <th>Diet</th>
+                  <th>Dish Name</th>
+                  <th>Restaurant</th>
+                  <th>Category</th>
+                  <th>Price (INR)</th>
+                  <th>Must-Try</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-dishes-tbody">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </div>
+
+  <!-- Sub-Modal: Add / Edit Restaurant -->
+  <div class="modal-overlay" id="modal-spot-form" style="z-index: 10050;">
+    <div class="modal-content" style="max-width: 580px;">
+      <button class="modal-close-btn" id="btn-close-spot-form" aria-label="Close dialog">&times;</button>
+      <h3 style="color:var(--text-dark); margin-bottom:14px; font-family:var(--font-title);" id="spot-form-title">Add New Restaurant</h3>
+      <form id="admin-spot-edit-form">
+        <input type="hidden" id="spot-form-mode" value="add">
+        <input type="hidden" id="spot-form-target-id" value="">
+
+        <div class="form-group">
+          <label class="form-label" for="spot-form-name">Restaurant Name *</label>
+          <input type="text" id="spot-form-name" class="form-control" placeholder="e.g. Olives Cafe Express" required>
+        </div>
+
+        <div class="form-group" id="spot-form-slug-wrapper">
+          <label class="form-label" for="spot-form-slug">Unique Key / Slug</label>
+          <input type="text" id="spot-form-slug" class="form-control" placeholder="e.g. olives-cafe-express (auto-generated if empty)">
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label class="form-label" for="spot-form-location">Campus Block / Location *</label>
+            <select id="spot-form-location" class="form-control" required>
+              <option value="prp">PRP — Pearl Research Park</option>
+              <option value="sjt">SJT (Silver Jubilee Tower)</option>
+              <option value="tt">TT (Technology Tower)</option>
+              <option value="mgb">MGB (Mahatma Gandhi Block)</option>
+              <option value="gdn">GDN (G.D. Naidu Block)</option>
+              <option value="smv">SMV (Sir M. Visvesvaraya)</option>
+              <option value="lh">Ladies' Hostel (LH)</option>
+              <option value="mh">Men's Hostel (MH)</option>
+              <option value="library">Central Library &amp; Walkway</option>
+              <option value="kc">KC Food &amp; Gazebo Hub</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="spot-form-zone">Campus Zone</label>
+            <select id="spot-form-zone" class="form-control">
+              <option value="Academic Blocks">Academic Blocks</option>
+              <option value="Hostel Area">Hostel Area</option>
+              <option value="Gazebo &amp; Common">Gazebo &amp; Common</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="spot-form-specific-loc">Specific Location / Landmark</label>
+          <input type="text" id="spot-form-specific-loc" class="form-control" placeholder="e.g. Ground Floor, Food Court 1 or Near Gate 2">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="spot-form-categories">Culinary Categories (comma-separated)</label>
+          <input type="text" id="spot-form-categories" class="form-control" placeholder="e.g. Meals, South Indian, Fast Food, Chai">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="spot-form-desc">Description &amp; Timings</label>
+          <textarea id="spot-form-desc" class="form-control" rows="2" placeholder="e.g. Open 8:00 AM - 9:30 PM. Serves hot meals, biryanis, and tea."></textarea>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 2fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label class="form-label" for="spot-form-must-try">Must-Try Dish</label>
+            <input type="text" id="spot-form-must-try" class="form-control" placeholder="e.g. Chicken Biryani or Special Chai">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="spot-form-status">Status</label>
+            <select id="spot-form-status" class="form-control">
+              <option value="available">Available (Open)</option>
+              <option value="unavailable">Unavailable</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:16px;">
+          <button type="button" class="btn btn-outline" id="btn-cancel-spot-form">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-spot-form">Save Restaurant</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sub-Modal: Add / Edit Menu Dish -->
+  <div class="modal-overlay" id="modal-dish-form" style="z-index: 10050;">
+    <div class="modal-content" style="max-width: 540px;">
+      <button class="modal-close-btn" id="btn-close-dish-form" aria-label="Close dialog">&times;</button>
+      <h3 style="color:var(--text-dark); margin-bottom:14px; font-family:var(--font-title);" id="dish-form-title">Add New Menu Dish</h3>
+      <form id="admin-dish-edit-form">
+        <input type="hidden" id="dish-form-mode" value="add">
+        <input type="hidden" id="dish-form-target-id" value="">
+
+        <div class="form-group">
+          <label class="form-label" for="dish-form-spot-id">Restaurant / Food Spot *</label>
+          <select id="dish-form-spot-id" class="form-control" required>
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dish-form-name">Dish Name *</label>
+          <input type="text" id="dish-form-name" class="form-control" placeholder="e.g. Paneer Butter Masala" required>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label class="form-label" for="dish-form-category">Category *</label>
+            <input type="text" id="dish-form-category" class="form-control" placeholder="e.g. Meals, Fast Food, Chai" list="common-categories-list" required>
+            <datalist id="common-categories-list">
+              <option value="Meals">
+              <option value="Fast Food">
+              <option value="Chai">
+              <option value="Beverages">
+              <option value="South Indian">
+              <option value="Rice">
+              <option value="Noodles">
+              <option value="Pizza">
+              <option value="Burgers">
+              <option value="Wraps">
+              <option value="Bakery">
+              <option value="Desserts">
+              <option value="Ice Cream">
+            </datalist>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="dish-form-price">Price in INR (&#8377;)</label>
+            <input type="number" id="dish-form-price" class="form-control" placeholder="e.g. 120 (leave blank for unlisted)" min="0" step="1">
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label class="form-label" for="dish-form-dietary">Dietary Classification *</label>
+            <select id="dish-form-dietary" class="form-control">
+              <option value="veg">Vegetarian (Veg)</option>
+              <option value="non-veg">Non-Vegetarian (Non-Veg)</option>
+              <option value="unclassified">Unclassified</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="display:flex; align-items:center; padding-top:24px;">
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.88rem; font-weight:600; color:var(--text-dark);">
+              <input type="checkbox" id="dish-form-must-try" style="width:18px; height:18px;">
+              <span>Mark as Must-Try Dish</span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:16px;">
+          <button type="button" class="btn btn-outline" id="btn-cancel-dish-form">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-dish-form">Save Dish</button>
+        </div>
+      </form>
     </div>
   </div>
 
   <!-- Scripts -->
   <script src="js/jquery.min.js"></script>
-  <script src="js/api.js?v=3.3"></script>
-  <script src="js/chat.js?v=3.3"></script>
-  <script src="js/admin.js?v=3.3"></script>
-  <script src="js/app.js?v=3.3"></script>
+  <script src="js/api.js?v=3.4"></script>
+  <script src="js/chat.js?v=3.4"></script>
+  <script src="js/admin.js?v=3.4"></script>
+  <script src="js/app.js?v=3.4"></script>
 
 </body>
 </html>

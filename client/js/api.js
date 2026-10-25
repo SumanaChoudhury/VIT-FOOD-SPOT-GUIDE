@@ -38,14 +38,20 @@ const API = {
       defaultHeaders['Content-Type'] = 'application/json';
     }
 
-    const isCrossOrigin = this.baseUrl.startsWith('http');
+    // Attach stored admin token for robust cross-origin / file:// authentication
+    const adminToken = (typeof localStorage !== 'undefined') ? localStorage.getItem('vit_admin_token') : null;
+    if (adminToken) {
+      defaultHeaders['x-admin-token'] = adminToken;
+      defaultHeaders['Authorization'] = `Bearer ${adminToken}`;
+    }
+
     const config = {
       ...options,
       headers: {
         ...defaultHeaders,
         ...(options.headers || {})
       },
-      credentials: isCrossOrigin ? 'include' : 'same-origin'
+      credentials: 'include'
     };
 
     try {
@@ -194,17 +200,27 @@ const API = {
   },
 
   // Admin
-  adminLogin(username, password) {
-    return this.request('/admin/login', {
+  async adminLogin(username, password) {
+    const res = await this.request('/admin/login', {
       method: 'POST',
       body: JSON.stringify({ username, password })
     });
+    if (res && res.token && typeof localStorage !== 'undefined') {
+      localStorage.setItem('vit_admin_token', res.token);
+    }
+    return res;
   },
 
-  adminLogout() {
-    return this.request('/admin/logout', {
-      method: 'POST'
-    });
+  async adminLogout() {
+    try {
+      await this.request('/admin/logout', {
+        method: 'POST'
+      });
+    } finally {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.removeItem('vit_admin_token');
+      }
+    }
   },
 
   checkAdminSession() {
@@ -213,6 +229,57 @@ const API = {
 
   getDataQualityMetrics() {
     return this.request('/admin/data-quality');
+  },
+
+  // Food Spots (Restaurants) Admin CRUD
+  getAdminFoodSpots() {
+    return this.request('/admin/food-spots');
+  },
+
+  addAdminFoodSpot(data) {
+    return this.request('/admin/food-spots', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+  },
+
+  updateAdminFoodSpot(id, data) {
+    return this.request(`/admin/food-spots/${encodeURIComponent(id)}`, {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
+  },
+
+  deleteAdminFoodSpot(id) {
+    return this.request(`/admin/food-spots/${encodeURIComponent(id)}`, {
+      method: 'DELETE'
+    });
+  },
+
+  // Menu Items Admin CRUD
+  getAdminMenuItems(params = {}) {
+    const q = new URLSearchParams(cleanParams(params)).toString();
+    return this.request(`/admin/menu-items${q ? `?${q}` : ''}`);
+  },
+
+  addAdminMenuItem(data) {
+    return this.request('/admin/menu-items', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+  },
+
+  updateAdminMenuItem(id, data) {
+    return this.request(`/admin/menu-items/${encodeURIComponent(id)}`, {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
+  },
+
+  deleteAdminMenuItem(id) {
+    return this.request(`/admin/menu-items/${encodeURIComponent(id)}`, {
+      method: 'DELETE'
+    });
   },
 
   getAllRecommendations(status = '') {

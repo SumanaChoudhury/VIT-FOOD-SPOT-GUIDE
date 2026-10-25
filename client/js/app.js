@@ -300,6 +300,19 @@ async function initializeApp() {
     renderFoodSpots(AppState.allSpots);
     populateInlineFeedbackSpots();
 
+    AppState.refreshSpots = async function() {
+      try {
+        const spotsRes = await API.getFoodSpots({ limit: 100 });
+        AppState.allSpots = spotsRes.data || [];
+        AppState.filteredSpots = [...AppState.allSpots];
+        renderFoodSpots(AppState.allSpots);
+        populateInlineFeedbackSpots();
+      } catch (e) {
+        console.warn('Could not refresh spots:', e);
+      }
+    };
+    window.AppState = AppState;
+
   } catch (err) {
     console.error('App initialization error:', err);
     $('#outlets-grid').html(`

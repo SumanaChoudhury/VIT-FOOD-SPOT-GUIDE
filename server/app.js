@@ -24,7 +24,8 @@ const app = express();
 // Middlewares
 app.use(cors({
   origin: true,
-  credentials: true
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-admin-token', 'Accept', 'X-Requested-With']
 }));
 
 app.use(express.json({ limit: '2mb' }));
