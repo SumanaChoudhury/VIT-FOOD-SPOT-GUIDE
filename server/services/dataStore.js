@@ -196,12 +196,20 @@ class RelationalDataStore {
     }
     if (cleanQ) {
       const qTrim = cleanQ.toLowerCase();
-      const terms = [qTrim];
+      const terms = new Set([qTrim]);
       if (qTrim.includes('biryani')) {
-        terms.push(qTrim.replace(/biryani/g, 'biriyani'));
+        terms.add(qTrim.replace(/biryani/g, 'biriyani'));
       } else if (qTrim.includes('biriyani')) {
-        terms.push(qTrim.replace(/biriyani/g, 'biryani'));
+        terms.add(qTrim.replace(/biriyani/g, 'biryani'));
       }
+
+      // Also tokenize multiple words so e.g. "juice shake" or "roll snack" matches either term
+      const words = qTrim.split(/\s+/).filter(w => w.length > 2);
+      words.forEach(w => {
+        terms.add(w);
+        if (w.includes('biryani')) terms.add(w.replace(/biryani/g, 'biriyani'));
+        if (w.includes('biriyani')) terms.add(w.replace(/biriyani/g, 'biryani'));
+      });
 
       const orClauses = [];
       for (const t of terms) {

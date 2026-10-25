@@ -52,28 +52,55 @@ async function searchDishes(req, res, next) {
   try {
     const { q, location, maxPrice, minPrice, dietary, category, limit } = req.query;
     const cleanQ = cleanStringParam(q);
-    if (!cleanQ || cleanQ.length === 0) {
-      return res.status(400).json({ success: false, error: 'Search query parameter "q" is required.' });
+    const cleanCat = cleanStringParam(category);
+    const cleanLoc = cleanStringParam(location);
+
+    if (!cleanQ && !cleanCat && !cleanLoc) {
+      return res.status(400).json({ success: false, error: 'Search query parameter "q", "category", or "location" is required.' });
     }
 
-    const trimmed = cleanQ;
+    const trimmed = cleanQ || cleanCat || cleanLoc;
 
     const result = await dataStore.getMenuItems({
-      search: trimmed,
-      location: cleanStringParam(location),
+      search: cleanQ,
+      location: cleanLoc,
       maxPrice: cleanNumberParam(maxPrice),
       minPrice: cleanNumberParam(minPrice),
       dietary: cleanStringParam(dietary),
-      category: cleanStringParam(category),
+      category: cleanCat,
       limit: cleanNumberParam(limit) || 100
     });
 
     // Also match food spots (both by spot metadata AND by outlets that serve the matching dishes)
     const allSpots = await dataStore.getFoodSpots({});
+    const spotMap = new Map();
+    allSpots.forEach(s => {
+      spotMap.set(s.id, s);
+      spotMap.set(s.slug, s);
+    });
+
     const qLower = trimmed.toLowerCase();
     const searchTerms = [qLower];
     if (qLower.includes('biryani')) searchTerms.push(qLower.replace(/biryani/g, 'biriyani'));
     if (qLower.includes('biriyani')) searchTerms.push(qLower.replace(/biriyani/g, 'biryani'));
+    if (qLower.includes('juice') || qLower.includes('shake') || qLower.includes('beverage')) {
+      searchTerms.push('juice', 'shake', 'smoothie', 'lassi');
+    }
+    if (qLower.includes('chai') || qLower.includes('tea')) {
+      searchTerms.push('chai', 'tea', 'coffee');
+    }
+    if (qLower.includes('roll') || qLower.includes('snack') || qLower.includes('burger')) {
+      searchTerms.push('roll', 'snack', 'burger', 'sandwich', 'fast food');
+    }
+    if (qLower.includes('biryani') || qLower.includes('meal') || qLower.includes('thali')) {
+      searchTerms.push('biryani', 'meal', 'thali', 'rice');
+    }
+    if (qLower.includes('dosa') || qLower.includes('idli') || qLower.includes('south')) {
+      searchTerms.push('dosa', 'idli', 'south indian', 'tiffin');
+    }
+    if (qLower.includes('dessert') || qLower.includes('ice cream') || qLower.includes('cake') || qLower.includes('waffle') || qLower.includes('bakery')) {
+      searchTerms.push('dessert', 'ice cream', 'cake', 'waffle', 'bakery');
+    }
 
     const spotIdsFromDishes = new Set(result.items.map(i => i.foodSpotId || i.foodSpot));
 
@@ -95,21 +122,47 @@ async function searchDishes(req, res, next) {
       );
     });
 
-    if (cleanStringParam(location)) {
-      const loc = cleanStringParam(location).toLowerCase();
+    if (cleanLoc) {
+      const loc = cleanLoc.toLowerCase();
       matchingSpots = matchingSpots.filter(s => s.location === loc || s.locationId === loc);
     }
-    if (cleanStringParam(category)) {
-      const cat = cleanStringParam(category).toLowerCase();
+    if (cleanCat) {
+      const cat = cleanCat.toLowerCase();
       matchingSpots = matchingSpots.filter(s => s.categories && s.categories.some(c => c.toLowerCase().includes(cat)));
     }
 
-    const enriched = result.items.map(dish => ({
-      ...dish,
-      spotName: dish.foodSpotName || 'Campus Outlet',
-      spotLocation: dish.foodSpotSlug || 'VIT Campus',
-      spotZone: dish.spotZone || 'Campus'
-    }));
+    const locNameMap = {
+      prp: 'PRP — Pearl Research Park',
+      sjt: 'SJT (Silver Jubilee Tower)',
+      tt: 'TT (Technology Tower)',
+      mgb: 'MGB (Mahatma Gandhi Block)',
+      gdn: 'GDN (G.D. Naidu Block)',
+      smv: 'SMV (Sir M. Visvesvaraya)',
+      lh: "Ladies' Hostel Area (LH)",
+      mh: "Boys' Hostel Area (MH)",
+      library: 'Central Library & Walkway',
+      kc: 'KC Food & Gazebo Hub'
+    };
+
+    const enriched = result.items.map(dish => {
+      const s = spotMap.get(dish.foodSpotId) || spotMap.get(dish.foodSpotSlug) || spotMap.get(dish.foodSpot);
+      const spotName = s?.name || dish.foodSpotName || 'Campus Outlet';
+      const locId = s?.locationId || dish.locationId || 'campus';
+      const campusBlockName = locNameMap[locId] || s?.locationName || (locId ? locId.toUpperCase() : 'VIT Campus');
+      const specificLoc = s?.specificLocation || '';
+      const spotLocation = specificLoc ? `${campusBlockName} • ${specificLoc}` : campusBlockName;
+
+      return {
+        ...dish,
+        spotName,
+        foodSpotName: spotName,
+        locationId: locId,
+        locationName: campusBlockName,
+        specificLocation: specificLoc,
+        spotLocation,
+        spotZone: s?.zone || dish.spotZone || 'Campus'
+      };
+    });
 
     res.json({
       success: true,
