@@ -1,0 +1,369 @@
+Counter / Section,Item Name,Price (INR)
+Counter 1,Meals,70
+Counter 1,Spl Meals,100
+Counter 1,Masala Vada,18
+Counter 1,Keera Bonda 2 No's,18
+Counter 1,Onion Bonda 2 No's,18
+Counter 1,Medu Bonda 2 No's,18
+Counter 1,Banana Bajji 2 No's,20
+Counter 1,Spl Vada,22
+Counter 1,Vazhai Poo Vadai 2 No's,22
+Counter 1,Sweet Poli,20
+Counter 1,Kuzhipaniyaram,50
+Counter 2,Idly 2 Nos,20
+Counter 2,Pongal,40
+Counter 2,Medu Vada,18
+Counter 2,Poori Masala 2 Nos,40
+Counter 2,Plain Dosa,40
+Counter 2,Masala Dosa,45
+Counter 2,Masala Onion Dosa,45
+Counter 2,Onion Oothappam,50
+Counter 2,Onion Rava Dosa,50
+Counter 2,Podi Dosa,50
+Counter 2,Ghee Dosa,70
+Counter 2,Ghee Masala Dosa,75
+Counter 2,Ghee Podi Dosa,75
+Counter 2,Cheese Dosa,80
+Counter 2,Butter Dosa,80
+Counter 2,Rava Dosa,50
+Counter 2,Chicken Keema Dosa,100
+Counter 2,Chicken Cheese Dosa,110
+Counter 2,Sambar Vada 1 No,32
+Counter 2,Curd Vada 1 No,32
+Counter 2,Chappati 2 Nos,42
+Counter 2,Parota 2 No's,48
+Counter 2,Sambar Rice,48
+Counter 2,Curd Rice,48
+Counter 2,Veg Briyani,48
+Counter 2,Variety Rice,48
+Counter 3,Tea,16
+Counter 3,Coffee,18
+Counter 3,Milk,18
+Counter 3,Lemon Tea,16
+Counter 3,Black Tea,16
+Counter 3,Natchakarai Tea,25
+Counter 3,Black Coffee,18
+Counter 3,Boost,30
+Counter 3,Horlicks,30
+Counter 3,Green Tea,25
+Counter 3,Hot Badam Milk,30
+Counter 4 (Bakery),Black Forest Pastry,65
+Counter 4 (Bakery),Red Velvet Pastry,85
+Counter 4 (Bakery),Chocotruffle Pastry,65
+Counter 4 (Bakery),Vanilla Pastry,29
+Counter 4 (Bakery),Chocolate Pastry,29
+Counter 4 (Bakery),Honey Pastry,29
+Counter 4 (Bakery),Butterscotch Muffins,59
+Counter 4 (Bakery),Chocochip Muffins,59
+Counter 4 (Bakery),Chocolate Muffins,59
+Counter 4 (Bakery),Dark Chocolate Donut,59
+Counter 4 (Bakery),White Chocolate Donut,59
+Counter 4 (Bakery),Dark Choco Lava,59
+Counter 4 (Bakery),Dark Chocolate Brownie,55
+Counter 4 (Bakery),Nuts Brownie,59
+Counter 4 (Bakery),Chocotriple Mousse,79
+Counter 4 (Bakery),Fruit Mousse,89
+Counter 4 (Bakery),Biscoff Mousse,99
+Counter 4 (Bakery),Classic Tiramisu,139
+Counter 4 (Bakery),Fruit Tiramisu,139
+Counter 4 (Bakery),Classic Vanilla Tresleches,129
+Counter 4 (Bakery),Chocolate Tresleches,129
+Counter 4 (Bakery),Blueberry Cheese Cake,149
+Counter 4 (Bakery),Strawberry Cheese Cake,149
+Counter 4 (Bakery),Biscoff Cheese Cake,189
+Counter 4 (Bakery),Sponge Cake 250gms,99
+Counter 4 (Bakery),Plum Cake 250 gms,139
+Counter 4 (Bakery),Mava Cake 250 gms,149
+Counter 4 (Bakery),Blackforest Cake 500gms,399
+Counter 4 (Bakery),Red Velvet Cake 500 gms,449
+Counter 4 (Bakery),Chocotruffle Cake 500 gms,449
+Counter 4 (Bakery),Rainbow Cake 500gms,449
+Counter 4 (Bakery),Fruit Based Cake 500gms,449
+Counter 4 (Bakery),Bun Butter Jam,29
+Counter 4 (Bakery),Pineapple Butter Bun,29
+Counter 4 (Bakery),Rose Bun,29
+Counter 4 (Bakery),Chocolate Bun,29
+Counter 4 (Bakery),Korean Bun,79
+Counter 4 (Bakery),Butter Biscuits 150gms,59
+Counter 4 (Bakery),Salt Biscuits 150gms,59
+Counter 4 (Bakery),Pistachio Cookies 150gms,69
+Counter 4 (Bakery),Chocochips Cookies 150gms,69
+Counter 4 (Bakery),Almond Cookies 150gms,79
+Counter 4 (Bakery),Coconut Crunchy Cookies 150gms,79
+Counter 4 (Bakery),Coconut Bites Cookies 150gms,79
+Counter 4 (Bakery),Home Made Chocolate 100 gm,69
+Counter 4 (Bakery),Croissant Chocolate,99
+Counter 4 (Bakery),Croissant Butter,99
+Counter 4 (Bakery),Vegg Puff,20
+Counter 4 (Bakery),Paneer Puff,25
+Counter 4 (Bakery),Mushroom Puff,25
+Counter 4 (Bakery),Egg Puff,25
+Counter 4 (Bakery),Chicken Puff,30
+Counter 4 (Bakery),Cheese Veg Puff,35
+Counter 4 (Bakery),Cheese Panneer Puff,40
+Counter 4 (Bakery),Veg Roll,25
+Counter 4 (Bakery),Chicken Roll,35
+Counter 4 (Bakery),Chicken Leg Puff,79
+Counter 4 (Bakery),Salt Biscuits (Single),15
+Counter 4 (Bakery),Butter Biscuits (Single),15
+Counter 5 (Chaat),Pani Puri 7 Piece,40
+Counter 5 (Chaat),Dahi Puri,50
+Counter 5 (Chaat),Dahi Puri Pan Shot,60
+Counter 5 (Chaat),Dahi Papdi Chaat,50
+Counter 5 (Chaat),Bhel Puri,50
+Counter 5 (Chaat),Cheese Sev Puri,65
+Counter 5 (Chaat),Kurkure Bhel,60
+Counter 5 (Chaat),Bhujia Puri,50
+Counter 5 (Chaat),Cheese Bhujia Puri,75
+Counter 5 (Chaat),Mayo Puri,65
+Counter 5 (Chaat),Masala Puri,45
+Counter 5 (Chaat),Pav Bhaji,65
+Counter 6 (Juice & Shake),Lemon Juice,30
+Counter 6 (Juice & Shake),Mosambi Juice,60
+Counter 6 (Juice & Shake),Mango Juice Seasonal,50
+Counter 6 (Juice & Shake),Grape Juice,60
+Counter 6 (Juice & Shake),Pineapple Juice,55
+Counter 6 (Juice & Shake),Sapota Juice,55
+Counter 6 (Juice & Shake),Pomegranate Juice,70
+Counter 6 (Juice & Shake),Apple Juice,70
+Counter 6 (Juice & Shake),Orange Juice,70
+Counter 6 (Juice & Shake),Papaya Juice,42
+Counter 6 (Juice & Shake),Guava Juice,42
+Counter 6 (Juice & Shake),Amla Juice,42
+Counter 6 (Juice & Shake),Mixed Fruit Juice,45
+Counter 6 (Juice & Shake),Muskmelon Juice,45
+Counter 6 (Juice & Shake),Watermelon Juice,42
+Counter 6 (Juice & Shake),Mint Lime Juice,35
+Counter 6 (Juice & Shake),Ginger Lime Juice,35
+Counter 6 (Juice & Shake),Lemon Soda Sweet / Salt,40
+Counter 6 (Ice Cream),Vanilla Ice Cream,58
+Counter 6 (Ice Cream),Strawberry Ice Cream,63
+Counter 6 (Ice Cream),Butter Scotch Ice Cream,63
+Counter 6 (Ice Cream),Pista Ice Cream,63
+Counter 6 (Ice Cream),Chocolate Ice Cream,63
+Counter 6 (Ice Cream),Black Current Ice Cream,63
+Counter 6 (Ice Cream),Mango Ice Cream,63
+Counter 6 (Thick Shakes),Vanilla Milk Shake,90
+Counter 6 (Thick Shakes),Butter Scotch Milk Shake,90
+Counter 6 (Thick Shakes),Pista Milk Shake,90
+Counter 6 (Thick Shakes),Strawberry Milk Shake,90
+Counter 6 (Thick Shakes),Chocolate Milk Shake,95
+Counter 6 (Thick Shakes),Black Current Milk Shake,90
+Counter 6 (Thick Shakes),Mango Milk Shake,90
+Counter 6 (Thick Shakes),Sweet Lassi,60
+Counter 6 (Thick Shakes),Salt Lassi,60
+Counter 6 (Thick Shakes),Butter Milk,25
+Counter 6 (Thick Shakes),Cold Coffee,60
+Counter 6 (Thick Shakes),Cold Boost,65
+Counter 7 (Omelettes),Plain Omelette,35
+Counter 7 (Omelettes),Masala Omelette,45
+Counter 7 (Omelettes),Cheese Omelette,68
+Counter 7 (Omelettes),Cheese Tomato Omelette,68
+Counter 7 (Omelettes),Cheese Tomato Garlic Omelette,68
+Counter 7 (Omelettes),Chilly Cheese Omelette,68
+Counter 7 (Omelettes),Garlic Cheese Omelette,68
+Counter 7 (Omelettes),Chilly Garlic Cheese Omelette,70
+Counter 7 (Omelettes),Onion Garlic Chilly Cheese Omelette,70
+Counter 7 (Omelettes),Mushroom Omelette,70
+Counter 7 (Omelettes),Mushroom Garlic Omelette,70
+Counter 7 (Omelettes),Mushroom Cheese Omelette,70
+Counter 7 (Omelettes),Fried Egg Bulls Eye,50
+Counter 7 (Omelettes),Bread Omlete,70
+Sandwiches,Veg Sandwich,40
+Sandwiches,Veg Club Sandwich,52
+Sandwiches,Veg Club House,95
+Sandwiches,Paneer Sandwich,70
+Sandwiches,Paneer Cheese Sandwich,85
+Sandwiches,Paneer Club Sandwich,90
+Sandwiches,Paneer Club House,100
+Sandwiches,Mushroom Sandwich,70
+Sandwiches,Mushroom Cheese Sandwich,85
+Sandwiches,Mushroom Club Sandwich,90
+Sandwiches,Mushroom Club House,100
+Sandwiches,Egg Sandwich,52
+Sandwiches,Egg Club Sandwich,73
+Sandwiches,Egg Club House,85
+Sandwiches,Cheese Sandwich,62
+Sandwiches,Cheese Club Sandwich,73
+Sandwiches,Cheese Club House,80
+Sandwiches,Chicken Sandwich,95
+Sandwiches,Chicken Club Sandwich,110
+Sandwiches,Chicken Club House,120
+Sandwiches,Garlic Cheese Sandwich,125
+Sandwiches,Fruits Sandwich,62
+Counter 8,Egg Pasta,110
+Counter 8,Chicken Pasta,125
+Counter 8,Veg Pasta,100
+Counter 8,Plain Biryani,80
+Counter 8,Egg Biryani,110
+Counter 8,Chicken Biryani,135
+Counter 8,Hyderbadi Biryani,180
+Counter 9 (Tandoori),Plain Naan,25
+Counter 9 (Tandoori),Plain Kulcha,25
+Counter 9 (Tandoori),Tandoor Roti,25
+Counter 9 (Tandoori),Butter Naan,32
+Counter 9 (Tandoori),Butter Kulcha,32
+Counter 9 (Tandoori),Butter Roti,32
+Counter 9 (Tandoori),Stuffed Naan,52
+Counter 9 (Tandoori),Garlic Roti,52
+Counter 9 (Tandoori),Garlic Naan,52
+Counter 9 (Tandoori),Roasted Papad,28
+Counter 9 (Tandoori),Masala Papad,28
+Counter 10 (Chinese),Gobi Manchurian Dry,95
+Counter 10 (Chinese),Paneer Manchurian Dry,110
+Counter 10 (Chinese),Mushroom Manchurian Dry,115
+Counter 10 (Chinese),Chilly Chicken Dry,115
+Counter 10 (Chinese),Chilly Chicken Gravy,115
+Counter 10 (Chinese),Chicken Manchurian (Dry),120
+Counter 10 (Chinese),Chicken Manchurian (Gravy),120
+Rice & Noodles,Veg Fried Rice,70
+Rice & Noodles,Sez Veg Fried Rice,80
+Rice & Noodles,Veg Noodles,70
+Rice & Noodles,Sez Veg Noodles,85
+Rice & Noodles,Gobi Fried Rice,80
+Rice & Noodles,Sez Gobi Fried Rice,90
+Rice & Noodles,Gobi Noodles,85
+Rice & Noodles,Sez Gobi Noodles,90
+Rice & Noodles,Paneer Fried Rice,90
+Rice & Noodles,Sez Paneer Fried Rice,95
+Rice & Noodles,Paneer Noodles,90
+Rice & Noodles,Sez Paneer Noodles,95
+Rice & Noodles,Mushroom Fried Rice,85
+Rice & Noodles,Sez Mushroom Fried Rice,95
+Rice & Noodles,Mushroom Noodles,85
+Rice & Noodles,Sez Mushroom Noodles,95
+Rice & Noodles,Egg Noodles,80
+Rice & Noodles,Sez Egg Noodles,90
+Rice & Noodles,Chicken Noodles,105
+Rice & Noodles,Sez Chicken Noodles,110
+Rice & Noodles,Egg Fried Rice,80
+Rice & Noodles,Sez Egg Fried Rice,90
+Rice & Noodles,Chicken Fried Rice,105
+Rice & Noodles,Sez Chicken Fried Rice,115
+Rice & Noodles,Arasan Triple Rice Non Veg,130
+Counter 11 (North Indian),Gobi 65,63
+Counter 11 (North Indian),Mushroom 65,74
+Counter 11 (North Indian),Paneer 65,85
+Counter 11 (North Indian),Babycorn 65,74
+Counter 11 (North Indian),Chicken 65 (Boneless),125
+Counter 11 (North Indian),Andhra Chicken Dry,120
+Counter 11 (North Indian),Arasan Chicken Chukka (Boneless),145
+Veg Gravies,Dhall Fry,66
+Veg Gravies,Green Peas Masala,74
+Veg Gravies,Mix Veg Curry,69
+Veg Gravies,Aloo Gobi Masala,74
+Veg Gravies,Paneer Butter Masala,91
+Veg Gravies,Gobi Masala,79
+Veg Gravies,Mushroom Masala,84
+Veg Gravies,Kadai Paneer,94
+Veg Gravies,Mutter Paneer,84
+Veg Gravies,Aloo Mutter,74
+Veg Gravies,Kadai Veg,74
+Veg Gravies,Veg Chettinadu,84
+Veg Gravies,Gobi Manchurian Gravy,95
+Veg Gravies,Paneer Manchurian Gravy,110
+Veg Gravies,Mushroom Manchurian Gravy,115
+Non Veg Gravies,Butter Chicken Masala,125
+Non Veg Gravies,Chicken Tikka Masala,125
+Non Veg Gravies,Chicken Masala,115
+Non Veg Gravies,Chicken Chettinadu,125
+Non Veg Gravies,Kadai Chicken,125
+Non Veg Gravies,Egg Masala,90
+Counter 12 (Cluckster Menu),Cluck Pop (Small),99
+Counter 12 (Cluckster Menu),Cluck Pop (Medium),179
+Counter 12 (Cluckster Menu),Cluck Pop (Large),299
+Counter 12 (Cluckster Menu),Hot Mess Wings 2 Pcs,99
+Counter 12 (Cluckster Menu),Hot Mess Wings 4 Pcs,179
+Counter 12 (Cluckster Menu),Hot Mess Wings 6 Pcs,259
+Counter 12 (Cluckster Menu),Crispy Cluck Stripz 2 Pcs,99
+Counter 12 (Cluckster Menu),Crispy Cluck Stripz 4 Pcs,179
+Counter 12 (Cluckster Menu),Crispy Cluck Stripz 6 Pcs,259
+Counter 12 (Cluckster Menu),Drumzz 2 Pcs,199
+Counter 12 (Cluckster Menu),Drumzz 4 Pcs,369
+Counter 12 (Cluckster Menu),Smoky Grilled Drumzz 2 Pcs,229
+Counter 12 (Cluckster Menu),Smoky Grilled Drumzz 4 Pcs,429
+Burger Veg,Simple Veg Burger,49
+Burger Veg,Veg Mayo Burger,89
+Burger Veg,Veg Cheese Burger,99
+Burger Veg,Peri Peri Burger,119
+Burger Veg,Crispy Paneer Burger,149
+UFO Burger Non Veg,Chicken Patty,99
+UFO Burger Non Veg,Chicken Peri Peri,149
+UFO Burger Non Veg,Chicken BBQ,159
+UFO Burger Non Veg,Chicken Zinger,189
+UFO Burger Non Veg,Chicken Chetti,209
+Quick Bites,Chicken Nuggets,139
+Quick Bites,Chicken Cheese Shots,129
+Quick Bites,Chicken Samosa,99
+Pizza Non-Veg,Simply Chicken Pizza,139
+Pizza Non-Veg,Chicken Schezwan Pizza,149
+Pizza Non-Veg,Smokey Barbeque Chicken Pizza,169
+Pizza Non-Veg,Chettinad Chicken Pizza,179
+Pizza Non-Veg,Biryani Chicken Pizza,199
+Pizza Non-Veg,Chicken Loaded Pizza,239
+Pizza Veg,Margherita,99
+Pizza Veg,Golden Corn Pizza,119
+Pizza Veg,Chocolate Pizza,139
+Pizza Veg,Schezwan Pizza,139
+Pizza Veg,Smokey BBQ Pizza,149
+Pizza Veg,Makhani Pizza,139
+Pizza Veg,Exotix Veg Pizza,199
+Fries,French Fries,79
+Fries,Masala Fries,99
+Fries,Peri Peri Fries,119
+Fries,BBQ Fries,129
+Wrap Non Veg,Chicken Wrap,129
+Wrap Non Veg,Chicken Mayo Wrap,139
+Wrap Non Veg,Chicken Tandoori Wrap,149
+Wrap Non Veg,Chicken Peri Peri Wrap,149
+Wrap Non Veg,Chicken Makhani Wrap,149
+Wrap Non Veg,Chicken Chettinad Wrap,149
+Wrap Non Veg,Chicken Salami Wrap,169
+Wrap Veg,Paneer Chipotle Wrap,99
+Wrap Veg,Paneer Peri Peri Wrap,129
+Wrap Veg,Paneer Cheese Wrap,139
+Momos,Veg Momos Steam,79
+Momos,Paneer Momos Steam,89
+Momos,Peri Peri Veg Momos Steam,99
+Momos,Chicken Momos Steam,99
+Momos,Peri Peri Chicken Momos Steam,129
+Momos,Chicken Tikka Momos Steam,149
+Momos,Veg Momos Fried,89
+Momos,Paneer Momos Fried,99
+Momos,Peri Peri Veg Momos Fried,109
+Momos,Chicken Momos Fried,109
+Momos,Peri Peri Chicken Momos Fried,139
+Momos,Chicken Tikka Momos Fried,159
+Sandwich Non Veg,Grill Egg Sandwich,99
+Sandwich Non Veg,Chicken Sandwich,119
+Sandwich Non Veg,Tandoori Sandwich,139
+Sandwich Non Veg,Schezwan Sandwich,139
+Sandwich Non Veg,Chicken Popcorn Sandwich,149
+Sandwich Non Veg,Zinger Sandwich,169
+Sandwich Non Veg,Cluck Special Sandwich,189
+Sandwich Veg,Veg Grill,79
+Sandwich Veg,Veg Cheese Grill,99
+Sandwich Veg,Veg Mayo Grill,99
+Sandwich Veg,Peri Peri Grill,129
+Sandwich Veg,Schezwan Paneer Grill,129
+Mocktail,CA Mojito,99
+Mocktail,CA Lemon Ice Tea,99
+Mocktail,CA Kala Khata Cooler,99
+Mocktail,CA Gummy Gummy,99
+Mocktail,CA Muddy Sky Blue,99
+Mocktail,CA Red Wine Sangria,99
+Cold Beverage,Cold Coffee,79
+Cold Beverage,Choco Cold Coffee,99
+Cold Beverage,Moka Cold Coffee,119
+Cold Beverage,Irish Coffee,129
+Dessert,Choco Lava,99
+Dessert,Caramel Lava,129
+Combos,Cluck Saver Combo,99
+Combos,Snack Smash Combo,249
+Combos,Cluck Attack Combo,299
+Combos,Zinger Beast Meal,449
+Combos,Cluck Spice Blast,449
+Combos,10 Pc Combo Cluck Chefs Spe.,499
+Combos,The Cluck Munch Box,519
+Combos,Cluck Chicken Feast Meal,549
+Combos,Pizza Power Pack Combo,569

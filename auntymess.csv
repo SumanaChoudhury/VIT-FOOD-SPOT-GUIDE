@@ -1,0 +1,235 @@
+Category,Item Name,Price (INR)
+Egg Station,Boiled Egg,15
+Egg Station,Plain Omelette,20
+Egg Station,Onion Omelette,20
+Egg Station,Cheese Omelette,60
+Egg Station,Tomato Omelette,60
+Egg Station,Tomato Cheese Omelette,75
+Egg Station,Masala Omelette,75
+Egg Station,Masala Cheese Omelette,90
+Egg Station,Mushroom Omelette,80
+Egg Station,Mushroom Cheese Omelette,95
+Egg Station,Chicken Omelette,95
+Egg Station,Chicken Cheese Omelette,105
+Egg Station,Egg Bhurji,50
+Egg Station,Bread Omelette,45
+Curry Items,Aloo Curry With Plain Paratha,80
+Curry Items,Aloo Mutter Curry With Plain Paratha,90
+Curry Items,Mutter Curry With Plain Paratha,80
+Curry Items,Mushroom Curry With Plain Paratha,95
+Curry Items,Mushroom Mutter Curry With Plain Paratha,105
+Curry Items,Chana Curry With Plain Paratha,80
+Curry Items,Chana Paneer Curry With Plain Paratha,120
+Curry Items,Egg Curry With Plain Paratha,90
+Curry Items,Chicken Curry With Plain Paratha,100
+Curry Items,Chana Curry With Plain Rice,85
+Curry Items,Paneer Curry With Plain Rice,100
+Curry Items,Egg Curry With Plain Rice,95
+Curry Items,Chicken Curry With Plain Rice,115
+Yummy Maggi,Plain Maggi,25
+Yummy Maggi,Extra Masala Maggi,30
+Yummy Maggi,Plain Cheese Maggi,40
+Yummy Maggi,Extra Masala Cheese Maggi,45
+Yummy Maggi,Plain Butter Maggi,40
+Yummy Maggi,Extra Masala Butter Maggi,45
+Yummy Maggi,Corn Maggi,55
+Yummy Maggi,Corn Maggi With Cheese (or) Butter,70
+Yummy Maggi,Fried Maggi,65
+Yummy Maggi,Fried Maggi With Cheese (or) Butter,80
+Yummy Maggi,Vegetable Maggi,70
+Yummy Maggi,Vegetable Maggi With Cheese (or) Butter,85
+Yummy Maggi,Gobi Maggi,65
+Yummy Maggi,Gobi Maggi With Cheese (or) Butter,80
+Yummy Maggi,Mushroom Maggi,80
+Yummy Maggi,Schezwan Maggi,70
+Yummy Maggi,Schezwan Maggi With Cheese (or) Butter,85
+Yummy Maggi,Paneer Maggi,80
+Yummy Maggi,Paneer Cheese (or) Schezwan Maggi,95
+Yummy Maggi,Chilli Maggi,70
+Yummy Maggi,Chilli Cheese (or) Butter,85
+Yummy Maggi,Egg Maggi,70
+Yummy Maggi,Egg Maggi With Cheese (or) Schezwan,85
+Yummy Maggi,Chicken Maggi,90
+Yummy Maggi,Chicken Maggi With Cheese (or) Schezwan,100
+Yummy Maggi,Egg & Chicken Maggi,95
+Yummy Maggi,Egg & Chicken Cheese (or) Schezwan,110
+Yummy Maggi,Mushroom Maggi Cheese (or) Schezwan,95
+Fries,French Fries,80
+Fries,Aloo Pakoda,80
+Fries,Gobi Pakoda,80
+Fries,Methi Pakoda,80
+Fries,Maggi Pakoda,80
+Fries,Corn Pakoda,80
+Fries,Onion Pakoda,80
+Fries,Bread Pakoda,80
+Fries,Aloo Corn Pakoda,85
+Fries,Aloo Onion Pakoda,85
+Fries,Mushroom Pakoda,90
+Fries,Mixed Veg Pakoda,90
+Fries,Egg 65,85
+Fries,Chicken 65,90
+Fries,Aloo Cutlet,80
+Fries,Maggi Cutlet,85
+Fries,Paneer Cutlet,90
+Fries,Chicken Cutlet,95
+Chaat,Pani Poori,35
+Chaat,Dahi Poori,45
+Chaat,Chana Poori,60
+Chaat,Dhai Papadi,65
+Chaat,Chana Papadi,70
+Chaat,Bhel Poori,60
+Chaat,Corn Bhel,75
+Chaat,Aloo Dahi Tikki,60
+Chaat,Chana Aloo Tikki,65
+Chaat,Vada Pav,65
+Chaat,Cheese Vada Pav,80
+Chaat,Pav Bhajji,80
+Chaat,Cheese Pav Bhajji,95
+Chaat,Nippet Chat,90
+Sandwiches,Aloo Sandwich,95
+Sandwiches,Aloo Cheese (or) Schezwan Sandwich,95
+Sandwiches,Corn Sandwich,80
+Sandwiches,Corn Cheese (or) Schezwan Sandwich,95
+Sandwiches,Mushroom Sandwich,80
+Sandwiches,Mushroom Cheese (or) Schezwan Sandwich,100
+Sandwiches,Paneer Sandwich,95
+Sandwiches,Paneer Cheese (or) Schezwan Sandwich,110
+Sandwiches,Egg Sandwich,95
+Sandwiches,Egg Cheese (or) Schezwan Sandwich,110
+Sandwiches,Chicken Sandwich,105
+Sandwiches,Chicken Cheese (or) Schezwan Sandwich,120
+Sandwiches,Egg & Chicken Sandwich,110
+Sandwiches,Egg & Chicken Cheese (or) Schezwan Sandwich,125
+Special Items,Honey Chilli Potato,120
+Special Items,Honey Chilli Chicken (Mon Wed Fri),150
+Special Items,Chilli Chicken (Tue Thu Sat),140
+Special Items,Korean Spicy Chicken (Sat & Sun),180
+Special Items,Korean Chilli Potato (Wed & Fri),130
+Special Items,Moong Dal Chila,60
+Special Items,Pesarattu,100
+Special Items,Baby Corn Kurkure,100
+Special Items,Chilli Garlic Veg Noodles,95
+Special Items,Chilli Garlic Paneer Noodles,120
+Special Items,Chilli Garlic Mushroom Noodles,120
+Special Items,Chilli Garlic Gobi Noodles,110
+Special Items,Chilli Garlic Egg Noodles,135
+Special Items,Chilli Garlic Chicken Noodles,150
+White Sauce Pasta,Veg Pasta,100
+White Sauce Pasta,Veg Cheese,115
+White Sauce Pasta,Corn Pasta,100
+White Sauce Pasta,Corn Cheese,115
+White Sauce Pasta,Mushroom Pasta,115
+White Sauce Pasta,Mushroom Cheese,130
+White Sauce Pasta,Paneer Pasta,120
+White Sauce Pasta,Paneer Cheese,135
+White Sauce Pasta,Chicken Pasta,145
+White Sauce Pasta,Chicken Cheese,160
+Pink Sauce Pasta,Veg Pasta,105
+Pink Sauce Pasta,Veg Cheese Pasta,120
+Pink Sauce Pasta,Chicken Pasta,150
+Pink Sauce Pasta,Chicken Cheese Pasta,165
+Red Sauce Pasta,Veg,95
+Red Sauce Pasta,Veg Cheese,105
+Red Sauce Pasta,Mushroom,105
+Red Sauce Pasta,Mushroom Cheese,120
+Red Sauce Pasta,Paneer,115
+Red Sauce Pasta,Paneer Cheese,130
+Red Sauce Pasta,Gobi Cheese,100
+Red Sauce Pasta,Mix Cheese,135
+Red Sauce Pasta,Chicken,110
+Red Sauce Pasta,Chicken Cheese,125
+South Indian,Paniyaram & Chutney (Varies Every Day),65
+South Indian,Idly & Chutney (5 Piece),50
+South Indian,Plain Dosa 2 & Chutney,70
+South Indian,Plain Cheese Dosa 2 & Chutney,90
+South Indian,Plain Butter Dosa 2 & Chutney,90
+South Indian,Onion Dosa 2 & Chutney,85
+South Indian,Podi Dosa 2 & Chutney,90
+South Indian,Ghee Dosa 2 & Chutney,90
+South Indian,Masala Dosa 2 & Chutney,90
+South Indian,Ghee Onion Dosa 2 & Chutney,105
+South Indian,Ghee Podi Dosa 2 & Chutney,105
+South Indian,Ghee Masala Dosa 2 & Chutney,105
+South Indian,Butter Masala Dosa 2 & Chutney,105
+South Indian,Onion Masala Dosa 2 & Chutney,105
+South Indian,Schezwan Masala Dosa 2 & Chutney,110
+South Indian,Cheese Masala Dosa 2 & Chutney,110
+South Indian,Pizza Dosa 1 & Chutney,70
+South Indian,Schezwan Dosa 2 & Chutney,90
+South Indian,Paneer Stuffed Dosa & Chutney,100
+South Indian,Mushroom Stuffed Dosa & Chutney,100
+South Indian,Pav Bhajji Stuffed Dosa & Chutney,90
+South Indian,Egg Dosa 2 & Chutney,95
+South Indian,Egg Schezwan Dosa 2 & Chutney,110
+South Indian,Egg Podi Dosa 2 & Chutney,110
+South Indian,Egg Schezwan Dosa 2 & Chutney (Special),110
+South Indian,Chicken Stuffed Dosa & Chutney,105
+South Indian,Chicken Cheese Stuffed Dosa & Chutney,120
+South Indian,Plain Dosa 2 & Egg Curry,100
+South Indian,Plain Dosa 2 & Chicken Curry,120
+South Indian,Ghee Uttapam 1 & Chutney,70
+Paratha,Aloo Paratha,45
+Paratha,Aloo Onion Paratha,50
+Paratha,Aloo Gobi Paratha,50
+Paratha,Aloo Methi Paratha,50
+Paratha,Paneer Paratha,60
+Paratha,Paneer Schezwan Paratha,75
+Paratha,Paneer Cheese Paratha,75
+Paratha,Gobi Paratha,45
+Paratha,Gobi Onion Paratha,50
+Paratha,Gobi Schezwan Paratha,55
+Paratha,Gobi Cheese Paratha,55
+Paratha,Masala Paratha,55
+Paratha,Mix Veg Paratha,55
+Paratha,Cabbage Paratha,45
+Paratha,Methi Paratha,50
+Paratha,Carrot Paratha,45
+Paratha,Palak Paratha,50
+Paratha,Palak Cheese Paratha,65
+Paratha,Mushroom Paratha,70
+Paratha,Matar Paratha,50
+Paratha,Pudina Paratha,50
+Paratha,Ajwain Paratha,45
+Paratha,Chana Paratha,50
+Paratha,Chicken Paratha,65
+Paratha,Chicken Cheese Paratha,80
+Paratha,Chicken Schezwan Paratha,80
+Paratha,Egg Paratha,65
+Paratha,Egg Stuff Paratha,65
+Paratha,Egg Cheese Paratha,80
+Paratha,Egg Stuff Schezwan Paratha,80
+Paratha,Egg & Chicken Paratha,75
+Paratha,Egg & Chicken Cheese Paratha,90
+Paratha,Egg & Chicken Schezwan Paratha,90
+Rice,Veg Scehzwan Rice,100
+Rice,Gobi Rice,90
+Rice,Gobi Scehzwan Rice,105
+Rice,Corn Rice,90
+Rice,Corn Scehzwan Rice,105
+Rice,Zeera Rice,85
+Rice,Zeera Mutter Rice,100
+Rice,Tawa Puloa Rice,110
+Rice,Mushroom Rice,100
+Rice,Mushroom Scehzwan,115
+Rice,Paneer Rice,105
+Rice,Paneer Scehzwan Rice,120
+Rice,Egg Rice,100
+Rice,Egg Scehzwan Rice,115
+Rice,Chicken Rice,110
+Rice,Chicken Scehzwan Rice,125
+Rice,Egg & Chicken Rice,135
+Rice,Egg & Chicken Scehzwan Rice,150
+Noodles,Veg Noodles,90
+Noodles,Veg Cheese (or) Schezwan Noodles,105
+Noodles,Gobi Noodles,95
+Noodles,Gobi Cheese (or) Schezwan Noodles,110
+Noodles,Mushroom Noodles,110
+Noodles,Mushroom Cheese (or) Schezwan Noodles,125
+Noodles,Paneer Noodles,115
+Noodles,Paneer Cheese (or) Schezwan Noodles,130
+Noodles,Egg Noodles,105
+Noodles,Egg Cheese (or) Schezwan Noodles,120
+Noodles,Chicken Noodles,125
+Noodles,Chicken Cheese (or) Schezwan Noodle,140
+Noodles,Egg & Chicken Noodles,135
+Noodles,Egg & Chicken Cheese (or) Schezwan Noodles,150

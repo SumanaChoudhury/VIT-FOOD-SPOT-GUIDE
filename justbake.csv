@@ -1,0 +1,182 @@
+Category,Item Name,Price (INR)
+Tarts,Cashew & Honey Tart,75
+Tarts,Chocolate Tart,35
+Tarts,Lemon Tart,35
+Beverages,Water Bottle 500ml,15
+Beverages,Espresso,79
+Beverages,Americano,79
+Beverages,Cappachino,79
+Beverages,Latte,79
+Beverages,Mango Milkshake,99
+Beverages,Chickoo Milkshake,99
+Beverages,Banana Milkshake,99
+Namkeen,Classic Salted Peanuts,60
+Namkeen,Chilli Surprise Peanuts,70
+Namkeen,Lemon Pepper Peanuts,70
+Namkeen,Sour Cream & Onion Crackers,69
+Namkeen,Peri Peri Cluster,85
+Namkeen,Barbeque Almond,89
+Namkeen,Salt & Pepper Cashew,99
+Namkeen,Roasted Cashews Peri Peri,350
+Delight Range,Heart Shape Cake (S: 500),500
+Delight Range,Classic Pineapple (1Kg: 550 | S: 300),550
+Delight Range,Classic Butterscotch (1Kg: 650 | S: 350),650
+Delight Range,Alphonso Mango (1Kg: 700 | S: 375 | Pc: 65 | C: 850),700
+Delight Range,English Strawberry (1Kg: 700 | S: 375 | Pc: 70 | C: 850),700
+Delight Range,New Zealand Kiwi (1Kg: 700 | S: 375),700
+Delight Range,Oreo Cake (1Kg: 700 | S: 375 | Pc: 65 | C: 850),700
+Delight Range,Chocolate Strawberry (1Kg: 750 | S: 400),750
+Delight Range,Very Berry Strawberry (1Kg: 750 | S: 400),750
+Delight Range,Premium Pineapple (1Kg: 750 | S: 400 | Pc: 70 | C: 900),750
+Delight Range,Choco Nilla (1Kg: 800 | S: 425 | C: 950),800
+Delight Range,Chocolate Mocha (1Kg: 800 | S: 425),800
+Delight Range,Litchi Gateaux (1Kg: 800 | S: 425),800
+Delight Range (Eggless),Alphonso Mango Eggless (1Kg: 750 | S: 400 | Pc: 70 | C: 900),750
+Delight Range (Eggless),English Strawberry Eggless (1Kg: 750 | S: 400 | Pc: 75 | C: 900),750
+Delight Range (Eggless),Oreo Cake Eggless (1Kg: 750 | S: 400 | Pc: 70 | C: 900),750
+Delight Range (Eggless),Premium Pineapple Eggless (1Kg: 800 | S: 425 | Pc: 75 | C: 950),800
+Delight Range (Eggless),Choco Nilla Eggless (1Kg: 850 | S: 450 | C: 1000),850
+Indulge Range,Crunchy Creamy Fudge (1Kg: 850 | S: 450),850
+Indulge Range,Fruit of Forest (1Kg: 850 | S: 450 | Pc: 75 | C: 1000),850
+Indulge Range,Premium Black Forest (1Kg: 850 | S: 450 | Pc: 75 | C: 1000),850
+Indulge Range,Caramel Fiesta (1Kg: 900 | S: 475 | Pc: 80 | C: 1050),900
+Indulge Range,Duet Cake (1Kg: 900 | S: 475 | Pc: 80 | C: 1050),900
+Indulge Range,Irish Coffee (1Kg: 950 | S: 500 | Pc: 85 | C: 1100),950
+Indulge Range,Arabian Cashew & Dates (1Kg: 1000 | S: 525 | Pc: 90 | C: 1150),1000
+Indulge Range,Canadian Blueberry (1Kg: 1000 | S: 525 | Pc: 85 | C: 1150),1000
+Indulge Range,Classic Chocochips (1Kg: 1000 | S: 525 | Pc: 85 | C: 1150),1000
+Indulge Range,White Forest (1Kg: 1000 | S: 525 | Pc: 85 | C: 1150),1000
+Indulge Range,Belgium Truffle (1Kg: 1050 | S: 550 | Pc: 90 | C: 1200),1050
+Indulge Range,German Chocolate (1Kg: 1050 | S: 550 | Pc: 90 | C: 1200),1050
+Indulge Range,Premium Butterscotch (1Kg: 1050 | S: 550 | Pc: 90 | C: 1200),1050
+Indulge Range,Vancho (1Kg: 1050 | S: 550 | Pc: 90 | C: 1200),1050
+Indulge Range (Eggless),Fruit of Forest Eggless (1Kg: 900 | S: 475 | Pc: 80 | C: 1050),900
+Indulge Range (Eggless),Premium Black Forest Eggless (1Kg: 900 | S: 475 | Pc: 80 | C: 1050),900
+Indulge Range (Eggless),Caramel Fiesta Eggless (1Kg: 950 | S: 500 | Pc: 85 | C: 1100),950
+Indulge Range (Eggless),Duet Cake Eggless (1Kg: 950 | S: 500 | Pc: 85 | C: 1100),950
+Indulge Range (Eggless),Irish Coffee Eggless (1Kg: 1000 | S: 525 | Pc: 90 | C: 1150),1000
+Indulge Range (Eggless),Arabian Cashew & Dates Eggless (1Kg: 1050 | S: 550 | Pc: 95 | C: 1200),1050
+Indulge Range (Eggless),Canadian Blueberry Eggless (1Kg: 1050 | S: 550 | Pc: 90 | C: 1200),1050
+Indulge Range (Eggless),Classic Chocochips Eggless (1Kg: 1050 | S: 550 | Pc: 90 | C: 1200),1050
+Indulge Range (Eggless),White Forest Eggless (1Kg: 1050 | S: 550 | Pc: 90 | C: 1200),1050
+Indulge Range (Eggless),Belgium Truffle Eggless (1Kg: 1100 | S: 575 | Pc: 95 | C: 1250),1100
+Indulge Range (Eggless),German Chocolate Eggless (1Kg: 1100 | S: 575 | Pc: 95 | C: 1250),1100
+Indulge Range (Eggless),Premium Butterscotch Eggless (1Kg: 1100 | S: 575 | Pc: 95 | C: 1250),1100
+Indulge Range (Eggless),Vancho Eggless (1Kg: 1100 | S: 575 | Pc: 95 | C: 1250),1100
+Exotic Range,Death By Chocolate (1Kg: 1100 | S: 575 | Pc: 95 | C: 1250),1100
+Exotic Range,Hazelnut Gateaux (1Kg: 1100 | S: 575 | Pc: 95 | C: 1250),1100
+Exotic Range,Malted Chocolate Cake (1Kg: 1100 | S: 575 | Pc: 95 | C: 1250),1100
+Exotic Range,Rasmalai Cake (1Kg: 1100 | S: 575 | Pc: 95 | C: 1250),1100
+Exotic Range,Russian Honey Cake (1Kg: 1100 | S: 575),1100
+Exotic Range,Chocolate Raspberry (1Kg: 1100 | S: 575 | C: 1250),1100
+Exotic Range,American Almond Chocolate (1Kg: 1250 | S: 650 | C: 1400),1250
+Exotic Range,Pinata Cake (1Kg: 1200 | S: 625),1200
+Exotic Range (Eggless),Death By Chocolate Eggless (1Kg: 1150 | S: 600 | Pc: 100 | C: 1300),1150
+Exotic Range (Eggless),Hazelnut Gateaux Eggless (1Kg: 1150 | S: 600 | Pc: 100 | C: 1300),1150
+Exotic Range (Eggless),Malted Chocolate Cake Eggless (1Kg: 1150 | S: 600 | Pc: 100 | C: 1300),1150
+Exotic Range (Eggless),Rasmalai Cake Eggless (1Kg: 1150 | S: 600 | Pc: 100 | C: 1300),1150
+Exotic Range (Eggless),Chocolate Raspberry Eggless (1Kg: 1150 | S: 600 | C: 1300),1150
+Exotic Range (Eggless),Red Velvet Cake Eggless (1Kg: 1250 | S: 650),1250
+Exotic Range (Eggless),American Almond Chocolate Eggless (1Kg: 1300 | S: 675 | C: 1450),1300
+Exotic Range (Eggless),Pinata Cake Eggless (1Kg: 1250 | S: 650),1250
+Desserts,Carrot Cake,150
+Desserts,Lotus Biscoff Cheese Cake,100
+Desserts,Japanese Cheese Cake,125
+Desserts,Orange Lamington,50
+Desserts,Raspberry Lamington,60
+Desserts,Coconut Velvet,150
+Desserts,Rocky Road,150
+Desserts,Tiramisu Temptation,150
+Desserts,Tres Leches Obsession,180
+Desserts,Four Layer Fantasy Mousse,65
+Desserts,Triple Chocolate Brownie Mousse,95
+Desserts,Vegan Chocolate Mousse,65
+Desserts,Lava Cake,85
+Desserts,Donut Pops - Chocolate,70
+Desserts,Chocolate Donut,35
+Desserts,Sprinkle Donut,35
+Desserts,Hazelnut Cake Truffles,60
+Desserts,Crunchy Cake Truffles,50
+Desserts,Chocolate Swiss Roll,90
+Desserts,Pista Swiss Roll,100
+Desserts,Red Velvet (Single Serve),100
+Cupcakes & Brownies,Chocolate Cup Cake (2 nos),60
+Cupcakes & Brownies,Snow White Cup Cake (2 nos),60
+Cupcakes & Brownies,Red Velvet Cup Cake (2 nos),90
+Cupcakes & Brownies,Chocochip Cupcake (2 nos),70
+Cupcakes & Brownies,Walnut Brownie Eggless,65
+Cupcakes & Brownies,Walnut Brownie,55
+Cupcakes & Brownies,Chocolate Brownie (LS),75
+Cupcakes & Brownies,American Fudge Brownie,60
+Tea Cakes & Muffins,Tea Cakes 150g - Cashew & Raisin,125
+Tea Cakes & Muffins,Tea Cakes 150g - Date n Walnut,125
+Tea Cakes & Muffins,Blueberry Muffin,55
+Tea Cakes & Muffins,Chocochips Muffin,55
+Tea Cakes & Muffins,Almond Muffin,60
+Savouries Veg,Veg Shepherd's Pie,70
+Savouries Veg,Spinach Corn Quiche,100
+Savouries Veg,Bombay Sandwich,140
+Savouries Veg,Bun Maska,35
+Savouries Veg,Korean Gochujang Veg Burger,70
+Savouries Veg,Hazelnut Sandwich,75
+Savouries Veg,Mac N Cheese Sandwich,140
+Savouries Veg,Roasted Vegetable Sandwich,100
+Savouries Veg,Korean Bun,60
+Savouries Veg,Garden Vegetable Pizza,120
+Savouries Veg,Chilli Cheese Toast,45
+Savouries Veg,Veg Puff,25
+Savouries Veg,Vada Pav,45
+Savouries Veg,Paneer Puff,35
+Savouries Veg,Aloo Samosa,20
+Savouries Veg,Veg Fried Roll,45
+Savouries Non-Veg,Chicken Shepherd's Pie,80
+Savouries Non-Veg,Chicken Quiche,120
+Savouries Non-Veg,Korean Gochujang Chicken Burger,85
+Savouries Non-Veg,Chicken Tikka Pizza,140
+Savouries Non-Veg,Chicken Fried Roll,50
+Savouries Non-Veg,Chicken Sausage Roll,45
+Savouries Non-Veg,Egg Puff,35
+Savouries Non-Veg,Bhuna Chicken Puff,35
+Savouries Non-Veg,Chicken Samosa,35
+Savouries Non-Veg,Pepper Chicken Sandwich,130
+Savouries Non-Veg,Chicken Tikka Sandwich,150
+Chocolate,Dark Chocolate,70
+Chocolate,Milk Chocolate,65
+Chocolate,White Chocolate,65
+Chocolate,Mango Chocolate,65
+Chocolate,Birthday Chocolate,65
+Chocolate,Hazelnut Chocolate,65
+Chocolate,Chocolate Pearls,65
+Chocolate,Sugar Less Chocolate,75
+Chocolate,Single Twist 200 Gm,200
+Chocolate,Swiss Jelly 150 Gm,100
+Chocolate,Mixed Fruit Candy,80
+Chocolate,Chocolate Truffle,210
+Chocolate,Almond Milk Chocolate,200
+Chocolate,Almond Coconut Chocolate,200
+Chocolate,Coffee Bean Milk Chocolate,175
+Chocolate,Butterscotch Milk Chocolate,150
+Chocolate,Smiley/Number Name Lollipop,10
+Chocolate,Sugar Candy Spiral,20
+Chocolate,Chocolate Rocks,160
+Chocolate,Dubai Chocolate Drops,250
+Chocolate,Fruit & Nut Energy Bar,40
+Chocolate,Dark Chocolate 70%,300
+Chocolate,Milk Chocolate 41%,280
+Chocolate,Lollipop Ball,5
+Cookies,Fruit Cookies,99
+Cookies,Jeera Cookies,99
+Cookies,Double Chocochip Cookies,99
+Cookies,Granola Biscotti,99
+Cookies,Danish Cookies,99
+Cookies,Coffee Cookies,99
+Cookies,Crunchy Coconut Biscotti,99
+Cookies,Ragi Cookies,99
+Cookies,Almond Biscotti,99
+Cookies,Kaju Biscotti,99
+Cookies,Classic Salt Cookies,99
+Cookies,Almond Thins,125
+Cookies,French Tongue,125
+Cookies,Coconut Crunchy Cookies,89
+Cookies,Multigrain Cookies,80
+Cookies,Filter Coffee Cookies With Cinnamon,80

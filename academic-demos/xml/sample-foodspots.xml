@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE campusFoodGuide SYSTEM "foodspots.dtd">
+<campusFoodGuide xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="foodspots.xsd">
+  <metadata>
+    <generatedAt>2026-10-23T12:00:00Z</generatedAt>
+    <totalSpots>3</totalSpots>
+    <totalDishes>5</totalDishes>
+    <campus>VIT Vellore</campus>
+  </metadata>
+  <foodSpots>
+    <foodSpot id="spot_nama-chai">
+      <name>Nama Chai</name>
+      <slug>nama-chai</slug>
+      <zone>Academic Blocks</zone>
+      <location>Ground Floor, SJT</location>
+      <menuStatus>available</menuStatus>
+      <mustTryItem>NC Special Chai</mustTryItem>
+      <categories>
+        <category>Beverages</category>
+        <category>Chai</category>
+        <category>Snacks</category>
+      </categories>
+      <menu>
+        <dish id="item_nc_01">
+          <name>Milk Chai</name>
+          <price>20</price>
+          <classification>veg</classification>
+          <category>Chai</category>
+        </dish>
+        <dish id="item_nc_02">
+          <name>NC Special Chai</name>
+          <price>30</price>
+          <classification>veg</classification>
+          <category>Chai</category>
+        </dish>
+      </menu>
+    </foodSpot>
+    <foodSpot id="spot_one-food-world">
+      <name>One Food World</name>
+      <slug>one-food-world</slug>
+      <zone>Boys' Hostel</zone>
+      <location>Men's Hostel Central Quadrangle</location>
+      <menuStatus>available</menuStatus>
+      <mustTryItem>Classic Roll (Al Beirut)</mustTryItem>
+      <categories>
+        <category>Fast Food</category>
+        <category>Burgers</category>
+        <category>Wraps</category>
+      </categories>
+      <menu>
+        <dish id="item_ofw_01">
+          <name>Classic Roll</name>
+          <price>110</price>
+          <classification>non-veg</classification>
+          <category>Hummus Roll</category>
+          <counter>Al Beirut</counter>
+        </dish>
+        <dish id="item_ofw_02">
+          <name>Schezwan Noodles</name>
+          <price>135</price>
+          <classification>veg</classification>
+          <category>Seoul Rice &amp; Noodles</category>
+          <counter>Korean Wok Box</counter>
+        </dish>
+      </menu>
+    </foodSpot>
+    <foodSpot id="spot_good-vibes">
+      <name>Good Vibes</name>
+      <slug>good-vibes</slug>
+      <zone>Ladies' Hostel</zone>
+      <location>Inside Ladies' Hostel Complex</location>
+      <menuStatus>unavailable</menuStatus>
+      <mustTryItem>Menu information not available yet</mustTryItem>
+      <categories>
+        <category>Fast Food</category>
+        <category>Snacks</category>
+      </categories>
+      <menu>
+      </menu>
+    </foodSpot>
+  </foodSpots>
+</campusFoodGuide>

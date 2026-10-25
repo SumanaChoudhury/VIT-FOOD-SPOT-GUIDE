@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIT Food Spot Guide — Campus Food Discovery &amp; Recommendation System</title>
+  <meta name="description" content="Discover verified campus food spots, 3,300+ real dishes, student must-tries, and menus across VIT Vellore campus.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3.2">
+  <link rel="stylesheet" href="css/bitewise.css?v=3.2">
+  <link rel="stylesheet" href="css/responsive.css?v=3.2">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('vit_food_theme') || 'system';
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (t === 'dark' || (t === 'system' && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="brand-bar">
+        <a href="#explore" class="brand" aria-label="VIT Food Spot Guide Home">
+          <div class="brand-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"></circle>
+              <polygon points="12 3 14.5 9 21 9.5 16 14 17.5 20.5 12 17 6.5 20.5 8 14 3 9.5 9.5 9 12 3" fill="currentColor" fill-opacity="0.3"></polygon>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1 class="brand-main-title">VIT FOOD SPOT GUIDE</h1>
+            <span class="brand-sub-title">VELLORE CAMPUS DINING DIRECTORY</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#explore" class="nav-link active" data-view="explore">Explore</a></li>
+          <li><a href="#hostels" class="nav-link" data-view="hostels">Hostels</a></li>
+          <li><a href="#academic-blocks" class="nav-link" data-view="academic-blocks">Pearl Research Park</a></li>
+          <li><a href="#chatbot" class="nav-link" data-view="chatbot">AI Chat</a></li>
+          <li><a href="#feedback" class="nav-link" data-view="feedback">Feedback</a></li>
+          <li>
+            <a href="#favorites" class="nav-link" data-view="favorites">
+              Favorites
+              <span id="nav-fav-count" class="nav-fav-badge" style="display:none;">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button & Popover (Gear Icon) -->
+        <div class="settings-menu-wrapper">
+          <button class="nav-action-icon-btn" id="btn-theme-settings" title="Display Theme" aria-label="Theme Settings">
+            <svg id="theme-btn-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </button>
+          <div class="settings-popover" id="settings-popover" style="display:none;">
+            <div class="settings-popover-header">Display Theme</div>
+            <div class="theme-options-list">
+              <button type="button" class="theme-option-btn active" data-theme-val="light">Light</button>
+              <button type="button" class="theme-option-btn" data-theme-val="dark">Dark</button>
+              <button type="button" class="theme-option-btn" data-theme-val="system">System</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="auth-nav-container">
+          <button class="btn-pill-signin" id="btn-auth-modal">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:5px; vertical-align:-2px;">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Sign In
+          </button>
+        </div>
+        <button class="btn-pill-admin" id="btn-admin-modal" title="Administrator Portal">Admin</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ===================================================================== -->
+    <!-- MODULE 1: EXPLORE VIEW (Curated Discovery Grid)                       -->
+    <!-- ===================================================================== -->
+    <div id="view-explore" class="spa-view active">
+      <!-- Prestige Luxury Gastronomic Hero Section -->
+      <section class="hero-section">
+        <div class="container hero-composition-grid">
+          <div class="hero-left-col">
+            <div class="hero-tag">&#10022; OFFICIAL CAMPUS DINING DIRECTORY &#10022;</div>
+            <h1 class="hero-title">
+              FIND SOMETHING GOOD<br>
+              AROUND CAMPUS.<br>
+              <span class="hero-title-gold">THE CURATED CULINARY GUIDE</span>
+            </h1>
+            <p class="hero-subtitle">
+              Discover 31 verified dining venues, 3,370+ authenticated dishes, and student-curated ratings across the 372-acre campus.
+              <span class="sr-only">Find something good around campus.</span>
+            </p>
+
+            <!-- Main Hero Search & Filters -->
+            <form id="master-search-form" class="hero-search-form">
+              <div class="search-input-wrapper">
+                <span class="search-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </span>
+                <input type="search" id="global-search-input" class="search-input" placeholder="Search dishes, food spots or cravings..." aria-label="Search dishes, food spots or cravings">
+                <button type="submit" class="search-submit-btn" id="btn-search-submit">SEARCH</button>
+              </div>
+
+              <!-- Compact 4-Dropdown Filter Bar (Horizontal) -->
+              <div class="filters-compact-bar">
+                <select id="location-select" class="filter-select" aria-label="Filter by Location">
+                  <option value="">Location: All</option>
+                  <option value="prp">PRP — Pearl Research Park</option>
+                  <option value="sjt">SJT (Silver Jubilee Tower)</option>
+                  <option value="mgb">MGB (Mahatma Gandhi Block)</option>
+                  <option value="tt">TT (Technology Tower)</option>
+                  <option value="gdn">GDN (G.D. Naidu Block)</option>
+                  <option value="smv">SMV (Sir M. Visvesvaraya)</option>
+                  <option value="library">Central Library &amp; Walkway</option>
+                  <option value="mh">Boys' Hostel Area (MH)</option>
+                  <option value="lh">Ladies' Hostel Area (LH)</option>
+                  <option value="kc">KC Food &amp; Gazebo Hub</option>
+                </select>
+
+                <select id="dietary-filter" class="filter-select" aria-label="Filter by Diet">
+                  <option value="">Diet: All</option>
+                  <option value="veg">Vegetarian</option>
+                  <option value="non-veg">Non-vegetarian</option>
+                </select>
+
+                <select id="budget-filter-select" class="filter-select" aria-label="Filter by Budget">
+                  <option value="">Budget: Any</option>
+                  <option value="50">Under &#8377;50</option>
+                  <option value="100">&#8377;50 &#8211; &#8377;100</option>
+                  <option value="150">&#8377;100 &#8211; &#8377;150</option>
+                  <option value="250">&#8377;150 &#8211; &#8377;250</option>
+                </select>
+
+                <select id="category-filter-select" class="filter-select" aria-label="Filter by Category">
+                  <option value="">Category: All</option>
+                  <option value="Chai">Chai &amp; Tea</option>
+                  <option value="Beverages">Beverages &amp; Juices</option>
+                  <option value="Fast Food">Fast Food</option>
+                  <option value="Pizza">Pizza</option>
+                  <option value="Burgers">Burgers</option>
+                  <option value="Wraps">Wraps &amp; Rolls</option>
+                  <option value="Meals">Meals &amp; Thali</option>
+                  <option value="South Indian">South Indian</option>
+                  <option value="Bakery">Bakery &amp; Cakes</option>
+                  <option value="Desserts">Desserts &amp; Waffles</option>
+                  <option value="Ice Cream">Ice Cream</option>
+                </select>
+              </div>
+
+              <div id="filter-reset-wrapper" style="display:none; margin-top:8px;">
+                <span class="filter-reset-link" id="btn-reset-filters">Reset filters</span>
+              </div>
+            </form>
+          </div>
+
+          <!-- Hero Right Column: Dark Obsidian Luxury Metrics Card -->
+          <div class="hero-right-col">
+            <div class="dining-featured-card">
+              <div class="dining-featured-overlay">
+                <span class="dining-featured-tag">CAMPUS DINING DIRECTORY</span>
+                <h3 class="dining-featured-title">EXPLORE FOOD ACROSS VIT VELLORE</h3>
+                <div class="dining-featured-badge-wrap">
+                  <span class="dining-featured-badge">
+                    <span class="badge-pulse-dot" aria-hidden="true"></span>
+                    <span>Verified Outlets • Menus • Recommendations</span>
+                  </span>
+                </div>
+              </div>
+              <div class="dining-featured-footer">
+                <div class="featured-stat-col">
+                  <span class="featured-stat-num">31</span>
+                  <span class="featured-stat-lbl">OUTLETS</span>
+                </div>
+                <div class="featured-stat-divider" aria-hidden="true"></div>
+                <div class="featured-stat-col">
+                  <span class="featured-stat-num">3,370+</span>
+                  <span class="featured-stat-lbl">DISHES</span>
+                </div>
+                <div class="featured-stat-divider" aria-hidden="true"></div>
+                <div class="featured-stat-col">
+                  <span class="featured-stat-num">6</span>
+                  <span class="featured-stat-lbl">BLOCKS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What are you craving section -->
+      <section class="page-section cravings-nav-section" id="cravings-section">
+        <div class="container">
+          <h2 class="cravings-section-title">WHAT ARE YOU CRAVING?</h2>
+          <div class="craving-chips-row">
+            <button type="button" class="craving-pill-chip" data-category="Chai">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"></path></svg>
+              <span>Chai &amp; Tea</span>
+              <span class="arrow-tail">&rarr;</span>
+            </button>
+
+            <button type="button" class="craving-pill-chip" data-category="Beverages">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 3 12 13 5 3"></polygon><line x1="12" y1="13" x2="12" y2="21"></line><line x1="8" y1="21" x2="16" y2="21"></line></svg>
+              <span>Juices &amp; Shakes</span>
+              <span class="arrow-tail">&rarr;</span>
+            </button>
+
+            <button type="button" class="craving-pill-chip" data-category="Fast Food">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 22 22 22 12 2"></polygon><circle cx="12" cy="14" r="2"></circle></svg>
+              <span>Rolls &amp; Snacks</span>
+              <span class="arrow-tail">&rarr;</span>
+            </button>
+
+            <button type="button" class="craving-pill-chip" data-category="Meals">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9zM2 17h20M12 2v2"></path></svg>
+              <span>Meals &amp; Biryanis</span>
+              <span class="arrow-tail">&rarr;</span>
+            </button>
+
+            <button type="button" class="craving-pill-chip" data-category="South Indian">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22s5-2 10-7c5-5 7-10 7-10s-5 2-10 7c-5 5-7 10-7 10zM12 15l4 4"></path></svg>
+              <span>South Indian</span>
+              <span class="arrow-tail">&rarr;</span>
+            </button>
+
+            <button type="button" class="craving-pill-chip" data-category="Desserts">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4c0 3 4 5 4 5s4-2 4-5a4 4 0 0 0-4-4zM6 13h12v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-7z"></path></svg>
+              <span>Bakery &amp; Ice Cream</span>
+              <span class="arrow-tail">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Search Results Section (Compact Dishes & Matching Spots) -->
+      <section class="page-section" id="dish-search-section" style="display:none; background:var(--bg-card); border-bottom:1px solid var(--border-subtle);">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title" id="dish-search-heading">Search Results</h3>
+              <p class="section-subtitle" id="dish-search-subheading">Matching items from campus menus</p>
+            </div>
+            <button class="btn btn-outline btn-sm" id="btn-close-search">Clear Search</button>
+          </div>
+
+          <!-- Matching Food Spots (if any) -->
+          <div id="matching-spots-container" style="display:none; margin-bottom:32px;">
+            <div class="search-group-header">
+              <span class="search-group-title">FOOD SPOTS</span>
+              <span class="search-group-count" id="matching-spots-count">0 spots</span>
+            </div>
+            <div class="outlets-grid" id="matching-spots-grid"></div>
+          </div>
+
+          <!-- Matching Dishes -->
+          <div>
+            <div class="search-group-header">
+              <span class="search-group-title">DISHES</span>
+              <span class="search-group-count" id="matching-dishes-count">0 dishes</span>
+            </div>
+            <div class="dishes-results-container" id="dishes-results-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Primary Outlets Grid Directory Section ("CAMPUS FOOD SPOTS" / "Verified Dining Outlets Across VIT") -->
+      <section class="section-verified-outlets" id="food-spots-directory">
+        <div class="container">
+          <div class="section-verified-header">
+            <span class="section-eyebrow">CAMPUS FOOD SPOTS</span>
+            <div class="section-title-rule-row">
+              <h2 class="section-main-title">Verified Dining Outlets Across VIT</h2>
+              <div class="section-horizontal-divider" aria-hidden="true"></div>
+              <a href="javascript:void(0)" onclick="$('#location-select').val('').trigger('change');" class="section-view-all-link">
+                <span>View All</span>
+                <span class="arrow-tail">&rarr;</span>
+              </a>
+              <span id="directory-count-text" style="display:none;">31 food spots</span>
+            </div>
+          </div>
+
+          <div class="outlets-grid" id="outlets-grid">
+            <!-- Rendered dynamically by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Discovery Section 2: Near your campus blocks -->
+      <section class="page-section campus-blocks-quicknav-section" id="blocks-quicknav-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title">Near your campus blocks</h3>
+              <p class="section-subtitle">Discover food spots located inside or adjacent to academic blocks</p>
+            </div>
+          </div>
+
+          <div class="blocks-quicknav-grid">
+            <div class="block-quick-card" onclick="navigateToBlock('prp')">
+              <div class="block-quick-header">
+                <span class="block-badge">PRP</span>
+                <span class="block-jump-arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+              </div>
+              <h4 class="block-quick-title">Pearl Research Park</h4>
+              <p class="block-quick-desc">Olives Cafe, Sri Sabari, and ground-floor dining hubs.</p>
+            </div>
+
+            <div class="block-quick-card" onclick="navigateToBlock('sjt')">
+              <div class="block-quick-header">
+                <span class="block-badge">SJT</span>
+                <span class="block-jump-arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+              </div>
+              <h4 class="block-quick-title">Silver Jubilee Tower</h4>
+              <p class="block-quick-desc">SJT Food Court, ground-level eateries, and Nescafe corner.</p>
+            </div>
+
+            <div class="block-quick-card" onclick="navigateToBlock('mgb')">
+              <div class="block-quick-header">
+                <span class="block-badge">MGB</span>
+                <span class="block-jump-arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+              </div>
+              <h4 class="block-quick-title">Mahatma Gandhi Block</h4>
+              <p class="block-quick-desc">DC Canteen, Shaan-e-Punjab, and student lunch counters.</p>
+            </div>
+
+            <div class="block-quick-card" onclick="navigateToBlock('tt')">
+              <div class="block-quick-header">
+                <span class="block-badge">TT</span>
+                <span class="block-jump-arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+              </div>
+              <h4 class="block-quick-title">Technology Tower</h4>
+              <p class="block-quick-desc">DC (near TT), quick-service juice and tea stalls along the courtyard.</p>
+            </div>
+
+            <div class="block-quick-card" onclick="navigateToBlock('gdn')">
+              <div class="block-quick-header">
+                <span class="block-badge">GDN</span>
+                <span class="block-jump-arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+              </div>
+              <h4 class="block-quick-title">G.D. Naidu Block</h4>
+              <p class="block-quick-desc">Central dining corridors and Aavin dairy kiosk walkway.</p>
+            </div>
+
+            <div class="block-quick-card" onclick="navigateToBlock('smv')">
+              <div class="block-quick-header">
+                <span class="block-badge">SMV</span>
+                <span class="block-jump-arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+              </div>
+              <h4 class="block-quick-title">SMV &amp; Central Library</h4>
+              <p class="block-quick-desc">Amul Dairy, Sugarcane Juice, and study break refreshments.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODULE 2: HOSTELS VIEW (Boys' Hostel & Girls' Hostel Toggle)          -->
+    <!-- ===================================================================== -->
+    <div id="view-hostels" class="spa-view" style="display:none;">
+      <section class="page-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Food around your hostel</h2>
+              <p class="section-subtitle">Quickly find food inside and around your hostel.</p>
+            </div>
+          </div>
+
+          <!-- Hostel Toggle -->
+          <div class="segmented-toggle">
+            <button class="segmented-btn active" id="tab-hostel-boys" data-hostel="boys">Men's Hostel</button>
+            <button class="segmented-btn" id="tab-hostel-girls" data-hostel="girls">Ladies' Hostel</button>
+          </div>
+
+          <!-- Men's Hostel Section -->
+          <div id="hostel-boys-content">
+            <!-- One Food World Spotlight -->
+            <div class="ofw-court-card">
+              <div class="ofw-court-header">
+                <div>
+                  <h3 class="ofw-court-title">One Food World</h3>
+                  <p class="ofw-court-desc">
+                    Central dining court in Men's Hostel housing 6 specialized counters under one roof.
+                  </p>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="openSpotDetailModal('one-food-world')">
+                  View OFW Menu &rarr;
+                </button>
+              </div>
+
+              <!-- 6 Branded Counters -->
+              <div class="ofw-counters-grid" id="ofw-counters-list">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Other Men's Hostel Outlets -->
+            <h3 style="font-size:1.15rem; margin-bottom:16px; color:var(--text-dark);">More Food in Men's Hostel</h3>
+            <div class="outlets-grid" id="mens-hostel-spots-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Ladies' Hostel Section -->
+          <div id="hostel-girls-content" style="display:none;">
+            <div class="outlets-grid" id="ladies-hostel-spots-grid">
+              <!-- Rendered dynamically: Flora, Aunty's Mess, Nescafe LH, Fruit Juice Shop -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODULE 3: ACADEMIC BLOCKS VIEW (PRESTIGE PAVILIONS)                   -->
+    <!-- ===================================================================== -->
+    <div id="view-academic-blocks" class="spa-view" style="display:none;">
+      <section class="page-section academic-section-luxury">
+        <div class="container">
+          <div class="section-header-luxury">
+            <span class="luxury-eyebrow">✦ ARCHITECTURAL CONCOURSES &amp; DINING ✦</span>
+            <h2 class="section-title-luxury">Food Around Your Academic Block</h2>
+            <p class="section-subtitle-luxury">Curated cafeterias, artisanal coffee bars, and express dining inside Pearl Research Park and central lecture towers.</p>
+            <div class="gold-accent-line"></div>
+          </div>
+
+          <!-- Luxury Interactive Block Selector Strip -->
+          <div class="luxury-block-selector-card">
+            <div class="luxury-block-tabs" id="academic-block-tabs" role="tablist">
+              <button type="button" class="luxury-block-tab active" data-block="prp">
+                <span class="tab-indicator">★</span>
+                <span class="tab-label">Pearl Research Park</span>
+                <span class="tab-code">PRP</span>
+              </button>
+              <button type="button" class="luxury-block-tab" data-block="sjt">
+                <span class="tab-indicator">★</span>
+                <span class="tab-label">Silver Jubilee Tower</span>
+                <span class="tab-code">SJT</span>
+              </button>
+              <button type="button" class="luxury-block-tab" data-block="mgb">
+                <span class="tab-indicator">★</span>
+                <span class="tab-label">Mahatma Gandhi</span>
+                <span class="tab-code">MGB</span>
+              </button>
+              <button type="button" class="luxury-block-tab" data-block="tt">
+                <span class="tab-indicator">★</span>
+                <span class="tab-label">Technology Tower</span>
+                <span class="tab-code">TT</span>
+              </button>
+              <button type="button" class="luxury-block-tab" data-block="gdn">
+                <span class="tab-indicator">★</span>
+                <span class="tab-label">G.D. Naidu Block</span>
+                <span class="tab-code">GDN</span>
+              </button>
+              <button type="button" class="luxury-block-tab" data-block="smv">
+                <span class="tab-indicator">★</span>
+                <span class="tab-label">SMV &amp; Library</span>
+                <span class="tab-code">SMV</span>
+              </button>
+            </div>
+
+            <!-- Custom Styled Select for Accessibility & Mobile -->
+            <div class="block-select-wrapper-luxury">
+              <label class="form-label-luxury" for="academic-block-select">Or choose block from dropdown:</label>
+              <div class="custom-select-luxury">
+                <select id="academic-block-select" class="filter-select-luxury">
+                  <option value="prp" selected>PRP — Pearl Research Park</option>
+                  <option value="sjt">SJT (Silver Jubilee Tower)</option>
+                  <option value="mgb">MGB (Mahatma Gandhi Block)</option>
+                  <option value="tt">TT (Technology Tower)</option>
+                  <option value="gdn">GDN (G.D. Naidu Block)</option>
+                  <option value="smv">SMV &amp; Central Library</option>
+                </select>
+                <div class="select-chevron-gold">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Block Content (Luxury Showcase Banner + Grids) -->
+          <div id="academic-block-content">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODULE 4: AI CHAT VIEW                                               -->
+    <!-- ===================================================================== -->
+    <div id="view-chatbot" class="spa-view" style="display:none;">
+      <section class="page-section">
+        <div class="container" style="max-width: 760px;">
+          <div class="section-header" style="text-align:center; display:block; margin-bottom:24px;">
+            <h2 class="section-title">Ask about food around VIT</h2>
+            <p class="section-subtitle">Get fast, concise answers grounded in verified campus outlet menus.</p>
+          </div>
+
+          <div style="background:var(--bg-card); border:2px solid var(--border-subtle); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); overflow:hidden;">
+            <div style="background:var(--coffee); color:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <h4 style="color:#FFFFFF; margin:0; font-family:var(--font-title); font-size:1.05rem; font-weight:700;">Campus Food Assistant</h4>
+                <span style="font-size:0.8rem; color:var(--sunshine); font-weight:600;">Grounded in verified campus database</span>
+              </div>
+            </div>
+
+            <!-- Messages Container -->
+            <div class="chat-messages" id="main-chat-messages" style="height: 380px;">
+              <div class="chat-msg bot">
+                <strong>Hello! I am your campus food assistant.</strong><br>
+                Ask where to eat near your block, search budget meals, or check One Food World counters.
+              </div>
+            </div>
+
+            <!-- Suggestion Chips -->
+            <div class="chat-suggestions">
+              <button type="button" class="chat-suggestion-chip" data-prompt="Where can I get biryani?">Where can I get biryani?</button>
+              <button type="button" class="chat-suggestion-chip" data-prompt="What's near PRP?">What's near PRP?</button>
+              <button type="button" class="chat-suggestion-chip" data-prompt="Men's Hostel food">Men's Hostel food</button>
+              <button type="button" class="chat-suggestion-chip" data-prompt="Where can I get coffee?">Where can I get coffee?</button>
+              <button type="button" class="chat-suggestion-chip" data-prompt="Under ₹100">Under ₹100</button>
+            </div>
+
+            <!-- Chat Form -->
+            <form class="chat-input-bar" id="main-chat-form">
+              <input type="text" id="main-chat-input" class="chat-input-field" placeholder="Ask e.g. 'What is near SJT under ₹100?'..." autocomplete="off" required maxlength="500">
+              <button type="submit" class="btn btn-primary btn-sm" style="margin-left:8px;">Ask</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODULE 5: FEEDBACK VIEW (Honest Student Reviews & Submission)        -->
+    <!-- ===================================================================== -->
+    <div id="view-feedback" class="spa-view" style="display:none;">
+      <section class="page-section">
+        <div class="container feedback-card-container">
+          <div class="section-header" style="text-align:center; display:block; margin-bottom:28px;">
+            <h2 class="section-title">Share your food experience</h2>
+            <p class="section-subtitle">Help other VIT students discover what is worth trying.</p>
+          </div>
+
+          <!-- Submission Portal Form -->
+          <div class="feedback-form-box">
+            <div id="inline-fb-status" style="display:none; margin-bottom:14px; padding:10px 14px; border-radius:6px; font-size:0.88rem;"></div>
+            <form id="inline-feedback-form">
+              <div class="form-group">
+                <label class="form-label" for="inline-fb-spot">Food Spot</label>
+                <select id="inline-fb-spot" class="form-control" required></select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inline-fb-dish">Dish</label>
+                <input type="text" id="inline-fb-dish" class="form-control" placeholder="Select or type dish name (optional)">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inline-fb-rating">Rating</label>
+                <select id="inline-fb-rating" class="form-control" required>
+                  <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5/5) Outstanding</option>
+                  <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; (4/5) Very Good</option>
+                  <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; (3/5) Average</option>
+                  <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734; (2/5) Needs Improvement</option>
+                  <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734; (1/5) Poor</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inline-fb-author">Your Name / Batch (Optional)</label>
+                <input type="text" id="inline-fb-author" class="form-control" placeholder="e.g. Student, CSE 2024">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inline-fb-text">Review</label>
+                <textarea id="inline-fb-text" class="form-control" rows="3" placeholder="Share honest comments about taste, portion, or value..." required maxlength="400"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">Submit feedback</button>
+            </form>
+          </div>
+
+          <!-- Real Community Reviews Section -->
+          <div>
+            <h3 style="font-size:1.2rem; color:var(--text-dark); margin-bottom:16px;">Student Reviews</h3>
+            <div id="community-feedback-grid">
+              <!-- Populated dynamically: if 0 reviews, clean empty state is shown -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODULE 6: FAVORITES VIEW                                             -->
+    <!-- ===================================================================== -->
+    <div id="view-favorites" class="spa-view" style="display:none;">
+      <section class="page-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Favorites</h2>
+              <p class="section-subtitle">Food spots and dishes you have saved.</p>
+            </div>
+          </div>
+
+          <!-- Two Simple Tabs: Food Spots | Dishes -->
+          <div class="segmented-toggle" id="fav-tabs-group" style="margin-bottom:24px;">
+            <button class="segmented-btn active" id="tab-fav-spots" data-fav-tab="spots">Food Spots</button>
+            <button class="segmented-btn" id="tab-fav-dishes" data-fav-tab="dishes">Dishes</button>
+          </div>
+
+          <div id="favorites-list-container">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Site Footer (Luxury 4-Column Design) -->
+  <footer class="site-footer-luxury">
+    <div class="container">
+      <div class="footer-luxury-grid">
+        <!-- Col 1: Brand & Botanical Icon -->
+        <div class="footer-brand-col">
+          <div class="footer-botanical-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21C8 16 15 10 21 3"></path>
+              <path d="M8 15C6 12 8 9 11 9C11 12 9.5 13.5 8 15Z" fill="currentColor" fill-opacity="0.2"></path>
+              <path d="M14 11C15 8 18 8 19 10C19 13 16.5 13 14 11Z" fill="currentColor" fill-opacity="0.2"></path>
+              <path d="M12 11C11 7 13 5 16 5C16 8 14 10 12 11Z" fill="currentColor" fill-opacity="0.2"></path>
+              <path d="M18 6C18 3 20.5 2 22 4C22 7 19.5 7.5 18 6Z" fill="currentColor" fill-opacity="0.2"></path>
+              <path d="M6 18C4 16 4 13 6 12C7.5 13.5 7.5 16.5 6 18Z" fill="currentColor" fill-opacity="0.2"></path>
+            </svg>
+          </div>
+          <h3 class="footer-brand-title">VIT FOOD SPOT GUIDE</h3>
+          <p class="footer-brand-sub">VELLORE CAMPUS DINING DIRECTORY</p>
+        </div>
+
+        <!-- Col 2: Hostel Dining -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">HOSTEL DINING</h4>
+          <ul class="footer-links-list">
+            <li><a href="javascript:showHostelTab('boys')">Men's Hostel &bull; OFW</a></li>
+            <li><a href="javascript:showHostelTab('boys')">Just Bake (MH)</a></li>
+            <li><a href="javascript:showHostelTab('boys')">Nescafe (MH)</a></li>
+            <li><a href="javascript:showHostelTab('girls')">Ladies' Hostel &bull; Flora</a></li>
+            <li><a href="javascript:showHostelTab('girls')">Aunty's Mess (LH)</a></li>
+            <li><a href="javascript:showHostelTab('girls')">Nescafe (LH)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Academic Blocks -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">ACADEMIC BLOCKS</h4>
+          <ul class="footer-links-list">
+            <li><a href="javascript:showAcademicBlock('prp')">PRP — Pearl Research Park</a></li>
+            <li><a href="javascript:showAcademicBlock('sjt')">SJT (Arasan, Nama Chai)</a></li>
+            <li><a href="javascript:showAcademicBlock('mgb')">MGB (Darling Cafe)</a></li>
+            <li><a href="javascript:showAcademicBlock('tt')">TT (DC, FC, Nescafe)</a></li>
+            <li><a href="javascript:showAcademicBlock('smv')">SMV &amp; Library (Amul)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Right Cursive & Socials -->
+        <div class="footer-col footer-social-col">
+          <div class="footer-script-title">Good Food Good Mood</div>
+          <div class="footer-social-row">
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p>&copy; 2026 VIT Food Spot Guide &bull; Campus Food Discovery for VIT Vellore</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING AI CHAT TRIGGER & DRAWER                                         -->
+  <!-- ========================================================================= -->
+  <button class="chat-drawer-trigger" id="chat-trigger" title="Ask Campus Food AI" aria-label="Open AI Food Assistant">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </button>
+
+  <div class="chat-drawer-container" id="chat-drawer">
+    <div class="chat-header">
+      <div>
+        <div class="chat-header-title">Campus Food Assistant</div>
+        <div class="chat-header-sub">VIT Vellore</div>
+      </div>
+      <button class="chat-close-btn" id="btn-close-chat" aria-label="Close Assistant">&times;</button>
+    </div>
+
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-msg bot">
+        <strong>Hello! I can help you find food around campus.</strong><br>
+        Ask where to eat near your block, search budget meals, or check One Food World counters.
+      </div>
+    </div>
+
+    <div class="chat-suggestions">
+      <button type="button" class="chat-suggestion-chip" data-prompt="Where can I get biryani?">Where can I get biryani?</button>
+      <button type="button" class="chat-suggestion-chip" data-prompt="What's near PRP?">What's near PRP?</button>
+      <button type="button" class="chat-suggestion-chip" data-prompt="Men's Hostel food">Men's Hostel food</button>
+      <button type="button" class="chat-suggestion-chip" data-prompt="Where can I get coffee?">Where can I get coffee?</button>
+      <button type="button" class="chat-suggestion-chip" data-prompt="Under ₹100">Under ₹100</button>
+    </div>
+
+    <form class="chat-input-bar" id="chat-form">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask about food..." autocomplete="off" required maxlength="500">
+      <button type="submit" class="btn btn-primary btn-sm chat-submit-btn" id="btn-chat-send" aria-label="Send message">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS                                                                    -->
+  <!-- ========================================================================= -->
+
+  <!-- Spot Detail / Menu Modal -->
+  <div class="modal-overlay" id="spot-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="btn-close-spot-modal" aria-label="Close dialog">&times;</button>
+      <div id="spot-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Auth Modal (Sign In / Register) -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-content" style="max-width: 440px;">
+      <button class="modal-close-btn" id="btn-close-auth-modal" aria-label="Close dialog">&times;</button>
+      
+      <!-- Auth Tabs -->
+      <div class="segmented-toggle" style="margin-bottom:20px; width:100%; display:flex;">
+        <button class="segmented-btn active" id="tab-auth-login" style="flex:1;">Sign In</button>
+        <button class="segmented-btn" id="tab-auth-register" style="flex:1;">Create Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="auth-login-view">
+        <h3 style="color:var(--text-dark); margin-bottom:4px; font-size:1.3rem;">Welcome back</h3>
+        <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:18px;">Sign in with your VIT student email to access saved favorites and submit reviews.</p>
+        
+        <form id="student-login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-email">VIT Student Email</label>
+            <input type="email" id="login-email" class="form-control" placeholder="firstname.lastname@vitstudent.ac.in" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+          </div>
+          <div id="login-error-msg" style="color:var(--color-error); font-size:0.84rem; margin-bottom:12px; display:none;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Sign in</button>
+        </form>
+      </div>
+
+      <!-- Register Form -->
+      <div id="auth-register-view" style="display:none;">
+        <h3 style="color:var(--text-dark); margin-bottom:4px; font-size:1.3rem;">Create Account</h3>
+        <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:18px;">
+          Must match <code>firstname.lastname@vitstudent.ac.in</code>
+        </p>
+
+        <form id="student-register-form">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="e.g. Student Name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-email">VIT Student Email</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="firstname.lastname@vitstudent.ac.in" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="At least 6 characters" minlength="6" required>
+          </div>
+          <div id="reg-error-msg" style="color:var(--color-error); font-size:0.84rem; margin-bottom:12px; display:none;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Modal -->
+  <div class="modal-overlay" id="admin-modal">
+    <div class="modal-content" style="max-width: 820px;">
+      <button class="modal-close-btn" id="btn-close-admin-modal" aria-label="Close dialog">&times;</button>
+      
+      <div id="admin-login-view">
+        <h3 style="color:var(--text-dark); margin-bottom:6px;">Administrator Portal</h3>
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:20px;">Sign in to view database metrics and manage campus listings.</p>
+        <form id="admin-login-form" style="max-width: 380px;">
+          <div class="form-group">
+            <label class="form-label" for="admin-user-input">Username</label>
+            <input type="text" id="admin-user-input" class="form-control" value="admin" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="admin-pass-input">Password</label>
+            <input type="password" id="admin-pass-input" class="form-control" placeholder="Enter password" required>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px;">Credentials: <code>admin</code> / <code>vitfoodguide2026</code></p>
+          <button type="submit" class="btn btn-primary">Sign in to Dashboard</button>
+        </form>
+      </div>
+
+      <div id="admin-dashboard-view" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:1px solid var(--border-subtle); padding-bottom:14px;">
+          <div>
+            <h3 style="color:var(--text-dark);">Admin Dashboard</h3>
+            <span style="font-size:0.82rem; color:var(--lbrown); font-weight:700;" id="admin-session-text">Authenticated as admin</span>
+          </div>
+          <button class="btn btn-outline btn-sm" id="btn-admin-logout">Sign Out</button>
+        </div>
+
+        <div id="admin-quality-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/api.js?v=3.2"></script>
+  <script src="js/chat.js?v=3.2"></script>
+  <script src="js/admin.js?v=3.2"></script>
+  <script src="js/app.js?v=3.2"></script>
+
+</body>
+</html>

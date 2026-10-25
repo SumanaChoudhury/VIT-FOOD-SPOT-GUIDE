@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- foodspots.xsd: XML Schema Definition for VIT Food Spot Guide -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:element name="campusFoodGuide">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="generatedAt" type="xs:dateTime"/>
+              <xs:element name="totalSpots" type="xs:nonNegativeInteger"/>
+              <xs:element name="totalDishes" type="xs:nonNegativeInteger"/>
+              <xs:element name="campus" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="foodSpots">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="foodSpot" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="slug" type="xs:string"/>
+                    <xs:element name="zone" type="xs:string"/>
+                    <xs:element name="location" type="xs:string"/>
+                    <xs:element name="menuStatus">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="available"/>
+                          <xs:enumeration value="unavailable"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="mustTryItem" type="xs:string"/>
+                    <xs:element name="categories">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="category" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="menu">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="dish" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="name" type="xs:string"/>
+                                <xs:element name="price" type="xs:string"/>
+                                <xs:element name="classification">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:enumeration value="veg"/>
+                                      <xs:enumeration value="non-veg"/>
+                                      <xs:enumeration value="vegan"/>
+                                      <xs:enumeration value="unclassified"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="category" type="xs:string"/>
+                                <xs:element name="counter" type="xs:string" minOccurs="0"/>
+                              </xs:sequence>
+                              <xs:attribute name="id" type="xs:string" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

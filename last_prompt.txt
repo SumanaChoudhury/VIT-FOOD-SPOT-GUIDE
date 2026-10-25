@@ -1,0 +1,143 @@
+<USER_REQUEST>
+I have attached a reference DOCX named:
+
+**Project-web programming template.docx**
+
+Use this document as the **PRIMARY FORMAT AND STRUCTURAL REFERENCE** for generating my project report.
+
+The report must follow the same overall academic style, ordering, simplicity, cover-page structure, chapter numbering, and Table of Contents format as the reference document.
+
+Do NOT make the report look like a generic AI-generated corporate report.
+
+Do NOT invent a completely different report structure.
+
+---
+
+# PROJECT DETAILS
+
+## Project Title
+
+**VIT FOOD SPOT GUIDE: AI-POWERED, LOCATION-BASED CAMPUS FOOD DISCOVERY WEB APPLICATION**
+
+Use this as the project title throughout the report.
+
+The project is a web application developed for **VIT Vellore campus students** to discover food spots, menus, dishes, locations, hostel food, academic-block food, student feedback, favorites, and food recommendations.
+
+The project is primarily a **Web Programming / Web Application project**.
+
+The main focus of the report must remain the actual **VIT Food Spot Guide application**, not a theoretical explanation of the syllabus.
+
+---
+
+# 1. FOLLOW THE REFERENCE DOCUMENT'S FORMAT
+
+The uploaded reference has the following structure:
+
+### Cover Page
+
+- Course Code / Course Title
+- Slot
+- Project Title
+- Student registration number and name
+- Under the Supervision of
+- Project Guide Name
+- School of Computer Science and Engineering (SCOPE)
+- B.Tech.
+- Computer Science and Engineering
+- Programme/specialization
+- VIT / SCOPE details
+- Month and Year
+
+Reproduce this structure.
+
+Use placeholders where the exact information is not available:
+
+`<COURSE CODE / COURSE TITLE>`
+
+`<SLOT>`
+
+`<REG. NO.>`
+
+`<STUDENT NAME>`
+
+`<PROJECT GUIDE NAME>`
+
+Do NOT fabricate registration numbers, guide names, slot, or other academic details.
+
+Use:
+
+**October 2026**
+
+for the month/year unless the existing project information indicates otherwise.
+
+Use the VIT logo from the reference/template i
+<truncated 13686 bytes>
+t directory.
+2. Identify frontend files.
+3. Identify backend files.
+4. Identify database/schema files.
+5. Identify API routes.
+6. Identify controllers.
+7. Identify chatbot implementation.
+8. Identify authentication.
+9. Identify feedback/favorites.
+10. Identify existing screenshots.
+11. Identify actual technologies.
+12. Identify actual test results.
+13. Identify actual food-spot/menu data.
+
+Then write the report based on those findings.
+
+---
+
+# 22. FINAL REPORT LENGTH
+
+Create a complete academic project report.
+
+Do not make it artificially short.
+
+Aim for approximately:
+
+**25–35 pages**
+
+depending on the amount of actual screenshots, diagrams, code and project material available.
+
+The report should have enough detail for a project evaluation/viva.
+
+Do not pad the report with meaningless text.
+
+---
+
+# 23. FINAL VALIDATION
+
+Before completing the report, verify:
+
+- Cover page matches reference structure.
+- Abstract exists.
+- Table of Contents exists.
+- Chapter numbering is correct.
+- Page numbers are correct.
+- Figures are numbered.
+- Tables are numbered.
+- All screenshots are from the actual project.
+- No fake data was introduced.
+- No fake references were introduced.
+- Project title is consistent everywhere.
+- PRP is written as **Periyar Research Park**.
+- MySQL is represented correctly.
+- Food Spot Guide remains the central project.
+- AI chatbot is documented accurately.
+- Actual UI is documented.
+- Code snippets come from the actual project.
+- References are consistent.
+- No placeholder remains where actual information is available.
+
+Generate the final report as a properly formatted **DOCX**.
+
+Also create a PDF version if the environment supports reliable PDF conversion.
+
+The final output should be ready for submission after I fill in any remaining academic placeholders such as registration number, student name, slot and project guide.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-24T23:54:10+05:30.
+</ADDITIONAL_METADATA>

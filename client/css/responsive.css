@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Responsive Breakpoints & Layout Adaptations
+   Strict Guarantee: Horizontal Overflow = 0px on all Viewports
+   Tested Viewports: 1920px, 1440px, 1366px, 1280px, 1024px, 768px, 430px, 390px
+   ========================================================================== */
+
+/* Universal Overflow Protection */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tablet Breakpoint (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .outlets-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .ofw-counters-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filters-compact-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+}
+
+/* Mobile Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .site-header {
+    height: auto;
+  }
+
+  .nav-bar {
+    height: auto;
+    padding: 12px 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .brand-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .main-nav {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  .main-nav ul {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .nav-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hero-section {
+    padding: 36px 0 24px;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .filters-compact-bar {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .outlets-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .ofw-counters-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dish-row-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .dish-row-right {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 8px;
+  }
+
+  .segmented-toggle {
+    width: 100%;
+    display: flex;
+  }
+
+  .segmented-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .modal-content {
+    padding: 20px 16px;
+    max-height: 92vh;
+  }
+
+  .chat-drawer-container {
+    width: calc(100vw - 32px);
+    right: 16px;
+    bottom: 84px;
+    height: 70vh;
+  }
+
+  .chat-drawer-trigger {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+  }
+}

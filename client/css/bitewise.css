@@ -1,0 +1,794 @@
+/* ==========================================================================
+   Bitewise Luxury Food Spot Template Stylesheet
+   Designed directly from Image 3 (Bitewise UI Specification)
+   Aesthetic: Warm Linen Cream (#FAF7F2), Deep Forest Charcoal (#1C2520),
+              Playfair Editorial Display with Italic Accents, Asymmetric Curved Hero,
+              Pill Floating Search, Icon Tab Navigation, and Photo Cards.
+   ========================================================================== */
+
+:root {
+  --bw-canvas: #FAF7F2;
+  --bw-card: #FFFFFF;
+  --bw-ink: #1C2520;
+  --bw-ink-muted: #6E7671;
+  --bw-ink-light: #9DA5A0;
+  --bw-forest: #1E3A2F;
+  --bw-forest-hover: #152A22;
+  --bw-forest-light: #EBF1EE;
+  --bw-border: #EAE6DF;
+  --bw-border-subtle: #F0EDE6;
+  --bw-gold: #C5A059;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-script: 'Caveat', 'Playfair Display', cursive;
+
+  /* Radii & Shadows */
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  --shadow-subtle: 0 4px 20px rgba(28, 37, 32, 0.05);
+  --shadow-hover: 0 16px 36px rgba(28, 37, 32, 0.12);
+  --shadow-search: 0 6px 24px rgba(28, 37, 32, 0.07);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bw-canvas);
+  color: var(--bw-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.bw-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ==========================================================================
+   Top Header Navigation (Clean, Spacious, Bitewise Branding)
+   ========================================================================== */
+.bw-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 247, 242, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--bw-border-subtle);
+  height: 74px;
+}
+
+.bw-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.bw-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--bw-ink);
+}
+
+.bw-brand-star {
+  color: var(--bw-forest);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.bw-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--bw-ink);
+}
+
+.bw-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.bw-nav-link {
+  text-decoration: none;
+  color: var(--bw-ink-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 2px;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.bw-nav-link:hover {
+  color: var(--bw-ink);
+}
+
+.bw-nav-link.active {
+  color: var(--bw-ink);
+  font-weight: 600;
+}
+
+.bw-nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--bw-forest);
+  border-radius: 2px;
+}
+
+.bw-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bw-action-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--bw-ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.bw-action-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.bw-btn-login {
+  background: var(--bw-forest);
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bw-btn-login:hover {
+  background: var(--bw-forest-hover);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Hero Section (Split Composition with Asymmetric Curved Photo)
+   ========================================================================== */
+.bw-hero-section {
+  padding: 48px 0 54px;
+}
+
+.bw-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.bw-hero-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bw-ink-muted);
+  margin-bottom: 16px;
+}
+
+.bw-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--bw-ink);
+  margin-bottom: 18px;
+  letter-spacing: -0.015em;
+}
+
+.bw-hero-title .editorial-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--bw-ink);
+  padding: 0 4px;
+}
+
+.bw-hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--bw-ink-muted);
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 32px;
+}
+
+/* Pill Floating Search Bar */
+.bw-search-pill {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid var(--bw-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 8px 6px 20px;
+  box-shadow: var(--shadow-search);
+  max-width: 480px;
+  transition: all 0.25s ease;
+}
+
+.bw-search-pill:focus-within {
+  border-color: var(--bw-forest);
+  box-shadow: 0 8px 30px rgba(30, 58, 47, 0.12);
+}
+
+.bw-search-icon {
+  color: var(--bw-ink-muted);
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.bw-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--bw-ink);
+}
+
+.bw-search-input::placeholder {
+  color: var(--bw-ink-light);
+  font-size: 0.92rem;
+}
+
+.bw-search-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bw-forest);
+  color: #FFFFFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.bw-search-btn:hover {
+  background: var(--bw-forest-hover);
+  transform: scale(1.05);
+}
+
+/* Hero Right: Asymmetric Diagonal Arch Photo Container */
+.bw-hero-photo-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.bw-hero-photo-arch {
+  width: 100%;
+  height: 400px;
+  border-top-left-radius: 170px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -10px rgba(28, 37, 32, 0.18);
+  position: relative;
+}
+
+.bw-hero-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bw-hero-caption-script {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-family: var(--font-script);
+  font-size: 1.45rem;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   Category Horizontal Icon Strip
+   ========================================================================== */
+.bw-categories-bar {
+  border-top: 1px solid var(--bw-border);
+  border-bottom: 1px solid var(--bw-border);
+  padding: 16px 0;
+  margin-bottom: 50px;
+}
+
+.bw-categories-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  overflow-x: auto;
+  gap: 20px;
+  scrollbar-width: none;
+}
+
+.bw-categories-list::-webkit-scrollbar {
+  display: none;
+}
+
+.bw-category-item {
+  flex-shrink: 0;
+}
+
+.bw-category-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 12px;
+  color: var(--bw-ink-muted);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.bw-category-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.bw-category-btn span {
+  font-size: 0.84rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.bw-category-btn:hover {
+  color: var(--bw-ink);
+}
+
+.bw-category-btn.active {
+  color: var(--bw-forest);
+  font-weight: 600;
+}
+
+.bw-category-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--bw-forest);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Section: "Top Picks Near You"
+   ========================================================================== */
+.bw-section {
+  margin-bottom: 60px;
+}
+
+.bw-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.bw-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--bw-ink);
+  letter-spacing: -0.01em;
+}
+
+.bw-see-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--bw-ink);
+  transition: all 0.2s ease;
+}
+
+.bw-see-all-link:hover {
+  color: var(--bw-forest);
+  transform: translateX(2px);
+}
+
+/* 4-Column Photo Cards Grid (Image 3 Mockup for bitewise.html) */
+.bw-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .bw-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .bw-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bw-card {
+  background: #1C2520;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--bw-border-subtle);
+  display: block;
+  height: 230px;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.bw-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.bw-card-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1C2520;
+  border-bottom: none;
+}
+
+.bw-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.bw-card:hover .bw-card-img {
+  transform: scale(1.05);
+}
+
+.bw-rating-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(14, 20, 16, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 3;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bw-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 16px 14px;
+  background: linear-gradient(180deg, transparent 0%, rgba(14, 20, 16, 0.4) 30%, rgba(14, 20, 16, 0.92) 100%);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.bw-card-info {
+  flex: 1;
+  min-width: 0;
+  padding-right: 10px;
+}
+
+.bw-card-title {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 3px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+.bw-card-meta {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.bw-card-fav-btn {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  box-shadow: none;
+}
+
+.bw-card-fav-btn:hover {
+  transform: scale(1.2);
+  background: transparent;
+}
+
+.bw-card-fav-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: #FFFFFF;
+  fill: none;
+  stroke-width: 2;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
+}
+
+.bw-card-fav-btn.active svg {
+  fill: #E63946;
+  stroke: #E63946;
+}
+
+.bw-card-fav-btn:hover {
+  transform: scale(1.2);
+}
+
+.bw-card-fav-btn.active svg {
+  fill: #E63946;
+  stroke: #E63946;
+}
+
+/* ==========================================================================
+   "Hidden Gems" Banner Component
+   ========================================================================== */
+.bw-gems-banner-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #FFFFFF;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--bw-border-subtle);
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: 60px;
+  transition: all 0.25s ease;
+}
+
+.bw-gems-banner-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.bw-gems-left {
+  padding: 38px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #F4EFEB;
+}
+
+.bw-gems-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bw-forest);
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bw-gems-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--bw-ink);
+  margin-bottom: 8px;
+}
+
+.bw-gems-desc {
+  font-size: 0.92rem;
+  color: var(--bw-ink-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.bw-gems-desc:hover {
+  color: var(--bw-forest);
+}
+
+.bw-gems-right {
+  height: 220px;
+}
+
+.bw-gems-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   Campus Pearl Research Park (PRP) Landmark Highlight
+   ========================================================================== */
+.bw-landmark-strip {
+  background: #FFFFFF;
+  border: 1px solid var(--bw-border);
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 60px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.bw-landmark-text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--bw-ink);
+}
+
+.bw-landmark-text p {
+  color: var(--bw-ink-muted);
+  font-size: 0.92rem;
+}
+
+.bw-btn-landmark {
+  background: var(--bw-forest);
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.bw-btn-landmark:hover {
+  background: var(--bw-forest-hover);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.bw-footer {
+  border-top: 1px solid var(--bw-border);
+  padding: 40px 0 32px;
+  color: var(--bw-ink-muted);
+  font-size: 0.88rem;
+}
+
+.bw-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.bw-footer-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.bw-footer-links a {
+  color: var(--bw-ink-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.bw-footer-links a:hover {
+  color: var(--bw-forest);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .bw-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .bw-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bw-gems-banner-card {
+    grid-template-columns: 1fr;
+  }
+  .bw-gems-right {
+    height: 180px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bw-nav-links {
+    display: none;
+  }
+  .bw-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .bw-hero-photo-arch {
+    height: 260px;
+    border-top-left-radius: 100px;
+  }
+  .bw-landmark-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

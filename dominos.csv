@@ -1,0 +1,103 @@
+Category,Pizza Name,Size,Price (INR)
+Veg Pizzas,Margherita,Regular,109
+Veg Pizzas,Margherita,Medium,239
+Veg Pizzas,Margherita,Large,449
+Veg Pizzas,Achari Do Pyaza,Regular,179
+Veg Pizzas,Achari Do Pyaza,Medium,329
+Veg Pizzas,Achari Do Pyaza,Large,549
+Veg Pizzas,Moroccan Spice Pasta Pizza,Regular,179
+Veg Pizzas,Moroccan Spice Pasta Pizza,Medium,329
+Veg Pizzas,Moroccan Spice Pasta Pizza,Large,549
+Veg Pizzas,Double Cheese Margherita,Regular,209
+Veg Pizzas,Double Cheese Margherita,Medium,379
+Veg Pizzas,Double Cheese Margherita,Large,609
+Veg Pizzas,Fresh Veggie,Regular,209
+Veg Pizzas,Fresh Veggie,Medium,379
+Veg Pizzas,Fresh Veggie,Large,609
+Veg Pizzas,Cheese N Corn,Regular,209
+Veg Pizzas,Cheese N Corn,Medium,379
+Veg Pizzas,Cheese N Corn,Large,609
+Veg Pizzas,Cheese & Tomato,Regular,209
+Veg Pizzas,Cheese & Tomato,Medium,379
+Veg Pizzas,Cheese & Tomato,Large,609
+Veg Pizzas,Creamy Tomato Pasta Pizza,Regular,259
+Veg Pizzas,Creamy Tomato Pasta Pizza,Medium,459
+Veg Pizzas,Creamy Tomato Pasta Pizza,Large,689
+Veg Pizzas,Farmhouse,Regular,259
+Veg Pizzas,Farmhouse,Medium,459
+Veg Pizzas,Farmhouse,Large,689
+Veg Pizzas,Mexican Green Wave,Regular,259
+Veg Pizzas,Mexican Green Wave,Medium,459
+Veg Pizzas,Mexican Green Wave,Large,689
+Veg Pizzas,Peppy Paneer,Regular,259
+Veg Pizzas,Peppy Paneer,Medium,459
+Veg Pizzas,Peppy Paneer,Large,689
+Veg Pizzas,Veggie Paradise,Regular,259
+Veg Pizzas,Veggie Paradise,Medium,459
+Veg Pizzas,Veggie Paradise,Large,689
+Veg Pizzas,Paneer Makhani,Regular,299
+Veg Pizzas,Paneer Makhani,Medium,549
+Veg Pizzas,Paneer Makhani,Large,799
+Veg Pizzas,Deluxe Veggie,Regular,299
+Veg Pizzas,Deluxe Veggie,Medium,549
+Veg Pizzas,Deluxe Veggie,Large,799
+Veg Pizzas,Veg Extravaganza,Regular,299
+Veg Pizzas,Veg Extravaganza,Medium,549
+Veg Pizzas,Veg Extravaganza,Large,799
+Veg Pizzas,Indi Tandoori Paneer,Regular,299
+Veg Pizzas,Indi Tandoori Paneer,Medium,549
+Veg Pizzas,Indi Tandoori Paneer,Large,799
+Veg Pizzas,The Cheese Dominator,Regular,349
+Veg Pizzas,The Cheese Dominator,Medium,639
+Veg Pizzas,The Cheese Dominator,Large,959
+Veg Pizzas,The 4 Cheese Pizza,Regular,349
+Veg Pizzas,The 4 Cheese Pizza,Medium,639
+Veg Pizzas,The 4 Cheese Pizza,Large,959
+Non-Veg Pizzas,Chicken Sausage,Regular,199
+Non-Veg Pizzas,Chicken Sausage,Medium,369
+Non-Veg Pizzas,Chicken Sausage,Large,599
+Non-Veg Pizzas,Pepper Barbecue Chicken,Regular,249
+Non-Veg Pizzas,Pepper Barbecue Chicken,Medium,449
+Non-Veg Pizzas,Pepper Barbecue Chicken,Large,669
+Non-Veg Pizzas,Keema Do Pyaza,Regular,249
+Non-Veg Pizzas,Keema Do Pyaza,Medium,449
+Non-Veg Pizzas,Keema Do Pyaza,Large,669
+Non-Veg Pizzas,Moroccan Spice Pasta Pizza (Non-Veg),Regular,279
+Non-Veg Pizzas,Moroccan Spice Pasta Pizza (Non-Veg),Medium,499
+Non-Veg Pizzas,Moroccan Spice Pasta Pizza (Non-Veg),Large,739
+Non-Veg Pizzas,Pepper Barbecue & Onion,Regular,279
+Non-Veg Pizzas,Pepper Barbecue & Onion,Medium,499
+Non-Veg Pizzas,Pepper Barbecue & Onion,Large,739
+Non-Veg Pizzas,Creamy Tomato Pasta Pizza (Non-Veg),Regular,279
+Non-Veg Pizzas,Creamy Tomato Pasta Pizza (Non-Veg),Medium,499
+Non-Veg Pizzas,Creamy Tomato Pasta Pizza (Non-Veg),Large,739
+Non-Veg Pizzas,Chicken Golden Delight,Regular,309
+Non-Veg Pizzas,Chicken Golden Delight,Medium,559
+Non-Veg Pizzas,Chicken Golden Delight,Large,829
+Non-Veg Pizzas,Chicken Fiesta,Regular,309
+Non-Veg Pizzas,Chicken Fiesta,Medium,559
+Non-Veg Pizzas,Chicken Fiesta,Large,829
+Non-Veg Pizzas,Spiced Double Chicken,Regular,309
+Non-Veg Pizzas,Spiced Double Chicken,Medium,559
+Non-Veg Pizzas,Spiced Double Chicken,Large,829
+Non-Veg Pizzas,Chicken Pepperoni,Regular,359
+Non-Veg Pizzas,Chicken Pepperoni,Medium,599
+Non-Veg Pizzas,Chicken Pepperoni,Large,919
+Non-Veg Pizzas,Chicken Dominator,Regular,359
+Non-Veg Pizzas,Chicken Dominator,Medium,599
+Non-Veg Pizzas,Chicken Dominator,Large,919
+Non-Veg Pizzas,Non Veg Supreme,Regular,359
+Non-Veg Pizzas,Non Veg Supreme,Medium,599
+Non-Veg Pizzas,Non Veg Supreme,Large,919
+Non-Veg Pizzas,Indi Chicken Tikka,Regular,359
+Non-Veg Pizzas,Indi Chicken Tikka,Medium,599
+Non-Veg Pizzas,Indi Chicken Tikka,Large,919
+Non-Veg Pizzas,Chicken Maximus,Regular,399
+Non-Veg Pizzas,Chicken Maximus,Medium,699
+Non-Veg Pizzas,Chicken Maximus,Large,1029
+Non-Veg Pizzas,The 5 Chicken Feast Pizza,Regular,399
+Non-Veg Pizzas,The 5 Chicken Feast Pizza,Medium,699
+Non-Veg Pizzas,The 5 Chicken Feast Pizza,Large,1029
+Non-Veg Pizzas,Indo Fusion Chicken Pizza,Regular,399
+Non-Veg Pizzas,Indo Fusion Chicken Pizza,Medium,699
+Non-Veg Pizzas,Indo Fusion Chicken Pizza,Large,1029

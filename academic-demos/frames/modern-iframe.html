@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern HTML5 Iframes Demonstration</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 24px;
+      color: #1f2937;
+      background: #f9fafb;
+      line-height: 1.6;
+    }
+    .demo-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+    h1 { color: #b91c1c; margin-top: 0; }
+    h2 { color: #374151; font-size: 1.25rem; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      margin-bottom: 12px;
+    }
+    .badge-obsolete {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    .iframe-container {
+      width: 100%;
+      height: 380px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th { background: #f3f4f6; }
+    .btn {
+      display: inline-block;
+      background: #b91c1c;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-card">
+    <span class="badge">Module 2: Web Designing</span>
+    <h1>HTML Frames vs. Modern HTML5 Iframes</h1>
+    <p>
+      In historical Web development (HTML 4.01), developers used <code>&lt;frameset&gt;</code> and <code>&lt;frame&gt;</code>
+      to subdivide the browser window into multiple independent HTML pages. As the web evolved toward responsive design,
+      search engine indexability, and mobile browsing, <code>&lt;frameset&gt;</code> was completely removed from the W3C HTML5 specification.
+    </p>
+
+    <h2>Why Legacy &lt;frameset&gt; Was Deprecated</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Legacy &lt;frameset&gt; (Obsolete)</th>
+          <th>Modern HTML5 &lt;iframe&gt; (Standard)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Replaces <code>&lt;body&gt;</code> entirely; breaks document structure.</td>
+          <td>Embedded within standard semantic <code>&lt;body&gt;</code> elements.</td>
+        </tr>
+        <tr>
+          <td>Breaks browser forward/back buttons and deep URL linking.</td>
+          <td>Supports sandboxing (<code>sandbox="allow-scripts"</code>), security isolation, and postMessage communication.</td>
+        </tr>
+        <tr>
+          <td>Unresponsive on mobile phones; cannot adapt layout.</td>
+          <td>Fully responsive via CSS Flexbox, Grid, and Media Queries.</td>
+        </tr>
+        <tr>
+          <td>Severe accessibility barrier for screen readers.</td>
+          <td>Accessible when paired with <code>title</code> and ARIA attributes.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="demo-card">
+    <h2>Live Interactive HTML5 &lt;iframe&gt; Demonstration</h2>
+    <p>The container below embeds the campus food directory through a modern sandboxed HTML5 <code>&lt;iframe&gt;</code>:</p>
+    <div class="iframe-container">
+      <iframe src="/api/export/health" title="Campus Food Guide API Health Status" sandbox="allow-same-origin allow-scripts"></iframe>
+    </div>
+    <p style="margin-top: 15px;">
+      <a href="legacy-frameset.html" class="btn" target="_blank">View Historic HTML4 &lt;frameset&gt; Demo</a>
+      <a href="/" class="btn" style="background:#4b5563; margin-left: 10px;">Return to Main Application</a>
+    </p>
+  </div>
+
+</body>
+</html>

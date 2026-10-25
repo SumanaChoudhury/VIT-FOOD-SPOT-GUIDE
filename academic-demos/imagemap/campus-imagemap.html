@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIT Vellore Campus Food Spot Image Map Demo</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 24px;
+      color: #1f2937;
+      background: #f3f4f6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    h1 { color: #b91c1c; margin-top: 0; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      margin-bottom: 12px;
+    }
+    .map-wrapper {
+      position: relative;
+      margin: 20px 0;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f8fafc;
+      text-align: center;
+    }
+    svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .spotlight-box {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #f9fafb;
+      border-left: 4px solid #b91c1c;
+      min-height: 80px;
+    }
+    .spotlight-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+    .outlet-tag {
+      display: inline-block;
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin: 4px;
+      font-weight: 500;
+    }
+    .btn {
+      display: inline-block;
+      background: #b91c1c;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <span class="badge">Module 2: Web Designing — HTML5 &lt;map&gt; &amp; &lt;area&gt;</span>
+    <h1>VIT Vellore Campus Food Discovery Image Map</h1>
+    <p>
+      This page demonstrates the HTML5 <code>&lt;map&gt;</code> and <code>&lt;area&gt;</code> elements by mapping
+      physical VIT Vellore academic blocks and hostel zones to verified food spots. Click on any block in the schematic below
+      to discover food outlets situated there.
+    </p>
+
+    <div class="map-wrapper">
+      <!-- Semantic SVG schematic used as visual source for image map demonstration -->
+      <svg width="800" height="420" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+        <!-- Campus boundary -->
+        <rect x="10" y="10" width="780" height="400" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+        <text x="30" y="40" font-family="sans-serif" font-size="14" font-weight="bold" fill="#64748b">VIT VELLORE CAMPUS LAYOUT SCHEMATIC</text>
+
+        <!-- SJT Block (Coords: x:40, y:70, w:180, h:110) -->
+        <rect x="40" y="70" width="180" height="110" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="2" id="block-sjt"/>
+        <text x="60" y="115" font-family="sans-serif" font-size="16" font-weight="bold" fill="#991b1b">SJT Tower</text>
+        <text x="60" y="138" font-family="sans-serif" font-size="12" fill="#b91c1c">Nama Chai, Lassi House</text>
+        <text x="60" y="155" font-family="sans-serif" font-size="11" fill="#7f1d1d">Hangy &amp; Swig, Nescafe</text>
+
+        <!-- PRP Block (Coords: x:260, y:70, w:180, h:110) -->
+        <rect x="260" y="70" width="180" height="110" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" id="block-prp"/>
+        <text x="280" y="115" font-family="sans-serif" font-size="16" font-weight="bold" fill="#0369a1">PRP Block</text>
+        <text x="280" y="138" font-family="sans-serif" font-size="12" fill="#0284c7">Sri Sabari (Pasta/Burgers)</text>
+        <text x="280" y="155" font-family="sans-serif" font-size="11" fill="#075985">Sri Sai Sabari (Dining/Chaat)</text>
+
+        <!-- TT Block (Coords: x:480, y:70, w:180, h:110) -->
+        <rect x="480" y="70" width="180" height="110" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2" id="block-tt"/>
+        <text x="500" y="115" font-family="sans-serif" font-size="16" font-weight="bold" fill="#15803d">TT Block</text>
+        <text x="500" y="138" font-family="sans-serif" font-size="12" fill="#16a34a">DC (Darling Cafe), FC</text>
+        <text x="500" y="155" font-family="sans-serif" font-size="11" fill="#14532d">Nescafe TT</text>
+
+        <!-- Boys Hostel & OFW (Coords: x:40, y:230, w:220, h:130) -->
+        <rect x="40" y="230" width="220" height="130" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2" id="block-mh"/>
+        <text x="60" y="270" font-family="sans-serif" font-size="16" font-weight="bold" fill="#b45309">Boys' Hostel Area (MH)</text>
+        <text x="60" y="295" font-family="sans-serif" font-size="13" font-weight="bold" fill="#92400e">ONE FOOD WORLD (6 Counters)</text>
+        <text x="60" y="318" font-family="sans-serif" font-size="12" fill="#78350f">Just Bake, Nescafe MH</text>
+
+        <!-- Ladies Hostel (Coords: x:300, y:230, w:200, h:130) -->
+        <rect x="300" y="230" width="200" height="130" rx="8" fill="#fce7f3" stroke="#db2777" stroke-width="2" id="block-lh"/>
+        <text x="320" y="270" font-family="sans-serif" font-size="16" font-weight="bold" fill="#be185d">Ladies' Hostel (LH)</text>
+        <text x="320" y="295" font-family="sans-serif" font-size="12" fill="#9d174d">Aunty's Mess, Flora</text>
+        <text x="320" y="318" font-family="sans-serif" font-size="12" fill="#831843">Apples Fruit Juice, Nescafe</text>
+
+        <!-- MGB & GDN (Coords: x:540, y:230, w:220, h:130) -->
+        <rect x="540" y="230" width="220" height="130" rx="8" fill="#f3e8ff" stroke="#9333ea" stroke-width="2" id="block-mgb"/>
+        <text x="560" y="270" font-family="sans-serif" font-size="16" font-weight="bold" fill="#7e22ce">MGB &amp; GDN Blocks</text>
+        <text x="560" y="295" font-family="sans-serif" font-size="12" fill="#6b21a8">Darling Cafe MGB (Puffs/Cakes)</text>
+        <text x="560" y="318" font-family="sans-serif" font-size="12" fill="#581c87">Darling Main Canteen, Aavin</text>
+      </svg>
+
+      <!-- Standard HTML5 Image Map mapping the schematic coordinates -->
+      <map name="campusMap">
+        <area shape="rect" coords="40,70,220,180" alt="SJT Tower" href="javascript:showBlock('sjt')" title="SJT: Nama Chai, Lassi House, Hangy and Swig, Nescafe">
+        <area shape="rect" coords="260,70,440,180" alt="PRP Block" href="javascript:showBlock('prp')" title="PRP: Sri Sabari, Sri Sai Sabari">
+        <area shape="rect" coords="480,70,660,180" alt="TT Block" href="javascript:showBlock('tt')" title="TT: DC near TT, FC, Nescafe TT">
+        <area shape="rect" coords="40,230,260,360" alt="Boys Hostel" href="javascript:showBlock('mh')" title="Boys Hostel: One Food World (6 Counters), Just Bake, Nescafe MH">
+        <area shape="rect" coords="300,230,500,360" alt="Ladies Hostel" href="javascript:showBlock('lh')" title="Ladies Hostel: Aunty's Mess, Flora, Apples Juice, Nescafe LH">
+        <area shape="rect" coords="540,230,760,360" alt="MGB & GDN" href="javascript:showBlock('mgb')" title="MGB & GDN: Darling Cafe MGB, Darling Main Canteen, Aavin Tea Stall">
+      </map>
+    </div>
+
+    <!-- Active Details Spotlight -->
+    <div class="spotlight-box" id="spotlight">
+      <div class="spotlight-title" id="spotlight-title">Click any block above to view verified food spots</div>
+      <div id="spotlight-content" style="color: #4b5563;">
+        Demonstrating W3C standard HTML &lt;map name="campusMap"&gt; and &lt;area shape="rect" coords="..."&gt;.
+      </div>
+    </div>
+
+    <a href="/" class="btn">Return to Full Web Application</a>
+  </div>
+
+  <script>
+    const BLOCK_DATA = {
+      sjt: {
+        title: "SJT (Silver Jubilee Tower) Outlets",
+        outlets: ["Nama Chai (Chai & Snacks)", "Lassi House (Lassis & Shakes)", "Hangy and Swig (Crispy Corn & Fast Food)", "Nescafe SJT (Coffee & Beverages)"],
+        note: "Major academic tower with dense student food options right at the ground concourse."
+      },
+      prp: {
+        title: "PRP (Periyar Central Block) Outlets",
+        outlets: ["Sri Sabari (Pastas, Burgers & Starters)", "Sri Sai Sabari (Full Dining, Dosas & Chaat)"],
+        note: "PRP contains both fast food and dining hall facilities."
+      },
+      tt: {
+        title: "TT (Technology Tower) Outlets",
+        outlets: ["DC (Darling Cafe near TT)", "FC (Food Court)", "Nescafe TT"],
+        note: "DC is a distinct physical outlet near TT, separate from Darling Cafe MGB."
+      },
+      mh: {
+        title: "Boys' Hostel Area Outlets",
+        outlets: ["One Food World (Al Beirut, Korean Wok Box, Hollywood Thick Shake Bar, US Pizzeria, Texas Fried Chicken, Fried Chicken & Burgers)", "Just Bake (Cakes & Pastries)", "Nescafe MH"],
+        note: "One Food World operates as a single physical food court with 6 specialized branded counters."
+      },
+      lh: {
+        title: "Ladies' Hostel Area Outlets",
+        outlets: ["Aunty's Mess (Egg specials & homestyle meals)", "Apples Fruit Juice & Shakes", "Flora (Snacks, burgers & rolls)", "Nescafe LH"],
+        note: "Dedicated food stalls right at the Ladies' Hostel residential security gate."
+      },
+      mgb: {
+        title: "MGB & GDN Block Outlets",
+        outlets: ["Darling Cafe MGB (Specialty Puffs & Pastries)", "Darling Main Canteen (GDN Central Dining)", "Aavin Tea Stall (GDN exterior only)"],
+        note: "Aavin Tea Stall is located exclusively at GDN."
+      }
+    };
+
+    function showBlock(key) {
+      const data = BLOCK_DATA[key];
+      if (!data) return;
+      document.getElementById('spotlight-title').innerText = data.title;
+      let html = `<p style="margin: 6px 0 10px; color: #4b5563;">${data.note}</p><div>`;
+      data.outlets.forEach(o => {
+        html += `<span class="outlet-tag">${o}</span>`;
+      });
+      html += '</div>';
+      document.getElementById('spotlight-content').innerHTML = html;
+    }
+
+    // Attach click listeners to SVG blocks for direct interactivity
+    document.getElementById('block-sjt').addEventListener('click', () => showBlock('sjt'));
+    document.getElementById('block-prp').addEventListener('click', () => showBlock('prp'));
+    document.getElementById('block-tt').addEventListener('click', () => showBlock('tt'));
+    document.getElementById('block-mh').addEventListener('click', () => showBlock('mh'));
+    document.getElementById('block-lh').addEventListener('click', () => showBlock('lh'));
+    document.getElementById('block-mgb').addEventListener('click', () => showBlock('mgb'));
+  </script>
+
+</body>
+</html>

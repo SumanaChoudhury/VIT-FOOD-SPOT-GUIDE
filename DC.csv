@@ -1,0 +1,420 @@
+Category,Item Name,Price (INR)
+Morning Breakfast,Vadai,23
+Morning Breakfast,Idly (2 Nos),25
+Morning Breakfast,Sambar Vadai,37
+Morning Breakfast,Pongal,45
+Morning Breakfast,Poori Masala,45
+Morning Breakfast,Rava Dosai,51
+Morning Breakfast,Onion Rava,55
+Morning Breakfast,Rava Masala,59
+Dosai Corner,Plain Dosai,45
+Dosai Corner,Masala Dosai,53
+Dosai Corner,Onion Dosai,57
+Dosai Corner,Onion Uthappam,57
+Dosai Corner,Podi Dosai,55
+Dosai Corner,Egg Dosai,57
+Dosai Corner,Ghee Dosai,97
+Dosai Corner,Ghee Podi Dosai,109
+Dosai Corner,Ghee Masala Dosai,103
+Dosai Corner,Cheese Dosai,103
+Dosai Corner,Chicken Cheese Dosai,115
+Dosai Corner,Chicken Keema Dosai,130
+Dosai Corner,Chicken Curry Dosai,130
+Dosai Corner,Chapati,47
+Dosai Corner,Parotta,53
+Dosai Corner,Kothu Parotta Veg,86
+Dosai Corner,Kothu Parotta Egg,97
+Dosai Corner,Kothu Parotta Chicken,109
+Dosai Corner,Egg Chapati,74
+Dosai Corner,Plain Omelette,51
+Dosai Corner,Masala Omelette,63
+Dosai Corner,Chicken Omelette,74
+South Indian Lunch,Variety Rice,53
+South Indian Lunch,Sambar Rice,53
+South Indian Lunch,Curd Rice,53
+South Indian Lunch,Veg Biryani,53
+South Indian Lunch,Egg Biryani,110
+South Indian Lunch,Chicken Biryani,140
+South Indian Lunch,Chicken Pulav,145
+South Indian Lunch,Chicken Fried Biryani,166
+South Indian Lunch,Chicken Hydrabadi Biryani (Wednesday),189
+Starters Veg,Roasted Pappad,33
+Starters Veg,Masala Pappad,33
+Starters Veg,Gobi 65,68
+Starters Veg,Mushroom/Baby Corn 65,79
+Starters Veg,Paneer 65,90
+Starters Veg,Mushroom Pepper Fry,107
+Starters Veg,Paneer Pepper Fry,107
+Starters Veg,Aloo Jeera Dry,84
+Starters Veg,Paneer Tikka,145
+Soup,Sweet Corn Veg Soup,60
+Soup,Hot & Sour Veg Soup,60
+Soup,Veg Chettinad Soup,60
+Soup,Veg Clear Soup,60
+Soup,Sweet Corn Chicken Soup,62
+Soup,Hot & Sour Chicken Soup,62
+Soup,Chicken Clear Soup,62
+Soup,Chicken Chettinad Soup,62
+Soup,Darling Hotpot Soup Veg,60
+Soup,Darling Hotpot Soup N/V,62
+Breads,Plain Naan/Kulcha/Roti,30
+Breads,Butter Naan/Kulcha/Roti,37
+Breads,Garlic Naan/Roti,57
+Breads,Stuffed Naan/Kulcha,57
+Chicken Special Dry,Dragon Chicken Dry,157
+Chicken Special Dry,Lemon Chicken Dry,149
+Chicken Special Dry,Spicy Chicken Dry,157
+Chicken Special Dry,Darling Special Chicken (Dry),157
+Starters Non-Veg,Chicken Tikka,125
+Starters Non-Veg,Chicken 65,130
+Starters Non-Veg,Chicken Lollipop,132
+Starters Non-Veg,Tandoori Lollipop,143
+Starters Non-Veg,Chicken 555,172
+Starters Non-Veg,Chicken Kebab,155
+Starters Non-Veg,Tandoori Wings,143
+Starters Non-Veg,Chicken Harabara,155
+Starters Non-Veg,Chicken Hariyali Kebab,155
+Starters Non-Veg,Mint Cheese Kebab,155
+Starters Non-Veg,Akbari Kebab,160
+Starters Non-Veg,Tangri Kebab,160
+Starters Non-Veg,Kali Mirchi Kebab,155
+Starters Non-Veg,Tandoori Chicken Half,225
+Starters Non-Veg,Tandoori Chicken Full,435
+Starters Non-Veg,Tandoori Platter Half,465
+Starters Non-Veg,Tandoori Platter Full,810
+Chinese Gravy & Dry Veg,Chilly Gobi/Mushroom/Baby Corn,97
+Chinese Gravy & Dry Veg,Chilly Paneer,99
+Chinese Gravy & Dry Veg,Gobi Manchurian,103
+Chinese Gravy & Dry Veg,Mushroom Manchurian,99
+Chinese Gravy & Dry Veg,Baby Corn Manchurian,103
+Chinese Gravy & Dry Veg,Paneer Manchurian,115
+Chinese Gravy & Dry Non Veg,Chilly Chicken,120
+Chinese Gravy & Dry Non Veg,Chicken Manchurian,125
+Chinese Gravy & Dry Non Veg,Schezwan Chicken,125
+Chinese Gravy & Dry Non Veg,Ginger Chicken,145
+Chinese Gravy & Dry Non Veg,Garlic Chicken,145
+North Indian Veg,Dhal Fry,71
+North Indian Veg,Green Peas Masala,79
+North Indian Veg,Mixed Veg Curry,74
+North Indian Veg,Aloo Gobi Masala,79
+North Indian Veg,Aloo Mutter,79
+North Indian Veg,Gobi Masala,84
+North Indian Veg,Mutter Paneer,89
+North Indian Veg,Mushroom Masala,89
+North Indian Veg,Kadai Veg,79
+North Indian Veg,Veg Chettinad,89
+North Indian Veg,Baby Corn Masala,94
+North Indian Veg,Veg Hyderabadi,94
+North Indian Veg,Veg Dopiaza,92
+North Indian Veg,Paneer Butter Masala,96
+North Indian Veg,Kadai Paneer,99
+North Indian Veg,Veg Hariyali Masala,105
+North Indian Veg,Paneer Chat Pot,124
+North Indian Non-Veg,Darling Egg Masala,109
+North Indian Non-Veg,Butter Chicken Masala,130
+North Indian Non-Veg,Chicken Tikka Masala,130
+North Indian Non-Veg,Chicken Makhani,135
+North Indian Non-Veg,Chicken Rogan Josh,145
+North Indian Non-Veg,Kadai Chicken,145
+North Indian Non-Veg,Chicken Hyderabadi,145
+North Indian Non-Veg,Malabar Chicken,145
+North Indian Non-Veg,Chicken Chettinad,145
+North Indian Non-Veg,Chicken Dopiaza,145
+North Indian Non-Veg,Chicken Hariyali Masala,144
+North Indian Non-Veg,Chicken Punjabi,145
+North Indian Non-Veg,Darling Spl Chicken,155
+Chinese Rice & Noodles,Veg Fried Rice,75
+Chinese Rice & Noodles,Veg Noodles,75
+Chinese Rice & Noodles,Mushroom Fried Rice,97
+Chinese Rice & Noodles,Mushroom Noodles,100
+Chinese Rice & Noodles,Paneer Fried Rice,105
+Chinese Rice & Noodles,Paneer Noodles,106
+Chinese Rice & Noodles,Egg Fried Rice,85
+Chinese Rice & Noodles,Egg Noodles,85
+Chinese Rice & Noodles,Chicken Fried Rice,110
+Chinese Rice & Noodles,Chicken Noodles,110
+Chinese Rice & Noodles,Ginger Chicken Rice,130
+Chinese Rice & Noodles,Ginger Chicken Noodles,130
+Chinese Rice & Noodles,Darling Triple Rice (Veg),126
+Chinese Rice & Noodles,Darling Triple Rice (NV),155
+Chinese Rice & Noodles,Schezwan Veg Fried Rice,97
+Chinese Rice & Noodles,Schezwan Veg Noodles,97
+Chinese Rice & Noodles,Schezwan Egg Fried Rice,106
+Chinese Rice & Noodles,Schezwan Egg Noodles,106
+Chinese Rice & Noodles,Schezwan Chicken Fried Rice,129
+Chinese Rice & Noodles,Schezwan Chicken Noodles,129
+Chinese Rice & Noodles,Schezwan Triple Rice (Veg),126
+Chinese Rice & Noodles,Schezwan Triple Rice (NV),155
+Chinese Rice & Noodles,American Chopsy Veg,110
+Chinese Rice & Noodles,Darling Spl Chopsy Veg,125
+Chinese Rice & Noodles,American Chopsy Non Veg,133
+Chinese Rice & Noodles,Darling Spl Chopsy Non Veg,133
+Pizza,Simple Veg Pizza,135
+Pizza,Cottage Pizza,145
+Pizza,Hawaiian Veg Pizza,145
+Pizza,Mexican Pizza,145
+Pizza,Fruit Pizza,120
+Pizza,Chilly Cheese Pizza,135
+Pizza,Scrambled Egg Pizza,135
+Pizza,Spicy Potato Pizza,145
+Pizza,Triple Cheese Pizza,145
+Pizza,Corn Cheese Pizza,155
+Pizza,Chicken Pizza,170
+Pizza,Mushroom Chicken Pizza,183
+Pizza,Chicken Tikka Pizza,197
+Sandwichza,Veg Sandwichza,151
+Sandwichza,Paneer Sandwichza,168
+Sandwichza,Egg Sandwichza,168
+Sandwichza,Chicken Sandwichza,180
+Sandwichza,Chicken Tikka Sandwichza,214
+Darling Special,Chilly Cheese Toast (Egg),120
+Darling Special,Chicken Cheese Toast,137
+Darling Special,Choco Brownie Sandwich,105
+Darling Special,Chilly Cheese Toast (Veg),109
+Pasta,Veg Pasta,105
+Pasta,Egg Pasta,115
+Pasta,Cheese Pasta,132
+Pasta,Paneer Pasta,128
+Pasta,Mushroom Pasta,126
+Pasta,Chilly Cheese Pasta,132
+Pasta,Double Egg Pasta,132
+Pasta,Corn Cheese Pasta,132
+Pasta,Chicken Pasta,135
+Spl Omelette,Cheese Omelette,73
+Spl Omelette,Chilli Cheese Omelette,73
+Spl Omelette,French Omelette,74
+Spl Omelette,Mexican Omelette,75
+Spl Omelette,Tomato Cheese Omelette,73
+Spl Omelette,Mushroom Cheese Omelette,75
+Spl Omelette,Garlic Cheese Omelette,73
+Spl Omelette,Darling Spl Omelette,86
+Spl Omelette,Chicken Cheese Omelette,114
+Salad,Onion Salad,51
+Salad,Green Salad,51
+Salad,Fruit Salad,57
+Salad,Onion Raitha,63
+Salad,Mixed Veg Raitha,63
+Fresh Juice,Fresh Lemon,35
+Fresh Juice,Mint Lime,49
+Fresh Juice,Ginger Lime,49
+Fresh Juice,Papaya,47
+Fresh Juice,Amla,47
+Fresh Juice,Grapes,65
+Fresh Juice,Mosambi,65
+Fresh Juice,Apple,75
+Fresh Juice,Pomegranate,75
+Fresh Juice,Orange Juice,75
+Fresh Juice,Watermelon,47
+Fresh Juice,Pineapple,60
+Lassi,Lassi,57
+Lassi,Mango Lassi,84
+Lassi,Strawberry Lassi,84
+Lassi,Butter Milk,36
+Ice Cream,Vanilla,63
+Ice Cream,Strawberry,68
+Ice Cream,Chocolate,68
+Ice Cream,Mango,68
+Ice Cream,Pista,68
+Ice Cream,Butter Scotch,68
+Ice Cream,Black Currant,76
+Mojito,Kiwi Mojito,86
+Mojito,Orange Mojito,86
+Mojito,Strawberry Mojito,86
+Mojito,Black Currant Mojito,86
+Starters,Potato Wedges,79
+Starters,Potato Pops,79
+Starters,French Fries,76
+Starters,Veg Burger,86
+Starters,Egg Burger,100
+Starters,Chicken Burger,114
+Flavoured Soda,Lemon Soda,57
+Flavoured Soda,Black Currant Soda,63
+Flavoured Soda,Kiwi Soda,63
+Flavoured Soda,Strawberry Soda,63
+Flavoured Soda,Orange Soda,63
+Flavoured Soda,Jaljeera Soda,63
+Milkshakes,Coco Coffee,94
+Milkshakes,Good Day Milkshake,97
+Milkshakes,Kiwi Milkshake,95
+Milkshakes,Dates Milkshake,99
+Milkshakes,Oreo Milkshake,111
+Milkshakes,Choco Oreo Milkshake,114
+Milkshakes,Vanilla Milkshake,95
+Milkshakes,Strawberry Milkshake,95
+Milkshakes,Chocolate Milkshake,95
+Milkshakes,Mango Milkshake,103
+Milkshakes,Butter Scotch Milkshake,95
+Milkshakes,Pista Milkshake,99
+Milkshakes,Blackcurrant Milkshake,95
+Cold Beverages,Cold Coffee,63
+Cold Beverages,Badam Milk,57
+Cold Beverages,Cold Boost,86
+Cold Beverages,Cold Horlicks,86
+Spl Ice Cream,Fried Ice Cream,97
+Spl Ice Cream,Hot Fudge Nut Sundae (Vanilla),111
+Spl Ice Cream,Chocolava,127
+Spl Ice Cream,Hot Fudge Nut Sundae (Chocolate),126
+Spl Ice Cream,Black Forest Ice Cream,132
+Spl Ice Cream,Hot Fudge Sundae (Trio),126
+Spl Ice Cream,Darling Spl Ice Cream,172
+Spl Ice Cream,Rocky Road Ice Cream,149
+Spl Ice Cream,Almond Pista Delight,155
+Spl Ice Cream,7 Star Ice Cream,183
+Spl Ice Cream,Sizzling Brownie,189
+Spl Ice Cream,Choco Brownie Ice Cream,125
+Chat,Pav Bhaji,74
+Sandwich Veg Trim,Veg Sandwich,45
+Sandwich Veg Trim,Veg Club Sandwich,57
+Sandwich Veg Trim,Fruit Sandwich,67
+Sandwich Veg Trim,Potato Sandwich,69
+Sandwich Veg Trim,Cheese Sandwich,67
+Sandwich Veg Trim,Paneer Sandwich,71
+Sandwich Veg Trim,Veg Cheese Sandwich,84
+Sandwich Veg Trim,Mix Veg Sandwich,76
+Sandwich Veg Trim,Chilly Cheese Sandwich,86
+Sandwich Veg Trim,Mushroom Sandwich,80
+Sandwich Veg Trim,Chilly Paneer Sandwich,86
+Sandwich Veg Trim,Fruit N Cheese Sandwich,86
+Sandwich Veg Trim,Garlic Mushroom Sandwich,83
+Sandwich Veg Trim,Paneer Cheese Sandwich,103
+Sandwich Veg Trim,Tomato Garlic Cheese Sandwich,97
+Sandwich Veg Trim,Mushroom Cheese Sandwich,103
+Sandwich Veg Trim,Triple Cheese Sandwich,114
+Sandwich Veg Trim,Cheese Club House,109
+Sandwich Veg Trim,Veg Club House,102
+Sandwich Veg Trim,Corn Cheese Sandwich,103
+Sandwich Veg Trim,Potato Cheese Sandwich,96
+Sandwich Veg Trim,Cheese Club Sandwich,78
+Sandwich Eggterian,Egg Sandwich,57
+Sandwich Eggterian,Egg Club Sandwich,78
+Sandwich Eggterian,Bread Omelette,68
+Sandwich Eggterian,Scrambled Egg Sandwich,97
+Sandwich Eggterian,Egg & Cheese Sandwich,96
+Sandwich Eggterian,Double Egg Sandwich,91
+Sandwich Eggterian,Mushroom Egg Sandwich,96
+Sandwich Eggterian,Egg Club House Sandwich,99
+Sandwich Eggterian,Scrambled Egg Cheese,114
+Sandwich Eggterian,French Omelette Sandwich,97
+Sandwich Eggterian,Mushroom Egg Cheese,114
+Sandwich Eggterian,Egg in Triple Cheese Sandwich,120
+Sandwich Eggterian,Chicken Sandwich,134
+Sandwich Eggterian,Chicken Tikka Sandwich,160
+Veg Combos,Panneer Burger + Nachos + Pepsi,154
+Veg Combos,Veg Burger + Nachos + Pepsi,144
+Veg Combos,Veg Sub + Nachos + Pepsi,174
+Veg Combos,Veg Pizza + Pepsi,154
+Veg Combos,Veg Cheese Pasta + Nachos + Lemon Mojito,184
+Veg Combos,Panneer Buritos + Nachos,124
+Veg Combos,Corn Buritos + Nachos,114
+Veg Combos,Panneer Tikka Loaded Fries + Pepsi,154
+Veg Combos,Panneer Tikka Sandwich + Nachos + Pepsi,124
+Veg Combos,Cheesy Veggie Nachos + Pepsi,194
+Veg Combos,Cheesy Panneer Nachos + Pepsi,204
+Veg Combos,Panneer Frankie + Pepsi,184
+Veg Combos,Veg Roll + Nachos + Chocolate Milk Shake,149
+Non-Veg Lunch Combos,Fried Chicken Burger + French Fries + Pepsi,194
+Non-Veg Lunch Combos,Fried Chicken Sub + French Fries + Pepsi,224
+Non-Veg Lunch Combos,Mutton Burger + Nachos + Pepsi,184
+Non-Veg Lunch Combos,Chicken Buritos + Nachos,134
+Non-Veg Lunch Combos,Chicken Pizza + Pepsi,224
+Non-Veg Lunch Combos,Chicken Pasta + Nachos + Lemon Mojito,194
+Non-Veg Lunch Combos,Cheesy Chicken Nachos + Pepsi,234
+Non-Veg Lunch Combos,Chicken Frankie + Pepsi,174
+Non-Veg Lunch Combos,Chicken Tikka Sandwich + Nachos + Pepsi,144
+Non-Veg Lunch Combos,Chicken Roll + Nachos + Chocolate Milk Shake,159
+Non-Veg Lunch Combos,Chicken Tikka Loaded French Fries + Pepsi,164
+Puffs,Veg Puff,20
+Puffs,Egg Puff,23
+Puffs,Chicken Puff,26
+Puffs,Mushroom Puff,23
+Puffs,Paneer Puff,23
+Cakes & Pastries,Apple Tart,50
+Cakes & Pastries,Choco Mud Pie,50
+Cakes & Pastries,Tres Leches,60
+Cakes & Pastries,Choco Filing Cake,35
+Cakes & Pastries,Red Velvet Filling Cup Cake,30
+Cakes & Pastries,Rasamalai Mousse Cake,65
+Cakes & Pastries,Oreo Mousse Cake,65
+Cakes & Pastries,Napolien Mousse,60
+Cakes & Pastries,Rainbow Mousse,60
+Cakes & Pastries,Jamoon Mousse,60
+Cakes & Pastries,Kesar Kulfi Mousse,75
+Cakes & Pastries,Brownie Caramel Jar Cake,130
+Cakes & Pastries,Red Velvet With Gulkand Jar,120
+Cakes & Pastries,Death by Chocolate,65
+Cakes & Pastries,Choco Brownie Sandwich,70
+Cakes & Pastries,Begian Choco Truffle,110
+Cakes & Pastries,Choco Truffle,70
+Cakes & Pastries,Black Forest,55
+Cakes & Pastries,White Forest,55
+Cakes & Pastries,Rainbow Pastry,75
+Cakes & Pastries,Choco Chips Pastry,70
+Cakes & Pastries,Butter Scotch Pastry,60
+Cakes & Pastries,Blueberry Pastry,75
+Cakes & Pastries,Russian Honey Cake,75
+Cakes & Pastries,Pista Choc Cake,85
+Cakes & Pastries,Red Velvet,75
+Cakes & Pastries,Royal Butterscotch,80
+Cakes & Pastries,Choco Almond,80
+Cakes & Pastries,Mango Rasamalai,85
+Cakes & Pastries,Pine Apple Pastry,55
+Cakes & Pastries,Hazlenut Pastry,85
+Cakes & Pastries,Choco Rich Pastry,90
+Cakes & Pastries,Dutch Truffle,85
+Cakes & Pastries,Oreo Cheese Cake,80
+Cakes & Pastries,Mango Cheese Cake,80
+Cakes & Pastries,Blueberry Cheese Cake,80
+Cakes & Pastries,Strawberry Cheese Cake,80
+Cakes & Pastries,Newyork Baking Cheese Cake,90
+Cakes & Pastries,Cream Bun,25
+Cakes & Pastries,Bun Butter Jam,25
+Cakes & Pastries,Caramel Butter Bun,20
+Cakes & Pastries,Filling Donut,60
+Cakes & Pastries,Donut,50
+Cakes & Pastries,Bread Halwa,18
+Cakes & Pastries,Choco Lava Cake,60
+Cakes & Pastries,Chocolate Croissant,60
+Cakes & Pastries,Chinnamon Roll,45
+Cakes & Pastries,Honey Bun,18
+Cakes & Pastries,Banana Cake,20
+Cakes & Pastries,Walnut Cake,20
+Cakes & Pastries,Honey Walnut Cake,25
+Cakes & Pastries,Carrot Cake,20
+Cakes & Pastries,Ghee Cake,25
+Cakes & Pastries,Pudding Cake,25
+Cakes & Pastries,Jam Roll,20
+Cakes & Pastries,Honey Cake,30
+Cakes & Pastries,Japanees Cake,25
+Cakes & Pastries,Marble Cake,20
+Cakes & Pastries,Plain Cake,20
+Cakes & Pastries,Plum Cake,30
+Cakes & Pastries,Fruit Cake,30
+Cakes & Pastries,Brownie,60
+Cakes & Pastries,Nutty Brownie,60
+Cakes & Pastries,Hazlenut Brownie,70
+Cakes & Pastries,Choco Overload Brownie,65
+Cakes & Pastries,Korean Bun Sweet,55
+Cakes & Pastries,Korean Bun Mushroom,50
+Cakes & Pastries,Korean Bun Paneer,60
+Cakes & Pastries,Korean Bun Chicken,65
+Cakes & Pastries,Korean Bun,50
+Cookies (Per 1 Kg),Salt Cookies,400
+Cookies (Per 1 Kg),Almond Cookies,600
+Cookies (Per 1 Kg),Cashew Cookies,550
+Cookies (Per 1 Kg),Ghee Cookies,600
+Cookies (Per 1 Kg),Elaichi Cookies,550
+Cookies (Per 1 Kg),Sweet and Salt Cookies,500
+Cookies (Per 1 Kg),Milk Cookies,500
+Cookies (Per 1 Kg),Seeri Cookies,600
+Cookies (Per 1 Kg),Cream Cookies,500
+Cookies (Per 1 Kg),Choco Cream Cookies,500
+Cookies (Per 1 Kg),Chess Cookies,500
+Cookies (Per 1 Kg),Nila Cookies,500
+Cookies (Per 1 Kg),Jam Cookies,550
+Cookies (Per 1 Kg),Badam Cookies,600
+Cookies (Per 1 Kg),Pista Cookies,650
+Cookies (Per 1 Kg),Choco Cookies,550
+Cookies (Per 1 Kg),Cashew Rava Cookies,550
+Cookies (Per 1 Kg),Coconut Cookies,500
+Cookies (Per 1 Kg),Wheat Cookies,500
+Cookies (Per 1 Kg),Ragi Cookies,500

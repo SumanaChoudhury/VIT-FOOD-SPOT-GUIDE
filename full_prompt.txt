@@ -1,0 +1,925 @@
+<USER_REQUEST>
+I have attached a reference DOCX named:
+
+**Project-web programming template.docx**
+
+Use this document as the **PRIMARY FORMAT AND STRUCTURAL REFERENCE** for generating my project report.
+
+The report must follow the same overall academic style, ordering, simplicity, cover-page structure, chapter numbering, and Table of Contents format as the reference document.
+
+Do NOT make the report look like a generic AI-generated corporate report.
+
+Do NOT invent a completely different report structure.
+
+---
+
+# PROJECT DETAILS
+
+## Project Title
+
+**VIT FOOD SPOT GUIDE: AI-POWERED, LOCATION-BASED CAMPUS FOOD DISCOVERY WEB APPLICATION**
+
+Use this as the project title throughout the report.
+
+The project is a web application developed for **VIT Vellore campus students** to discover food spots, menus, dishes, locations, hostel food, academic-block food, student feedback, favorites, and food recommendations.
+
+The project is primarily a **Web Programming / Web Application project**.
+
+The main focus of the report must remain the actual **VIT Food Spot Guide application**, not a theoretical explanation of the syllabus.
+
+---
+
+# 1. FOLLOW THE REFERENCE DOCUMENT'S FORMAT
+
+The uploaded reference has the following structure:
+
+### Cover Page
+
+- Course Code / Course Title
+- Slot
+- Project Title
+- Student registration number and name
+- Under the Supervision of
+- Project Guide Name
+- School of Computer Science and Engineering (SCOPE)
+- B.Tech.
+- Computer Science and Engineering
+- Programme/specialization
+- VIT / SCOPE details
+- Month and Year
+
+Reproduce this structure.
+
+Use placeholders where the exact information is not available:
+
+`<COURSE CODE / COURSE TITLE>`
+
+`<SLOT>`
+
+`<REG. NO.>`
+
+`<STUDENT NAME>`
+
+`<PROJECT GUIDE NAME>`
+
+Do NOT fabricate registration numbers, guide names, slot, or other academic details.
+
+Use:
+
+**October 2026**
+
+for the month/year unless the existing project information indicates otherwise.
+
+Use the VIT logo from the reference/template if it is embedded and legally/technically reusable within the report.
+
+---
+
+# 2. ABSTRACT
+
+Create a proper academic abstract for the actual project.
+
+Explain:
+
+- The problem of finding food inside a large VIT campus.
+- Difficulty in knowing which food spots are available at different locations.
+- Difficulty finding particular dishes.
+- Difficulty comparing food based on location, budget, category and dietary preference.
+- The purpose of VIT Food Spot Guide.
+- Location-based food discovery.
+- Menu search.
+- Hostel and academic-block food discovery.
+- Student feedback.
+- Favorites.
+- AI chatbot.
+- Database-backed information.
+- Web technologies used.
+- How the system improves campus food discovery.
+
+Keep it academic and concise.
+
+Do not exaggerate the project as a commercial product.
+
+---
+
+# 3. TABLE OF CONTENTS
+
+Follow the reference document's Table of Contents style.
+
+Use this structure:
+
+**ABSTRACT**
+
+**1. INTRODUCTION**
+
+**2. PROJECT DESCRIPTION AND GOALS**
+
+**2.1 PROJECT PLAN**
+
+**3. TECHNICAL SPECIFICATION**
+
+**3.1 REQUIREMENTS**
+
+**3.1.1 Functional**
+
+**3.1.2 Non-Functional**
+
+**3.2 TECHNOLOGIES USED**
+
+**3.3 SYSTEM SPECIFICATION**
+
+**4. DESIGN APPROACH AND DETAILS**
+
+**4.1 DESIGN**
+
+**4.1.1 System Architecture**
+
+**4.1.2 Data Flow Diagram**
+
+**4.1.3 Use Case Diagram**
+
+**4.1.4 Database Design**
+
+**4.1.5 User Interface Design**
+
+**5. CODE**
+
+**5.1 Frontend Implementation**
+
+**5.2 Backend Implementation**
+
+**5.3 Database Implementation**
+
+**5.4 AI Chatbot Implementation**
+
+**5.5 Authentication and Security**
+
+**6. SCREENSHOTS**
+
+**7. REFERENCES**
+
+Page numbers must be generated automatically after the report is complete.
+
+Do not manually guess page numbers.
+
+---
+
+# 4. CHAPTER 1 — INTRODUCTION
+
+Write the Introduction specifically about the VIT Food Spot Guide.
+
+Include:
+
+### 1.1 Background
+
+Explain campus food discovery at VIT Vellore.
+
+### 1.2 Problem Statement
+
+Explain problems such as:
+
+- Food spots being distributed across campus.
+- Students not knowing what is available at each location.
+- Difficulty finding a particular dish.
+- Difficulty finding food near academic blocks/hostels.
+- Lack of a centralized campus food directory.
+- Difficulty discovering student-recommended food.
+
+### 1.3 Motivation
+
+Explain why the project was developed.
+
+### 1.4 Objectives
+
+Include:
+
+- Centralize campus food information.
+- Enable food-spot discovery.
+- Enable dish/menu search.
+- Provide location-based discovery.
+- Support hostel and academic-block discovery.
+- Provide budget and dietary filtering.
+- Allow student feedback.
+- Allow favorites.
+- Provide AI-assisted food discovery.
+
+### 1.5 Scope
+
+Clearly define what the current application covers.
+
+---
+
+# 5. CHAPTER 2 — PROJECT DESCRIPTION AND GOALS
+
+Describe the actual implemented application.
+
+Explain that the system provides the following main sections:
+
+## Explore
+
+Allows users to:
+
+- Browse food spots.
+- Search food spots and dishes.
+- Filter by location.
+- Filter by vegetarian/non-vegetarian.
+- Filter by budget.
+- Filter by category.
+- Open food-spot menus.
+
+## Men's Hostel
+
+Shows food options available around Men's Hostel.
+
+Include actual implemented food spots such as:
+
+- One Food World
+- Just Bake
+- Nescafe Men's Hostel
+
+## Ladies' Hostel
+
+Include actual implemented food spots such as:
+
+- Flora
+- Aunty's Mess
+- Nescafe Ladies' Hostel
+- Fruit Juice Shop
+
+## Academic Blocks
+
+Explain block-based discovery.
+
+Include implemented blocks such as:
+
+- PRP — **Periyar Research Park**
+- SJT
+- MGB
+- TT
+- GDN
+- SMV
+
+The report must use:
+
+**PRP — Periyar Research Park**
+
+Do NOT write Periyar EVR.
+
+## AI Chatbot
+
+Explain the campus food assistant.
+
+It helps users ask natural-language questions such as:
+
+- Where can I get biryani?
+- What is near PRP?
+- What food is available near SJT?
+- Where can I get coffee?
+- What can I get under ₹100?
+- What is available in Men's Hostel?
+
+Explain that responses are grounded in available campus food data.
+
+## Feedback
+
+Explain student ratings/reviews.
+
+## Favorites
+
+Explain saving food spots/dishes for later.
+
+---
+
+# 6. 2.1 PROJECT PLAN
+
+Create a realistic project development plan.
+
+Example phases:
+
+1. Requirement analysis
+2. Dataset collection
+3. Data preprocessing
+4. Database design
+5. Backend development
+6. Frontend development
+7. Search/filter implementation
+8. AI chatbot implementation
+9. Authentication
+10. Feedback/favorites
+11. Testing
+12. UI refinement
+13. Final documentation
+
+Present it as a simple academic project plan/table.
+
+Do not claim activities that were not actually performed.
+
+---
+
+# 7. CHAPTER 3 — TECHNICAL SPECIFICATION
+
+## 3.1 Requirements
+
+### 3.1.1 Functional Requirements
+
+Include:
+
+1. User registration/login.
+2. VIT student email validation.
+3. Food-spot browsing.
+4. Menu viewing.
+5. Dish search.
+6. Food-spot search.
+7. Location filtering.
+8. Dietary filtering.
+9. Budget filtering.
+10. Category filtering.
+11. Hostel food discovery.
+12. Academic-block discovery.
+13. AI chatbot.
+14. Feedback submission.
+15. Review viewing.
+16. Favorites.
+17. Admin functionality where implemented.
+18. Database-backed menu information.
+
+### 3.1.2 Non-Functional Requirements
+
+Include:
+
+- Usability
+- Responsiveness
+- Performance
+- Security
+- Data consistency
+- Maintainability
+- Scalability
+- Input validation
+- Authentication security
+- Protection against XSS/injection
+- Responsive desktop/tablet/mobile design
+
+Do not invent performance measurements unless they are actually verified.
+
+---
+
+# 8. 3.2 TECHNOLOGIES USED
+
+Document the technologies ACTUALLY present in the final project.
+
+Use the actual repository to determine the final stack.
+
+Expected technologies include:
+
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- jQuery where actually used
+- Responsive design
+
+### Backend
+
+- Node.js
+- Express.js
+
+### Database
+
+- MySQL
+
+### Database Connectivity
+
+- MySQL connectivity through the implemented database layer.
+- JDBC/Java JDBC demonstration where actually implemented.
+
+### AI
+
+- Grok API if configured and implemented.
+
+### Development
+
+- VS Code / Antigravity
+- Git or other tools only if actually used.
+
+IMPORTANT:
+
+Do not claim MongoDB is the primary database.
+
+The final project uses **MySQL as the relational database**.
+
+Do not describe SQLite as the production database if it exists only as a fallback/testing mechanism.
+
+Clearly distinguish between:
+
+- actual application database
+- academic/demo JDBC code
+- fallback/testing components
+
+---
+
+# 9. 3.3 SYSTEM SPECIFICATION
+
+Include:
+
+### Hardware Requirements
+
+- Processor
+- RAM
+- Storage
+- Internet connection
+
+Keep requirements realistic.
+
+### Software Requirements
+
+- Windows/Linux/macOS
+- Node.js
+- npm
+- MySQL
+- Java/JDK if required by academic JDBC component
+- Web browser
+- Development IDE
+
+Do not invent exact versions unless they are present in the project.
+
+---
+
+# 10. CHAPTER 4 — DESIGN APPROACH AND DETAILS
+
+This chapter must be visually strong.
+
+Create diagrams based on the ACTUAL application.
+
+Do not create generic diagrams unrelated to the implementation.
+
+## 4.1 DESIGN
+
+Explain the overall architecture.
+
+Suggested architecture:
+
+**User**
+
+↓
+
+**Frontend Web Interface**
+
+↓
+
+**Node.js / Express Backend**
+
+↓
+
+**API Layer**
+
+↓
+
+**MySQL Database**
+
+↓
+
+**Food Spots / Menus / Users / Feedback / Favorites**
+
+AI chatbot should be represented separately as:
+
+**User Query**
+
+↓
+
+**Chatbot Backend**
+
+↓
+
+**Campus Database / Relevant Food Data**
+
+↓
+
+**Grok API when configured**
+
+↓
+
+**Grounded Response**
+
+Do not imply that Grok directly owns or stores the campus database.
+
+---
+
+# 11. DATA FLOW DIAGRAM
+
+Create a proper academic DFD.
+
+Show:
+
+### User
+
+→ Login/Register
+
+→ Explore/Search
+
+→ Filters
+
+→ Food Spot
+
+→ Menu
+
+→ Feedback
+
+→ Favorites
+
+→ AI Chatbot
+
+Backend communicates with MySQL.
+
+Admin communicates with management functions where implemented.
+
+Include appropriate data stores.
+
+The diagram should be clean and readable.
+
+---
+
+# 12. USE CASE DIAGRAM
+
+Create a proper use case diagram.
+
+Actors:
+
+### Student/User
+
+Use cases:
+
+- Register
+- Login
+- Browse Food Spots
+- Search Food
+- Filter Food
+- View Menu
+- Find Food Near Location
+- Ask AI Assistant
+- Submit Feedback
+- View Reviews
+- Save Favorites
+
+### Admin
+
+Use cases based only on the actual implemented admin functionality.
+
+Do not invent admin capabilities.
+
+---
+
+# 13. DATABASE DESIGN
+
+Document the actual relational database.
+
+Include actual tables such as:
+
+- locations
+- food_spots
+- menu_items
+- users
+- feedback
+- favorites
+
+Create a simple ER/database relationship diagram.
+
+Explain primary keys and important relationships.
+
+Do not fabricate columns.
+
+Inspect the actual schema before documenting it.
+
+---
+
+# 14. USER INTERFACE DESIGN
+
+Explain the actual UI.
+
+Include:
+
+- Explore page
+- Hostel page
+- Academic Blocks page
+- AI Chat page
+- Feedback page
+- Favorites page
+- Login/Register
+- Admin interface where applicable
+
+The current UI uses a **Forest Green + Warm Ivory visual system with light/dark mode support**.
+
+Document the actual final design rather than describing an older blue/white version.
+
+---
+
+# 15. CHAPTER 5 — CODE
+
+This chapter must contain **selected important code snippets**, not every source file.
+
+Use actual code from the project.
+
+## 5.1 Frontend
+
+Include representative snippets for:
+
+- Search
+- Filters
+- Food-spot rendering
+- Menu opening
+- Favorites
+
+## 5.2 Backend
+
+Include:
+
+- Express route
+- Controller
+- API request handling
+
+## 5.3 Database
+
+Include actual MySQL database interaction.
+
+Include relevant SQL/JDBC/database code where appropriate.
+
+## 5.4 AI Chatbot
+
+Include the actual implemented chatbot flow.
+
+Show:
+
+User query
+
+→ backend processing
+
+→ data retrieval
+
+→ AI/fallback
+
+→ response.
+
+Never expose API keys in the report.
+
+Replace actual secrets with:
+
+`GROK_API_KEY`
+
+or:
+
+`<API KEY STORED IN ENVIRONMENT VARIABLE>`
+
+## 5.5 Security
+
+Explain actual implementation of:
+
+- password hashing
+- authentication
+- input validation
+- sanitization
+- parameterized database queries
+- server-side API keys
+- session/cookie handling if implemented
+
+Do not claim security mechanisms that are not present.
+
+---
+
+# 16. CHAPTER 6 — SCREENSHOTS
+
+This section is VERY IMPORTANT.
+
+Use screenshots from the actual running project.
+
+Include screenshots of:
+
+1. Login/Register
+2. Explore page
+3. Search results
+4. Food-spot cards
+5. Food-spot menu
+6. Men's Hostel
+7. Ladies' Hostel
+8. Academic Blocks
+9. AI Chatbot
+10. Feedback
+11. Student Reviews
+12. Favorites
+13. Admin page if applicable
+14. Light mode
+15. Dark mode
+
+Each screenshot must have:
+
+**Figure X: <Meaningful Description>**
+
+Example:
+
+**Figure 6.1: Explore page showing food-spot search and filters**
+
+Do NOT use fake UI screenshots.
+
+Do NOT create screenshots that don't correspond to the actual application.
+
+If screenshots already exist in the project/workspace, use them.
+
+If screenshots need to be captured from the running application, do so if the environment allows it.
+
+---
+
+# 17. CHAPTER 7 — REFERENCES
+
+Include proper references for:
+
+- Technologies actually used
+- Node.js
+- Express.js
+- MySQL
+- Java/JDBC if used
+- HTML/CSS/JavaScript
+- Grok/API documentation if used
+- Other actual external sources used during development
+
+Do not fabricate research papers or citations.
+
+Use consistent citation formatting.
+
+---
+
+# 18. IMPORTANT DATA ACCURACY RULES
+
+This report must reflect the ACTUAL project.
+
+Never invent:
+
+- restaurants
+- menus
+- prices
+- locations
+- user reviews
+- statistics
+- test results
+- technologies
+- screenshots
+- database fields
+- API endpoints
+- security features
+
+Inspect the current project files before writing the report.
+
+If something cannot be verified from the project, either:
+
+1. leave a clearly marked placeholder, or
+2. omit it.
+
+Do NOT silently make it up.
+
+---
+
+# 19. REPORT STYLE
+
+The reference document is simple and academic.
+
+Follow that style.
+
+Use:
+
+- Times New Roman or the closest font used by the reference
+- Academic headings
+- Numbered chapters
+- Numbered subsections
+- Justified paragraphs
+- Proper spacing
+- Page numbers
+- Figure captions
+- Table captions
+- Consistent margins
+- Clean black/dark academic text
+
+Do NOT make it look like:
+
+- a startup pitch deck
+- a marketing brochure
+- a corporate annual report
+- an AI-generated glossy document
+
+It should look like a **VIT student project report**.
+
+---
+
+# 20. COVER PAGE — FOLLOW THE REFERENCE CLOSELY
+
+The reference cover page is centered and has:
+
+Course information at the top
+
+↓
+
+Project title
+
+↓
+
+Student information
+
+↓
+
+Under the Supervision of
+
+↓
+
+Project Guide
+
+↓
+
+School of Computer Science and Engineering
+
+↓
+
+Degree/programme information
+
+↓
+
+VIT/SCOPE identity
+
+↓
+
+Month and Year
+
+Recreate this layout as closely as practical.
+
+Do not redesign the cover page into a modern style.
+
+---
+
+# 21. IMPORTANT — USE THE ACTUAL PROJECT
+
+Before generating the report:
+
+1. Inspect the entire project directory.
+2. Identify frontend files.
+3. Identify backend files.
+4. Identify database/schema files.
+5. Identify API routes.
+6. Identify controllers.
+7. Identify chatbot implementation.
+8. Identify authentication.
+9. Identify feedback/favorites.
+10. Identify existing screenshots.
+11. Identify actual technologies.
+12. Identify actual test results.
+13. Identify actual food-spot/menu data.
+
+Then write the report based on those findings.
+
+---
+
+# 22. FINAL REPORT LENGTH
+
+Create a complete academic project report.
+
+Do not make it artificially short.
+
+Aim for approximately:
+
+**25–35 pages**
+
+depending on the amount of actual screenshots, diagrams, code and project material available.
+
+The report should have enough detail for a project evaluation/viva.
+
+Do not pad the report with meaningless text.
+
+---
+
+# 23. FINAL VALIDATION
+
+Before completing the report, verify:
+
+- Cover page matches reference structure.
+- Abstract exists.
+- Table of Contents exists.
+- Chapter numbering is correct.
+- Page numbers are correct.
+- Figures are numbered.
+- Tables are numbered.
+- All screenshots are from the actual project.
+- No fake data was introduced.
+- No fake references were introduced.
+- Project title is consistent everywhere.
+- PRP is written as **Periyar Research Park**.
+- MySQL is represented correctly.
+- Food Spot Guide remains the central project.
+- AI chatbot is documented accurately.
+- Actual UI is documented.
+- Code snippets come from the actual project.
+- References are consistent.
+- No placeholder remains where actual information is available.
+
+Generate the final report as a properly formatted **DOCX**.
+
+Also create a PDF version if the environment supports reliable PDF conversion.
+
+The final output should be ready for submission after I fill in any remaining academic placeholders such as registration number, student name, slot and project guide.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-24T23:54:10+05:30.
+</ADDITIONAL_METADATA>

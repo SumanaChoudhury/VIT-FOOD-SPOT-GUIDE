@@ -1,0 +1,29 @@
+<!-- foodspots.dtd: Document Type Definition for VIT Food Spot Guide -->
+<!ELEMENT campusFoodGuide (metadata, foodSpots)>
+<!ELEMENT metadata (generatedAt, totalSpots, totalDishes, campus)>
+<!ELEMENT generatedAt (#PCDATA)>
+<!ELEMENT totalSpots (#PCDATA)>
+<!ELEMENT totalDishes (#PCDATA)>
+<!ELEMENT campus (#PCDATA)>
+
+<!ELEMENT foodSpots (foodSpot*)>
+<!ELEMENT foodSpot (name, slug, zone, location, menuStatus, mustTryItem, categories, menu)>
+<!ATTLIST foodSpot id CDATA #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT slug (#PCDATA)>
+<!ELEMENT zone (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT menuStatus (#PCDATA)>
+<!ELEMENT mustTryItem (#PCDATA)>
+
+<!ELEMENT categories (category*)>
+<!ELEMENT category (#PCDATA)>
+
+<!ELEMENT menu (dish*)>
+<!ELEMENT dish (name, price, classification, category, counter?)>
+<!ATTLIST dish id CDATA #REQUIRED>
+
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT classification (#PCDATA)>
+<!ELEMENT counter (#PCDATA)>

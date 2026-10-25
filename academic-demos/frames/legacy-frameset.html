@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+  <title>Legacy HTML Frameset Demonstration (Historical Reference)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<!--
+  ACADEMIC NOTE ON OBSOLETE TECHNOLOGY:
+  HTML4 <frameset> was deprecated in HTML4.01 and completely removed in HTML5.
+  It divided the browser window into independent rectangular sub-windows, each loading a separate URL.
+  
+  Why <frameset> became obsolete:
+  1. SEO and Deep-linking breakdown: Users could not bookmark or link to a specific sub-state.
+  2. Browser history & Back-button failure: Navigating within a frame broke the browser back-button.
+  3. Accessibility and Screen-reader failures: Screen readers could not navigate disjointed frame contexts.
+  4. Mobile / Responsive Incompatibility: Fixed pixel or percentage rows/cols could not adapt to mobile viewports.
+  5. Security vulnerabilities: Cross-frame scripting and clickjacking attacks.
+-->
+<frameset rows="90px, *" frameborder="1" border="2" framespacing="0">
+  <frame src="data:text/html;charset=utf-8,%3Ch2%20style='font-family:sans-serif;color:%23c0392b;margin:10px'%3EVIT%20Food%20Spot%20Guide%20%E2%80%94%20Legacy%20Frameset%20Header%20Demo%3C/h2%3E%3Cp%20style='font-family:sans-serif;font-size:12px;margin:5px%2010px'%3EHistoric%20HTML4%20Frameset%20Top%20Bar%20(Removed%20in%20HTML5)%3C/p%3E" name="headerFrame" scrolling="no" noresize="noresize">
+  <frameset cols="260px, *">
+    <frame src="data:text/html;charset=utf-8,%3Cdiv%20style='font-family:sans-serif;padding:15px;background:%23ecf0f1;height:100%25'%3E%3Ch3%3ECampus%20Zones%3C/h3%3E%3Cul%3E%3Cli%3ESJT%20Tower%3C/li%3E%3Cli%3EPRP%20Block%3C/li%3E%3Cli%3EOne%20Food%20World%3C/li%3E%3Cli%3ELadies%20Hostel%3C/li%3E%3C/ul%3E%3C/div%3E" name="sidebarFrame">
+    <frame src="modern-iframe.html" name="mainFrame">
+  </frameset>
+  <noframes>
+    <body>
+      <p>This browser does not support HTML4 framesets. Please use a modern browser supporting HTML5.</p>
+    </body>
+  </noframes>
+</frameset>
+</html>

@@ -1,0 +1,251 @@
+Category,Item Name,Price (INR)
+French Fries & Nuggets,French Fries Classic,90
+French Fries & Nuggets,Peri Peri Fries,100
+French Fries & Nuggets,Cheese Fries,110
+French Fries & Nuggets,Veg Nuggets,70
+French Fries & Nuggets,Chicken Nuggets,100
+Sandwich & Burgers - Veg,Veg Sandwich,70
+Sandwich & Burgers - Veg,Veg Grill Sandwich,80
+Sandwich & Burgers - Veg,Veg Cheese Sandwich,95
+Sandwich & Burgers - Veg,Veg Club Sandwich,100
+Sandwich & Burgers - Veg,Corn Cheese Sandwich,110
+Sandwich & Burgers - Veg,Veg BBQ Cheese Sandwich,100
+Sandwich & Burgers - Veg,Veg Peri Peri Cheese Sandwich,110
+Sandwich & Burgers - Veg,Paneer Cheese Sandwich,110
+Sandwich & Burgers - Veg,Veg Burger,90
+Sandwich & Burgers - Veg,Veg Cheese Burger,110
+Sandwich & Burgers - Veg,Paneer Cheese Burger,130
+Starters - Veg,Gobi Manchurian,100
+Starters - Veg,Chilli Gobi,120
+Starters - Veg,Babycorn Manchurian,120
+Starters - Veg,Chilli Babycorn,120
+Starters - Veg,Paneer Manchurian,130
+Starters - Veg,Chilli Paneer,130
+Starters - Veg,Paneer 65,140
+Starters - Veg,Paneer Tikka,160
+Starters - Veg,Mushroom Manchurian,110
+Starters - Veg,Chilli Mushroom,120
+Starters - Veg,Mushroom 65,130
+Starters - Veg,Chilli Potato,130
+Starters - Veg,Honey Chilli Potato,140
+Egg Items,Boiled Egg (2 Eggs),40
+Egg Items,Masala Omelet,50
+Egg Items,Cheese Omelet,70
+Egg Items,Bread Omelet,70
+Egg Items,Egg Burji,60
+Egg Items,Chilli Egg,100
+Biriyani - Veg,Veg Biriyani,150
+Biriyani - Veg,Gobi Biriyani,160
+Biriyani - Veg,Mushroom Biriyani,160
+Biriyani - Veg,Paneer Biriyani,180
+Biriyani - Veg,Paneer Tikka Biriyani,200
+Biriyani - Veg,Biriyani Rice,120
+Momos,Veg Steam Momo,100
+Momos,Veg Fried Momo,110
+Momos,Chicken Steam Momo,120
+Momos,Chicken Fried Momo,130
+Sandwich & Burgers - Non Veg,Egg Sandwich,80
+Sandwich & Burgers - Non Veg,Egg Cheese Sandwich,100
+Sandwich & Burgers - Non Veg,Chicken Sandwich,110
+Sandwich & Burgers - Non Veg,Chicken Cheese Sandwich,120
+Sandwich & Burgers - Non Veg,Chicken Peri Peri Cheese Sandwich,140
+Sandwich & Burgers - Non Veg,Chicken BBQ Cheese Sandwich,120
+Sandwich & Burgers - Non Veg,Chicken Club Sandwich,140
+Sandwich & Burgers - Non Veg,Chicken Tikka Cheese,160
+Sandwich & Burgers - Non Veg,Chicken Burger,110
+Sandwich & Burgers - Non Veg,Chicken Cheese Burger,120
+Sandwich & Burgers - Non Veg,Chicken Peri Peri Cheese Burger,140
+Sandwich & Burgers - Non Veg,Chicken BBQ Cheese Burger,120
+Starters - Non Veg,Chicken Manchurian,130
+Starters - Non Veg,Chilli Chicken,130
+Starters - Non Veg,Pepper Chicken,140
+Starters - Non Veg,Garlic Chicken,140
+Starters - Non Veg,Dragon Chicken,140
+Starters - Non Veg,Chicken Kebab,130
+Starters - Non Veg,Hot Chicken Wings,140
+Starters - Non Veg,Chicken 65,140
+Starters - Non Veg,Chicken Drumstick,150
+Starters - Non Veg,Chicken Peri Drumstick,150
+Starters - Non Veg,Chicken Lollipop,150
+Starters - Non Veg,Butter Garlic Chicken,160
+Starters - Non Veg,Tandoori Chicken (Qtr),140
+Starters - Non Veg,Tandoori Chicken (Half),260
+Starters - Non Veg,Chicken Tikka,170
+Starters - Non Veg,Malai Chicken Tikka,130
+Starters - Non Veg,Kalmi Kabab,130
+Starters - Non Veg,Fish Finger,140
+Starters - Non Veg,Fish 65,150
+Starters - Non Veg,Chilli Fish,160
+Starters - Non Veg,Prawns 65,150
+Starters - Non Veg,Chilli Garlic Prawns,160
+Biriyani Non-Veg,Chicken Hyderabadi Dum Biriyani,180
+Biriyani Non-Veg,Chicken Fry Piece Biriyani,200
+Biriyani Non-Veg,Chicken Lollypop Biriyani,200
+Biriyani Non-Veg,Chicken Special Boneless,220
+Biriyani Non-Veg,Egg Biriyani,150
+Biriyani Non-Veg,Chicken Gongura Biriyani,200
+Biriyani Non-Veg,Fish Biriyani,190
+Biriyani Non-Veg,Prawns Biriyani,220
+Fried Rice / Noodles - Veg,Veg Fried Rice,100
+Fried Rice / Noodles - Veg,Veg Schezwan Rice,120
+Fried Rice / Noodles - Veg,Gobi Fried Rice,120
+Fried Rice / Noodles - Veg,Gobi Schezwan Rice,135
+Fried Rice / Noodles - Veg,Mushroom Fried Rice,125
+Fried Rice / Noodles - Veg,Mushroom Schezwan Rice,135
+Fried Rice / Noodles - Veg,Paneer Fried Rice,130
+Fried Rice / Noodles - Veg,Paneer Schezwan Rice,140
+Fried Rice / Noodles - Veg,Babycorn Fried Rice,120
+Fried Rice / Noodles - Veg,Babycorn Schezwan Rice,130
+Fried Rice / Noodles - Veg,Burnt Garlic Rice,130
+Fried Rice / Noodles - Veg,Jeera Rice,100
+Fried Rice / Noodles - Veg,Ghee Kaju Rice,140
+Fried Rice / Noodles - Veg,Veg Noodles,100
+Fried Rice / Noodles - Veg,Veg Schezwan Noodles,120
+Fried Rice / Noodles - Veg,Gobi Noodles,120
+Fried Rice / Noodles - Veg,Gobi Schezwan Noodles,135
+Fried Rice / Noodles - Veg,Mushroom Noodles,125
+Fried Rice / Noodles - Veg,Mushroom Schezwan Noodles,135
+Fried Rice / Noodles - Veg,Babycorn Noodles,120
+Fried Rice / Noodles - Veg,Babycorn Schezwan Noodles,130
+Fried Rice / Noodles - Veg,Paneer Noodles,130
+Fried Rice / Noodles - Veg,Paneer Schezwan Noodles,140
+Fried Rice / Noodles - Veg,Burnt Garlic Noodles,130
+Fried Rice / Noodles - Veg,Veg Hakka Noodles,130
+Fried Rice / Noodles - Non Veg,Egg Rice,100
+Fried Rice / Noodles - Non Veg,Egg Schezwan Rice,120
+Fried Rice / Noodles - Non Veg,Chicken Fried Rice,130
+Fried Rice / Noodles - Non Veg,Chicken Schezwan Rice,140
+Fried Rice / Noodles - Non Veg,Burnt Garlic Chicken Rice,140
+Fried Rice / Noodles - Non Veg,Prawns Fried Rice,150
+Fried Rice / Noodles - Non Veg,Prawns Schezwan Rice,160
+Fried Rice / Noodles - Non Veg,Egg Noodles,100
+Fried Rice / Noodles - Non Veg,Egg Schezwan Noodles,120
+Fried Rice / Noodles - Non Veg,Chicken Noodles,130
+Fried Rice / Noodles - Non Veg,Chicken Schezwan Noodles,140
+Fried Rice / Noodles - Non Veg,Burnt Garlic Chicken Noodles,140
+Fried Rice / Noodles - Non Veg,Prawns Noodles,150
+Fried Rice / Noodles - Non Veg,Prawns Schezwan Noodles,160
+Rotis & Parathas,Roti 1 Pc,25
+Rotis & Parathas,Roti 2 Pc,50
+Rotis & Parathas,Butter Roti 1 Pc,30
+Rotis & Parathas,Butter Roti 2 Pc,60
+Rotis & Parathas,Garlic Roti 1 Pc,35
+Rotis & Parathas,Garlic Roti 2 Pc,70
+Rotis & Parathas,Plain Naan,40
+Rotis & Parathas,Butter Naan,45
+Rotis & Parathas,Garlic Naan,60
+Rotis & Parathas,Kulcha,40
+Rotis & Parathas,Lacha Paratha,60
+Rotis & Parathas,Phulka 2 Pc,40
+Rotis & Parathas,Butter Phulka,60
+Rotis & Parathas,Ghee Phulka,60
+Gravy Veg,Gobi Masala,130
+Gravy Veg,Mushroom Masala,140
+Gravy Veg,Paneer Butter Masala,150
+Gravy Veg,Kaju Paneer Gravy,150
+Gravy Veg,Kadai Paneer,140
+Gravy Veg,Dal Tadka,110
+Gravy Veg,Palak Paneer,150
+Gravy Veg,Paneer Tikka Masala,160
+Gravy's - Non Veg,Egg Curry,110
+Gravy's - Non Veg,Chicken Curry,135
+Gravy's - Non Veg,Chilly Chicken Gravy,140
+Gravy's - Non Veg,Butter Chicken (Boneless),150
+Gravy's - Non Veg,Kadai Chicken Gravy,150
+Gravy's - Non Veg,Chicken Hyderabadi,150
+Gravy's - Non Veg,Chicken Chettinad Gravy,140
+Gravy's - Non Veg,Chicken Tikka Masala,160
+Gravy's - Non Veg,Fish Curry,140
+Gravy's - Non Veg,Prawns Curry,160
+Lassi & Chillers,Sweet Lassi,60
+Lassi & Chillers,Banana Lassi,80
+Lassi & Chillers,Mango Lassi,80
+Lassi & Chillers,Strawberry Lassi,80
+Lassi & Chillers,Chocolate Lassi,80
+Lassi & Chillers,Dry Fruit Lassi,90
+Lassi & Chillers,Cold Coffee,80
+Lassi & Chillers,Cold Boost,70
+Lassi & Chillers,Cold Badam Milk,70
+Lassi & Chillers,Rose Milk,65
+Fresh Juices,Lime Juice,30
+Fresh Juices,Mint Lime,35
+Fresh Juices,Ginger Lime,40
+Fresh Juices,Cool Blue Lemonade,50
+Fresh Juices,Watermelon,50
+Fresh Juices,Muskmelon,60
+Fresh Juices,Pineapple,60
+Fresh Juices,Orange,70
+Fresh Juices,Grape,70
+Fresh Juices,Papaya,60
+Fresh Juices,Pomegranate,80
+Fresh Juices,Watermelon + Orange,80
+Fresh Juices,Grape + Mint,90
+Fresh Juices,Pineapple + Mint,80
+Fresh Juices,Pomegranate + Mint,95
+Fresh Juices,Carrot + Beetroot,70
+Fresh Juices,Carrot Lime,50
+Fresh Juices,Beetroot Lime,50
+Fresh Juices,ABC Honey,100
+Milkshakes,Banana Shake,60
+Milkshakes,Banana & Dates,80
+Milkshakes,Apple Shake,90
+Milkshakes,Mango Shake,80
+Milkshakes,Pomegranate Shake,95
+Milkshakes,Vanilla Shake,80
+Milkshakes,Strawberry Shake,80
+Milkshakes,Chocolate Shake,85
+Milkshakes,Oreo Shake,90
+Milkshakes,Litchi Shake,85
+Milkshakes,Dry Fruit Shake,110
+Soda / Mojito,Lime Soda,50
+Soda / Mojito,Kiwi Soda,60
+Soda / Mojito,Jaljeera Soda,50
+Soda / Mojito,Virgin Mint Mojito,80
+Soda / Mojito,Cool Blue Mojito,80
+Soda / Mojito,Green Apple Mojito,80
+Soda / Mojito,Watermelon Mojito,80
+Fresh Fruit Bowl (Seasonal),Fruit Cut Mix,60
+Fresh Fruit Bowl (Seasonal),Papaya Cut,70
+Fresh Fruit Bowl (Seasonal),Pineapple Cut,80
+Fresh Fruit Bowl (Seasonal),Dragon Cut Fruit,120
+Fresh Fruit Bowl (Seasonal),Strawberry,100
+Fresh Fruit Bowl (Seasonal),Fruit Cut Custard,80
+Fresh Fruit Bowl (Seasonal),Fruit Cut + Ice Cream,90
+Rolls - Veg,Aloo Roll,90
+Rolls - Veg,Veggie Roll,100
+Rolls - Veg,Paneer Roll,130
+Rolls - Veg,Chilli Paneer Roll,140
+Rolls - Veg,Paneer Tikka Roll,150
+Rolls - Veg,Chilli Baby Corn Roll,110
+Rolls - Veg,Chilli Gobi Roll,110
+Rolls - Veg,Chilli Mushroom Roll,110
+Rolls - Veg,Veg Jumbo Roll,140
+Rolls - Non Veg,Egg Roll,90
+Rolls - Non Veg,Double Egg Roll,110
+Rolls - Non Veg,Egg Cheese Roll,120
+Rolls - Non Veg,Chicken Roll,130
+Rolls - Non Veg,Chicken with Egg Roll,140
+Rolls - Non Veg,Double Egg Dbl Chicken Roll,150
+Rolls - Non Veg,Chicken Cheese Roll,140
+Rolls - Non Veg,Chilli Chicken Roll,140
+Rolls - Non Veg,Chicken Garlic Roll,140
+Rolls - Non Veg,Chicken Peri Peri Roll,140
+Rolls - Non Veg,Chicken Tikka Roll,150
+Rolls - Non Veg,Chicken Tikka + Egg Roll,160
+Rolls - Non Veg,Chicken Seekh Roll,140
+Rolls - Non Veg,Non Veg Jumbo Roll,150
+Maggi,Maggi Classic,70
+Maggi,Cheese Maggi,90
+Maggi,Veg Fried Maggi,80
+Maggi,Butter Fried Maggi,80
+Maggi,Corn Cheese Maggi,90
+Maggi,Chicken Fried Maggi,90
+Maggi,Chicken Cheese Maggi,100
+Pasta,Veg Pasta,110
+Pasta,Corn Cheese Pasta,120
+Pasta,Veg Mayo Pasta,120
+Pasta,Chicken Pasta,130
+Pasta,Chicken Mayo Pasta,140
+Pasta,Chicken Cheese Pasta,140
+Pasta,Mushroom Creamy Pasta,140
+Pasta,Paneer Pasta,140

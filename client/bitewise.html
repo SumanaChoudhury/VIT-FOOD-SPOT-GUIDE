@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitewise — Discover Your Next Favorite Spot | VIT Vellore</title>
+  <meta name="description" content="Curated campus food spots, honest reviews, and hidden gems across VIT Vellore campus — all in one place.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/bitewise.css">
+  <style>
+    /* View Switcher Ribbon */
+    .bw-view-switcher {
+      background: #1C2520;
+      color: #FAF7F2;
+      padding: 6px 16px;
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .bw-view-switcher a {
+      color: #C5A059;
+      text-decoration: underline;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Switcher Banner -->
+  <div class="bw-view-switcher">
+    <div>
+      <span>✦ <strong>Bitewise Template Preview</strong> (Designed directly from UI Mockup #3)</span>
+    </div>
+    <div>
+      <span>Looking for main view?</span>
+      <a href="index.html">Switch to Classic Luxury View &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Site Navigation Header -->
+  <header class="bw-header">
+    <div class="bw-container bw-navbar">
+      <!-- Brand Logo -->
+      <a href="bitewise.html" class="bw-brand" aria-label="Bitewise Home">
+        <span class="bw-brand-star">✦</span>
+        <span class="bw-brand-title">bitewise</span>
+      </a>
+
+      <!-- Center Navigation Links -->
+      <ul class="bw-nav-links">
+        <li><a href="#home" class="bw-nav-link active">Home</a></li>
+        <li><a href="#explore" class="bw-nav-link">Explore</a></li>
+        <li><a href="#favorites" class="bw-nav-link">Favorites</a></li>
+        <li><a href="#about" class="bw-nav-link">About</a></li>
+        <li><a href="#pearl" class="bw-nav-link">Pearl Research Park</a></li>
+      </ul>
+
+      <!-- Right Actions -->
+      <div class="bw-nav-actions">
+        <!-- Search Icon Button -->
+        <button type="button" class="bw-action-icon-btn" id="btn-quick-search-trigger" title="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- User Profile Icon -->
+        <button type="button" class="bw-action-icon-btn" id="btn-user-profile" title="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+
+        <!-- Dark Pill Login Button -->
+        <a href="index.html#auth" class="bw-btn-login">Log In</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================= -->
+    <!-- HERO SECTION (Split Grid: Left Typography & Pill Search, Right Arch Photo)-->
+    <!-- ======================================================================= -->
+    <section class="bw-hero-section" id="home">
+      <div class="bw-container bw-hero-grid">
+        <!-- Left Column -->
+        <div class="bw-hero-left">
+          <span class="bw-hero-eyebrow">GOOD FOOD &nbsp;✦&nbsp; GREAT PLACES</span>
+          <h1 class="bw-hero-title">
+            Discover Your<br>
+            Next <span class="editorial-italic">Favorite</span> Spot
+          </h1>
+          <p class="bw-hero-subtitle">
+            Curated food spots, honest reviews, and hidden gems across VIT Vellore — all in one place.
+          </p>
+
+          <!-- Floating Pill Search Form -->
+          <form class="bw-search-pill" id="bw-search-form" onsubmit="event.preventDefault(); handleBitewiseSearch();">
+            <span class="bw-search-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input type="text" id="bw-search-input" class="bw-search-input" placeholder="Search by location, cuisine, or restaurant..." autocomplete="off">
+            <button type="submit" class="bw-search-btn" aria-label="Search">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Asymmetric Diagonal Arch Photo -->
+        <div class="bw-hero-photo-wrap">
+          <div class="bw-hero-photo-arch">
+            <!-- High quality gourmet dining photograph with candle and pasta -->
+            <img class="bw-hero-photo-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Gourmet Dining Atmosphere" loading="eager">
+            <div class="bw-hero-caption-script">
+              Good food brings people together
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- CATEGORY HORIZONTAL ICON STRIP                                         -->
+    <!-- ======================================================================= -->
+    <nav class="bw-categories-bar" aria-label="Food Categories">
+      <div class="bw-container">
+        <ul class="bw-categories-list" id="bw-categories-tabs">
+          <!-- 1. All -->
+          <li class="bw-category-item">
+            <button class="bw-category-btn active" data-cat="all">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M18 2v20M18 2a4 4 0 0 0-4 4v4h8V6a4 4 0 0 0-4-4zM6 2v20M2 2v6a4 4 0 0 0 4 4h0a4 4 0 0 0 4-4V2"></path>
+              </svg>
+              <span>All</span>
+            </button>
+          </li>
+
+          <!-- 2. Cafe -->
+          <li class="bw-category-item">
+            <button class="bw-category-btn" data-cat="cafe">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"></path>
+              </svg>
+              <span>Cafe</span>
+            </button>
+          </li>
+
+          <!-- 3. Fine Dining -->
+          <li class="bw-category-item">
+            <button class="bw-category-btn" data-cat="fine-dining">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 4a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9zM2 17h20M12 2v2"></path>
+              </svg>
+              <span>Fine Dining</span>
+            </button>
+          </li>
+
+          <!-- 4. Street Food -->
+          <li class="bw-category-item">
+            <button class="bw-category-btn" data-cat="street-food">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polygon points="12 2 2 22 22 22 12 2"></polygon>
+                <circle cx="12" cy="14" r="2"></circle>
+              </svg>
+              <span>Street Food</span>
+            </button>
+          </li>
+
+          <!-- 5. Desserts -->
+          <li class="bw-category-item">
+            <button class="bw-category-btn" data-cat="desserts">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2a4 4 0 0 0-4 4c0 3 4 5 4 5s4-2 4-5a4 4 0 0 0-4-4zM6 13h12v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-7z"></path>
+              </svg>
+              <span>Desserts</span>
+            </button>
+          </li>
+
+          <!-- 6. Healthy -->
+          <li class="bw-category-item">
+            <button class="bw-category-btn" data-cat="healthy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M2 22s5-2 10-7c5-5 7-10 7-10s-5 2-10 7c-5 5-7 10-7 10zM12 15l4 4"></path>
+              </svg>
+              <span>Healthy</span>
+            </button>
+          </li>
+
+          <!-- 7. Bars / Juices -->
+          <li class="bw-category-item">
+            <button class="bw-category-btn" data-cat="bars">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polygon points="5 3 19 3 12 13 5 3"></polygon>
+                <line x1="12" y1="13" x2="12" y2="21"></line>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+              </svg>
+              <span>Bars</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ======================================================================= -->
+    <!-- SECTION: TOP PICKS NEAR YOU (4-Column Photo Grid as seen in Mockup)     -->
+    <!-- ======================================================================= -->
+    <section class="bw-section" id="explore">
+      <div class="bw-container">
+        <div class="bw-section-header">
+          <h2 class="bw-section-title">Top Picks Near You</h2>
+          <a href="#see-all" class="bw-see-all-link">
+            <span>See All</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="bw-cards-grid" id="bw-cards-container">
+          <!-- Card 1: The Terrace Cafe (Olives Cafe @ Pearl Research Park) -->
+          <article class="bw-card" onclick="alert('Olives Cafe located at Pearl Research Park (PRP). Famous for Belgian Chocolate Waffles and Continental delights!')">
+            <div class="bw-card-media">
+              <img class="bw-card-img" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="The Terrace Cafe">
+              <span class="bw-rating-pill">★ 4.8</span>
+              <div class="bw-card-body">
+                <div class="bw-card-info">
+                  <h3 class="bw-card-title">The Terrace Cafe</h3>
+                  <p class="bw-card-meta">Cafe &bull; 1.2 km &bull; &#8377;&#8377;</p>
+                </div>
+                <button type="button" class="bw-card-fav-btn" aria-label="Favorite" onclick="event.stopPropagation(); this.classList.toggle('active');">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Fika Kitchen (Flora @ Ladies' Hostel) -->
+          <article class="bw-card" onclick="alert('Flora located at Ladies\' Hostel. Verified 250 items including fresh Hakka noodles, fried rice, and fruit bowls!')">
+            <div class="bw-card-media">
+              <img class="bw-card-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Fika Kitchen">
+              <span class="bw-rating-pill">★ 4.7</span>
+              <div class="bw-card-body">
+                <div class="bw-card-info">
+                  <h3 class="bw-card-title">Fika Kitchen</h3>
+                  <p class="bw-card-meta">Healthy &bull; 2.4 km &bull; &#8377;&#8377;</p>
+                </div>
+                <button type="button" class="bw-card-fav-btn" aria-label="Favorite" onclick="event.stopPropagation(); this.classList.toggle('active');">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Olive & Oak (One Food World @ Men's Hostel) -->
+          <article class="bw-card" onclick="alert('One Food World (OFW) houses 6 multi-cuisine counters: Al Beirut, Korean Wok Box, US Pizzeria, Texas Fried Chicken, Hollywood Thick Shakes!')">
+            <div class="bw-card-media">
+              <img class="bw-card-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Olive & Oak">
+              <span class="bw-rating-pill">★ 4.9</span>
+              <div class="bw-card-body">
+                <div class="bw-card-info">
+                  <h3 class="bw-card-title">Olive &amp; Oak</h3>
+                  <p class="bw-card-meta">Fine Dining &bull; 3.1 km &bull; &#8377;&#8377;&#8377;</p>
+                </div>
+                <button type="button" class="bw-card-fav-btn" aria-label="Favorite" onclick="event.stopPropagation(); this.classList.toggle('active');">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Taco Lane (Darling Main Canteen / Rolls Hub) -->
+          <article class="bw-card" onclick="alert('Taco Lane & Street Rolls near SJT & TT. Fresh hot kathi rolls, shawarmas, and evening snacks!')">
+            <div class="bw-card-media">
+              <img class="bw-card-img" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" alt="Taco Lane">
+              <span class="bw-rating-pill">★ 4.6</span>
+              <div class="bw-card-body">
+                <div class="bw-card-info">
+                  <h3 class="bw-card-title">Taco Lane</h3>
+                  <p class="bw-card-meta">Street Food &bull; 2.8 km &bull; &#8377;</p>
+                </div>
+                <button type="button" class="bw-card-fav-btn" aria-label="Favorite" onclick="event.stopPropagation(); this.classList.toggle('active');">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SECTION: "HIDDEN GEMS" BANNER                                           -->
+    <!-- ======================================================================= -->
+    <section class="bw-section">
+      <div class="bw-container">
+        <div class="bw-gems-banner-card">
+          <div class="bw-gems-left">
+            <div class="bw-gems-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 22s5-2 10-7c5-5 7-10 7-10s-5 2-10 7c-5 5-7 10-7 10zM12 15l4 4"></path>
+              </svg>
+            </div>
+            <h3 class="bw-gems-title">Hidden Gems</h3>
+            <a href="index.html#explore" class="bw-gems-desc">
+              <span>Explore lesser-known spots, loved by locals.</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+          <div class="bw-gems-right">
+            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=80" alt="Outdoor Garden Dining">
+          </div>
+        </div>
+
+        <!-- Campus Pearl Research Park Landmark Strip -->
+        <div class="bw-landmark-strip" id="pearl">
+          <div class="bw-landmark-text">
+            <h3>Pearl Research Park (PRP) Pavilion</h3>
+            <p>Home to Olives Cafe, Sri Sabari, and quick refuels for advanced engineering lectures.</p>
+          </div>
+          <a href="index.html#academic-blocks" class="bw-btn-landmark">View All PRP Venues &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bw-footer">
+    <div class="bw-container bw-footer-inner">
+      <p>&copy; 2026 bitewise &bull; Campus Food Discovery for VIT Vellore</p>
+      <ul class="bw-footer-links">
+        <li><a href="index.html#explore">All Outlets</a></li>
+        <li><a href="index.html#hostels">Hostels</a></li>
+        <li><a href="index.html#academic-blocks">Pearl Research Park</a></li>
+        <li><a href="index.html#chatbot">AI Assistant</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Category Filter Interaction
+    document.querySelectorAll('.bw-category-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.bw-category-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const cat = this.getAttribute('data-cat');
+        console.log('Selected category:', cat);
+      });
+    });
+
+    // Simple search redirect
+    function handleBitewiseSearch() {
+      const q = document.getElementById('bw-search-input').value.trim();
+      if (q) {
+        window.location.href = 'index.html?q=' + encodeURIComponent(q);
+      }
+    }
+  </script>
+</body>
+</html>
