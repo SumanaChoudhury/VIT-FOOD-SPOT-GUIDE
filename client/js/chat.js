@@ -48,7 +48,7 @@ $(document).ready(function() {
       return "You can get delicious biryani at **Arasan** in the SJT ground floor food court, or try the chicken and veg biryani at **Darling Main Canteen** near PRP!";
     }
     if (q.includes('prp') || q.includes('pearl') || q.includes('periyar')) {
-      return "Near **PRP (Pearl Research Park)**, you'll find **Darling Main Canteen**, **Olives Cafe** (famous for Belgian chocolate waffles), **Sri Sai Sabari**, and **Sri Sabari** (near PRP G08).";
+      return "Near **PRP (Pearl Research Park)**, you'll find **Darling Main Canteen**, **Oliv's Cafeteria** (famous for Belgian chocolate waffles), **Sri Sai Sabari**, and **Sri Sabari** (near PRP G08).";
     }
     if (q.includes('sjt') || q.includes('silver jubilee')) {
       return "Near **SJT (Silver Jubilee Tower)**, you can eat at **Arasan** (thalis, Chinese, biryani), **Nama Chai**, and grab quick coffee or snacks at the ground floor **Nescafe** kiosk.";
@@ -57,7 +57,7 @@ $(document).ready(function() {
       return "At **MGB (Mahatma Gandhi Block)**, you have **Darling Cafe** (specializing in fresh puffs, mousse cakes, and pastries) and student lunch counters.";
     }
     if (q.includes('tt') || q.includes('technology tower')) {
-      return "Near **TT (Technology Tower)**, visit **DC (near TT)** for morning breakfast, dosas, and lunch, or grab fruit juices at the courtyard stalls.";
+      return "Near **TT (Technology Tower)**, visit **Nescafe (inside TT)** for hot coffee & snacks, **DC (near TT)** for morning breakfast and dosas, or grab fruit juices at the courtyard stalls.";
     }
     if (q.includes('smv') || q.includes('library')) {
       return "Around **SMV & Central Library**, check out **Amul** for ice creams and cones, **Sugarcane Juice** with fresh lime (₹35–₹40), and **Apples Juice**.";
@@ -69,13 +69,13 @@ $(document).ready(function() {
       return "In **Ladies' Hostel (LH)**, you can eat at **Flora**, **Aunty's Mess** (beloved for fresh egg varieties, dosas, and parottas), **Fruit Juice Shop**, and **Nescafe LH**.";
     }
     if (q.includes('coffee') || q.includes('tea') || q.includes('chai')) {
-      return "For tea and coffee, check out **Aavin Tea Stall** at GDN (tea from ₹12, coffee ₹15), **Nama Chai** at SJT, **Madras Coffee House** near PRP, or any of the 5 campus **Nescafe** kiosks.";
+      return "For tea and coffee, check out **Nescafe (inside TT)** at Technology Tower, **Aavin Tea Stall** at GDN (tea from ₹12, coffee ₹15), **Nama Chai** at SJT, **Madras Coffee House** near PRP, or any of the 5 campus **Nescafe** kiosks.";
     }
     if (q.includes('under') || q.includes('budget') || q.includes('cheap') || q.includes('50') || q.includes('100')) {
       return "Budget-friendly campus options under ₹100 include **Aavin Tea Stall** (hot tea ₹12, coffee ₹15), **Sugarcane Juice** near SMV (₹35–₹40), and **Aunty's Mess** at Ladies' Hostel (onion omelettes from ₹25, dosas ₹40).";
     }
     if (q.includes('waffle') || q.includes('dessert') || q.includes('cake') || q.includes('chocolate') || q.includes('ice cream')) {
-      return "For sweet treats and desserts, visit **Olives Cafe** at PRP (famous for Belgian chocolate waffles), **Darling Cafe** at MGB, **Amul** near SMV, or **Just Bake** in Men's Hostel.";
+      return "For sweet treats and desserts, visit **Oliv's Cafeteria** at PRP (famous for Belgian chocolate waffles), **Darling Cafe** at MGB, **Amul** near SMV, or **Just Bake** in Men's Hostel.";
     }
     if (q.includes('pizza') || q.includes('burger') || q.includes('fast food') || q.includes('roll') || q.includes('wrap')) {
       return "For fast food, burgers, and pizza, try **Dominos**, **KC Food & Gazebo**, **One Food World (Continental & Al Beirut counters)** in Men's Hostel, or **Sri Sabari** at PRP.";

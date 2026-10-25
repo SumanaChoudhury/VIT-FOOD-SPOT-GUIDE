@@ -1,12 +1,12 @@
 /**
- * VIT Food Spot Guide — Theme Contrast, Nav Label & Merged Admin Portal Verification
+ * VIT Food Spot Guide — Theme Contrast, Nav Label, Merged Admin & Menu Routing Verification
  */
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 
 console.log('===============================================================');
-console.log('  THEME CONTRAST, NAV & MERGED ADMIN VERIFICATION SUITE');
+console.log('  THEME CONTRAST, NAV, ADMIN & MENU ROUTING VERIFICATION SUITE');
 console.log('===============================================================');
 
 const indexHtml = fs.readFileSync(path.join(__dirname, '../client/index.html'), 'utf8');
@@ -100,6 +100,54 @@ assert(
 );
 console.log('[PASS] Responsive navigation ribbon and grid adaptation verified');
 
+// Test 6: Nescafe in TT, not in Pearl Research Park
+console.log('\nTest 6: Nescafe is in Technology Tower (TT), NOT in Pearl Research Park (PRP)');
+assert(
+  !appJs.includes("insideSpots: ['olives', 'sri-sabari', 'sri-sai-sabari', 'nescafe-tt']"),
+  'Nescafe TT must not be in PRP insideSpots'
+);
+assert(
+  appJs.includes("insideSpots: ['olives', 'sri-sabari', 'sri-sai-sabari']"),
+  'PRP insideSpots must only include Oliv\'s Cafeteria and Sri Sabari'
+);
+assert(
+  appJs.includes("insideSpots: ['dc-near-tt', 'fc-near-tt', 'nescafe-tt']"),
+  'Technology Tower insideSpots must include nescafe-tt'
+);
+console.log('[PASS] Nescafe correctly located in Technology Tower (TT) only');
+
+// Test 7: "Oliv's Cafeteria" naming accuracy
+console.log('\nTest 7: Restaurant naming updated to "Oliv\'s Cafeteria"');
+assert(
+  appJs.includes("Oliv's Cafeteria"),
+  'app.js must reference Oliv\'s Cafeteria in PRP block description'
+);
+assert(
+  indexHtml.includes("Oliv's Cafeteria"),
+  'index.html quick card must reference Oliv\'s Cafeteria'
+);
+console.log('[PASS] Restaurant accurately named "Oliv\'s Cafeteria"');
+
+// Test 8: Hostel Dining Footer Menu Openers
+console.log('\nTest 8: Clicking any hostel dining link opens its verified menu modal');
+const expectedHostelLinks = [
+  "openSpotDetailModal('one-food-world')",
+  "openSpotDetailModal('just-bake')",
+  "openSpotDetailModal('nescafe-mh')",
+  "openSpotDetailModal('flora')",
+  "openSpotDetailModal('auntys-mess')",
+  "openSpotDetailModal('nescafe-lh')"
+];
+
+for (const link of expectedHostelLinks) {
+  assert(indexHtml.includes(link), `Footer must contain menu modal opener: ${link}`);
+}
+assert(
+  appJs.includes('window.openSpotDetailModal = openSpotDetailModal'),
+  'openSpotDetailModal must be exposed globally on window'
+);
+console.log('[PASS] All 6 hostel dining links route directly to their respective menu modals');
+
 console.log('\n===============================================================');
-console.log('  ALL 5 CHECKS PASSED SUCCESSFULLY (100%)');
+console.log('  ALL 8 TESTS PASSED SUCCESSFULLY (100%)');
 console.log('===============================================================');

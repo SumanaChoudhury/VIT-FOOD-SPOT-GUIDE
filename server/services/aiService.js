@@ -86,7 +86,7 @@ function extractQueryEntities(message) {
   else if (/\baavin\b/i.test(text)) spotQuery = 'aavin';
   else if (/\bsugarcane\b/i.test(text)) spotQuery = 'sugarcane';
   else if (/\bone\s*food\s*world|\bofw\b/i.test(text)) spotQuery = 'one-food-world';
-  else if (/\bolives\b/i.test(text)) spotQuery = 'olives';
+  else if (/\b(olives?|oliv'?s(?:\s*cafeteria)?)\b/i.test(text)) spotQuery = 'olives';
   else if (/\barasan\b/i.test(text)) spotQuery = 'arasan';
   else if (/\bmadras\s*coffee\b/i.test(text)) spotQuery = 'madras-coffee-house';
 
@@ -357,7 +357,7 @@ RULES:
 4. If asked about a location, mention real spots near that block.
 
 DATABASE SNAPSHOT:
-${contextText || "Campus Food Spots: One Food World (MH), Just Bake (MH), Flora (LH), Aunty's Mess (LH), Olives Cafe (PRP), Sri Sai Sabari (PRP), Arasan (SJT), Dominos (SJT), Darling Cafe (MGB), Aavin (GDN), Amul (SMV), Sugarcane (SMV), Nescafe (SJT, TT, Library, MH, LH)."}`;
+${contextText || "Campus Food Spots: One Food World (MH), Just Bake (MH), Flora (LH), Aunty's Mess (LH), Oliv's Cafeteria (PRP), Sri Sai Sabari (PRP), Arasan (SJT), Dominos (SJT), Darling Cafe (MGB), Aavin (GDN), Amul (SMV), Sugarcane (SMV), Nescafe (SJT, TT, Library, MH, LH)."}`;
 
       const res = await fetch('https://api.x.ai/v1/chat/completions', {
         method: 'POST',

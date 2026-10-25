@@ -1,6 +1,6 @@
 # Testing Report: VIT Food Spot Guide (Final Architecture)
 
-Execution Timestamp: **2026-10-25T16:51:16.182Z**  
+Execution Timestamp: **2026-10-25T17:13:36.192Z**  
 Environment: **Windows / Node.js v24.19.0 / Java 21 LTS / Relational Database (MySQL / SQLite) + JDBC**  
 Overall Result: **33 / 33 Tests Passed** (Pass Rate: 100%)
 
@@ -10,7 +10,7 @@ Overall Result: **33 / 33 Tests Passed** (Pass Rate: 100%)
 
 | Test ID | Test Name | Expected Behavior | Actual Observed Output | Status | Notes |
 |---|---|---|---|---|---|
-| **TEST-01** | Application Startup & Relational DB Connection | HTTP server running + Relational DB connected | Listening on port 57145, Engine: sqlite | **PASSED** | Zero-crash startup with MySQL/SQLite relational driver |
+| **TEST-01** | Application Startup & Relational DB Connection | HTTP server running + Relational DB connected | Listening on port 62632, Engine: sqlite | **PASSED** | Zero-crash startup with MySQL/SQLite relational driver |
 | **TEST-02** | Relational Schema & Tables | All 6 relational tables exist and accessible | Verified: food_spots, menu_items, locations, users, feedback, favorites | **PASSED** | Relational schema initialized |
 | **TEST-03** | CSV Menu Dataset Ingestion | >= 30 verified spots & > 3,000 dishes preserved | Spots: 31, Dishes: 3423 | **PASSED** | All supplied CSV datasets preserved without loss |
 | **TEST-04** | Excel (XLSX) Ingestion Engine | nama-chai menu items imported from binary namachai.xlsx | Nama Chai items: 19 | **PASSED** | Binary XLSX parsing verified |

@@ -725,9 +725,9 @@ function showAcademicBlock(blockSlug) {
       name: 'Pearl Research Park (PRP)',
       badge: 'PRESTIGE RESEARCH & ACADEMIC PAVILION',
       code: 'PRP',
-      desc: 'Pearl Research Park (PRP) houses advanced computing laboratories, landmark lecture theatres, and ground-floor dining hubs including the renowned Olives Cafe and Sri Sabari.',
-      highlights: ['Ground Floor Courtyard Dining', 'Famous Belgian Waffles at Olives', '2 Min Walk to Central Walkway'],
-      insideSpots: ['olives', 'sri-sabari', 'sri-sai-sabari', 'nescafe-tt'],
+      desc: "Pearl Research Park (PRP) houses advanced computing laboratories, landmark lecture theatres, and ground-floor dining hubs including the renowned Oliv's Cafeteria and Sri Sabari.",
+      highlights: ['Ground Floor Courtyard Dining', "Famous Belgian Waffles at Oliv's Cafeteria", '2 Min Walk to Central Walkway'],
+      insideSpots: ['olives', 'sri-sabari', 'sri-sai-sabari'],
       nearbySpots: ['darling-cafe-mgb', 'madras-coffee-house', 'dc-near-tt']
     },
     sjt: {
@@ -1229,6 +1229,9 @@ function renderModalDishes(items, counterFilter = null, categoryFilter = null, s
     `;
   }).join('');
 }
+
+// Global modal opener for cross-view navigation
+window.openSpotDetailModal = openSpotDetailModal;
 
 // Student & Admin Authentication Coordinator
 function switchAuthTab(tab) {
