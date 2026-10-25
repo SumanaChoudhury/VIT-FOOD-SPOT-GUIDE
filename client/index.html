@@ -51,6 +51,7 @@
           <li><a href="#academic-blocks" class="nav-link" data-view="academic-blocks">Pearl Research Park</a></li>
           <li><a href="#chatbot" class="nav-link" data-view="chatbot">AI Chat</a></li>
           <li><a href="#feedback" class="nav-link" data-view="feedback">Feedback</a></li>
+          <li><a href="#suggestions" class="nav-link" data-view="suggestions">Suggestions</a></li>
           <li>
             <a href="#favorites" class="nav-link" data-view="favorites">
               Favorites
@@ -281,7 +282,7 @@
           <!-- Matching Dishes -->
           <div>
             <div class="search-group-header">
-              <span class="search-group-title">DISHES</span>
+              <span class="search-group-title" id="matching-dishes-group-title">DISHES</span>
               <span class="search-group-count" id="matching-dishes-count">0 dishes</span>
             </div>
             <div class="dishes-results-container" id="dishes-results-grid"></div>
@@ -634,6 +635,139 @@
     </div>
 
     <!-- ===================================================================== -->
+    <!-- MODULE 5B: SUGGESTIONS VIEW (Community Menu & Price Updates)           -->
+    <!-- ===================================================================== -->
+    <div id="view-suggestions" class="spa-view" style="display:none;">
+      <section class="page-section">
+        <div class="container" style="max-width: 860px;">
+          <div class="section-header" style="text-align: center; margin-bottom: 24px;">
+            <span class="section-eyebrow" style="color:var(--coffee);">COMMUNITY MENU UPDATES</span>
+            <h2 class="section-title" style="margin-top:6px;">Suggest Price Changes or New Items</h2>
+            <p class="section-subtitle" style="max-width:620px; margin:8px auto 0;">Notice a price change or a new dish added at any VIT food spot? Send your suggestion directly to our administrators to verify and update the live directory.</p>
+          </div>
+
+          <!-- Privacy Notice Box -->
+          <div class="suggestion-privacy-banner" style="background: rgba(44, 28, 15, 0.04); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 28px; display: flex; align-items: flex-start; gap: 12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--coffee); flex-shrink:0; margin-top:2px;">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <div style="font-size: 0.88rem; color: var(--text-dark); line-height: 1.5;">
+              <strong>Confidential to Administrators:</strong> All suggestions submitted here are stored privately and reviewed exclusively by campus dining administrators. They will never be displayed publicly to other users.
+            </div>
+          </div>
+
+          <!-- Suggestion Form Card -->
+          <div class="suggestion-form-card" style="background: var(--bg-card); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; box-shadow: 0 4px 16px rgba(44, 28, 15, 0.04);">
+            <form id="public-suggestion-form">
+              
+              <!-- 1. Restaurant / Outlet Selector -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" for="sug-food-spot-select">Select Campus Food Spot *</label>
+                <select id="sug-food-spot-select" class="form-control" required style="font-size: 0.95rem; padding: 10px 14px;">
+                  <option value="">-- Choose a restaurant / outlet --</option>
+                  <!-- Populated dynamically with all 31 verified spots -->
+                </select>
+                <span class="form-help-text" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; display: block;">Select the canteen, food truck, or food stall on campus.</span>
+              </div>
+
+              <!-- 2. Suggestion Type (Pill Toggle) -->
+              <div class="form-group" style="margin-bottom: 24px;">
+                <label class="form-label">What would you like to update? *</label>
+                <div class="sug-type-toggle-group" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 8px;">
+                  <label class="sug-type-pill active" style="display:flex; align-items:center; gap:8px; padding:12px 14px; border:1.5px solid var(--coffee); background:var(--sunshine-light); border-radius:var(--radius-md); cursor:pointer; font-weight:600; font-size:0.9rem; color:var(--text-dark);">
+                    <input type="radio" name="sug-type" value="price_change" checked style="accent-color:var(--coffee);">
+                    <span>Price Changed</span>
+                  </label>
+                  <label class="sug-type-pill" style="display:flex; align-items:center; gap:8px; padding:12px 14px; border:1.5px solid var(--border-subtle); background:var(--bg-main); border-radius:var(--radius-md); cursor:pointer; font-weight:600; font-size:0.9rem; color:var(--text-dark);">
+                    <input type="radio" name="sug-type" value="new_dish" style="accent-color:var(--coffee);">
+                    <span>New Item Added</span>
+                  </label>
+                  <label class="sug-type-pill" style="display:flex; align-items:center; gap:8px; padding:12px 14px; border:1.5px solid var(--border-subtle); background:var(--bg-main); border-radius:var(--radius-md); cursor:pointer; font-weight:600; font-size:0.9rem; color:var(--text-dark);">
+                    <input type="radio" name="sug-type" value="menu_correction" style="accent-color:var(--coffee);">
+                    <span>Menu Correction / Other</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 3. Dish Name -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" for="sug-dish-name" id="lbl-sug-dish-name">Item / Dish Name *</label>
+                <input type="text" id="sug-dish-name" class="form-control" placeholder="e.g. Veg Cheese Roll, Badham Milk, Chicken Biryani" required style="font-size: 0.95rem; padding: 10px 14px;">
+              </div>
+
+              <!-- 4. Price Inputs Grid -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;" id="sug-price-fields-row">
+                <div class="form-group">
+                  <label class="form-label" for="sug-current-price">Current / Old Price (₹)</label>
+                  <input type="number" id="sug-current-price" class="form-control" placeholder="e.g. 50" min="0" step="1">
+                  <span style="font-size:0.78rem; color:var(--text-muted); margin-top:2px; display:block;">Leave blank if unsure.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="sug-new-price" id="lbl-sug-new-price">New / Correct Price (₹) *</label>
+                  <input type="number" id="sug-new-price" class="form-control" placeholder="e.g. 60" min="0" step="1">
+                  <span style="font-size:0.78rem; color:var(--text-muted); margin-top:2px; display:block;">Price currently charged in INR.</span>
+                </div>
+              </div>
+
+              <!-- 5. Category -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" for="sug-category">Culinary Category (Optional)</label>
+                <input type="text" id="sug-category" class="form-control" list="sug-category-options" placeholder="e.g. Beverages, Fast Food, South Indian, Meals">
+                <datalist id="sug-category-options">
+                  <option value="Beverages">
+                  <option value="Juices &amp; Shakes">
+                  <option value="Chai &amp; Tea">
+                  <option value="Fast Food">
+                  <option value="Meals &amp; Biryani">
+                  <option value="South Indian">
+                  <option value="Bakery &amp; Cakes">
+                  <option value="Ice Cream &amp; Desserts">
+                  <option value="Snacks">
+                </datalist>
+              </div>
+
+              <!-- 6. Additional Notes / Details -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" for="sug-notes">Additional Notes / Proof (Optional)</label>
+                <textarea id="sug-notes" class="form-control" rows="3" placeholder="e.g. Price increased by ₹10 starting yesterday; or New seasonal Alphonso Mango shake launched at counter 2."></textarea>
+              </div>
+
+              <!-- 7. Submitter Contact (Optional) -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+                <div class="form-group">
+                  <label class="form-label" for="sug-user-name">Your Name (Optional)</label>
+                  <input type="text" id="sug-user-name" class="form-control" placeholder="e.g. Rahul S.">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="sug-user-email">VIT Student Email (Optional)</label>
+                  <input type="email" id="sug-user-email" class="form-control" placeholder="e.g. rahul.s2024@vitstudent.ac.in">
+                </div>
+              </div>
+
+              <!-- Success Alert Banner (Hidden by default) -->
+              <div id="sug-success-alert" style="display:none; background:rgba(76, 175, 80, 0.12); border:1.5px solid #4caf50; border-radius:var(--radius-md); padding:16px; margin-bottom:20px; color:#2e7d32;">
+                <div style="display:flex; align-items:center; gap:10px; font-weight:700; font-size:1rem; margin-bottom:4px;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Thank you! Suggestion Submitted</span>
+                </div>
+                <p style="font-size:0.88rem; margin:0; line-height:1.4;">Your suggestion has been securely sent to campus dining administrators. We will review and apply the updates to the campus directory shortly.</p>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end;">
+                <button type="submit" class="btn btn-primary" id="btn-submit-suggestion" style="padding:12px 28px; font-size:0.95rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px; vertical-align:-2px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  Submit Suggestion to Admin
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================== -->
     <!-- MODULE 6: FAVORITES VIEW                                             -->
     <!-- ===================================================================== -->
     <div id="view-favorites" class="spa-view" style="display:none;">
@@ -685,12 +819,12 @@
         <div class="footer-col">
           <h4 class="footer-col-title">HOSTEL DINING</h4>
           <ul class="footer-links-list">
-            <li><a href="javascript:showHostelTab('boys')">Men's Hostel &bull; OFW</a></li>
-            <li><a href="javascript:showHostelTab('boys')">Just Bake (MH)</a></li>
-            <li><a href="javascript:showHostelTab('boys')">Nescafe (MH)</a></li>
-            <li><a href="javascript:showHostelTab('girls')">Ladies' Hostel &bull; Flora</a></li>
-            <li><a href="javascript:showHostelTab('girls')">Aunty's Mess (LH)</a></li>
-            <li><a href="javascript:showHostelTab('girls')">Nescafe (LH)</a></li>
+            <li><a href="#hostels" onclick="showHostelTab('boys'); return false;">Men's Hostel &bull; OFW</a></li>
+            <li><a href="#hostels" onclick="showHostelTab('boys'); return false;">Just Bake (MH)</a></li>
+            <li><a href="#hostels" onclick="showHostelTab('boys'); return false;">Nescafe (MH)</a></li>
+            <li><a href="#hostels" onclick="showHostelTab('girls'); return false;">Ladies' Hostel &bull; Flora</a></li>
+            <li><a href="#hostels" onclick="showHostelTab('girls'); return false;">Aunty's Mess (LH)</a></li>
+            <li><a href="#hostels" onclick="showHostelTab('girls'); return false;">Nescafe (LH)</a></li>
           </ul>
         </div>
 
@@ -698,40 +832,17 @@
         <div class="footer-col">
           <h4 class="footer-col-title">ACADEMIC BLOCKS</h4>
           <ul class="footer-links-list">
-            <li><a href="javascript:showAcademicBlock('prp')">PRP — Pearl Research Park</a></li>
-            <li><a href="javascript:showAcademicBlock('sjt')">SJT (Arasan, Nama Chai)</a></li>
-            <li><a href="javascript:showAcademicBlock('mgb')">MGB (Darling Cafe)</a></li>
-            <li><a href="javascript:showAcademicBlock('tt')">TT (DC, FC, Nescafe)</a></li>
-            <li><a href="javascript:showAcademicBlock('smv')">SMV &amp; Library (Amul)</a></li>
+            <li><a href="#academic-blocks" onclick="showAcademicBlock('prp'); return false;">PRP — Pearl Research Park</a></li>
+            <li><a href="#academic-blocks" onclick="showAcademicBlock('sjt'); return false;">SJT (Arasan, Nama Chai)</a></li>
+            <li><a href="#academic-blocks" onclick="showAcademicBlock('mgb'); return false;">MGB (Darling Cafe)</a></li>
+            <li><a href="#academic-blocks" onclick="showAcademicBlock('tt'); return false;">TT (DC, FC, Nescafe)</a></li>
+            <li><a href="#academic-blocks" onclick="showAcademicBlock('smv'); return false;">SMV &amp; Library (Amul)</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Right Cursive & Socials -->
+        <!-- Col 4: Right Cursive -->
         <div class="footer-col footer-social-col">
           <div class="footer-script-title">Good Food Good Mood</div>
-          <div class="footer-social-row">
-            <!-- Instagram -->
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <!-- GitHub -->
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="GitHub">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </a>
-            <!-- YouTube -->
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-              </svg>
-            </a>
-          </div>
         </div>
       </div>
 
@@ -901,6 +1012,10 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
             Manage Menu Items (<span id="admin-dishes-badge-count">3,400+</span>)
           </button>
+          <button type="button" class="admin-tab-btn" id="tab-btn-suggestions">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            User Suggestions (<span id="admin-sug-badge-count">0</span>)
+          </button>
         </div>
 
         <!-- TAB 1: Quality Metrics Overview -->
@@ -988,6 +1103,57 @@
                 </tr>
               </thead>
               <tbody id="admin-dishes-tbody">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 4: User Menu & Price Suggestions -->
+        <div class="admin-tab-content" id="tab-content-suggestions" style="display:none;">
+          <div class="admin-controls-bar">
+            <div class="admin-filters-row">
+              <select id="admin-sug-status-filter" class="form-control admin-filter-select">
+                <option value="all">Status: All</option>
+                <option value="pending" selected>Pending Review</option>
+                <option value="applied">Applied / Updated</option>
+                <option value="dismissed">Dismissed</option>
+              </select>
+
+              <select id="admin-sug-spot-filter" class="form-control admin-filter-select">
+                <option value="all">Restaurant: All</option>
+              </select>
+
+              <select id="admin-sug-type-filter" class="form-control admin-filter-select">
+                <option value="all">Type: All</option>
+                <option value="price_change">Price Changes</option>
+                <option value="new_dish">New Items</option>
+                <option value="menu_correction">Corrections</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-outline btn-sm" id="btn-refresh-suggestions">
+              Refresh Suggestions
+            </button>
+          </div>
+
+          <div class="admin-table-container">
+            <table class="admin-table" id="admin-suggestions-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Restaurant</th>
+                  <th>Type</th>
+                  <th>Item Name</th>
+                  <th>Price Details</th>
+                  <th>Category</th>
+                  <th>Notes / Details</th>
+                  <th>Submitted By</th>
+                  <th>Status</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-suggestions-tbody">
                 <!-- Loaded dynamically -->
               </tbody>
             </table>
@@ -1158,10 +1324,10 @@
 
   <!-- Scripts -->
   <script src="js/jquery.min.js"></script>
-  <script src="js/api.js?v=3.4"></script>
-  <script src="js/chat.js?v=3.4"></script>
-  <script src="js/admin.js?v=3.4"></script>
-  <script src="js/app.js?v=3.4"></script>
+  <script src="js/api.js?v=3.7"></script>
+  <script src="js/chat.js?v=3.7"></script>
+  <script src="js/admin.js?v=3.7"></script>
+  <script src="js/app.js?v=3.7"></script>
 
 </body>
 </html>

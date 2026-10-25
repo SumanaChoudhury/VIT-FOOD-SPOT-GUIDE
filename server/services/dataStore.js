@@ -451,6 +451,115 @@ class RelationalDataStore {
     return true;
   }
 
+  // --- Suggestions (Confidential Community Menu & Price Updates for Admins) ---
+  async addSuggestion(data) {
+    const id = `sug_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
+    const userId = data.userId || null;
+    const userName = data.userName || 'Student Contributor';
+    const userEmail = data.userEmail || null;
+    const foodSpotId = data.foodSpotId;
+    const foodSpotName = data.foodSpotName || null;
+    const suggestionType = data.suggestionType || 'price_change';
+    const dishName = data.dishName;
+    const currentPrice = data.currentPrice !== undefined && data.currentPrice !== null && data.currentPrice !== '' ? Number(data.currentPrice) : null;
+    const suggestedPrice = data.suggestedPrice !== undefined && data.suggestedPrice !== null && data.suggestedPrice !== '' ? Number(data.suggestedPrice) : null;
+    const category = data.category || null;
+    const notes = data.notes || null;
+    const status = 'pending';
+
+    await execute(
+      `INSERT INTO suggestions (id, user_id, user_name, user_email, food_spot_id, food_spot_name, suggestion_type, dish_name, current_price, suggested_price, category, notes, status)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [id, userId, userName, userEmail, foodSpotId, foodSpotName, suggestionType, dishName, currentPrice, suggestedPrice, category, notes, status]
+    );
+
+    return {
+      id,
+      userId,
+      userName,
+      userEmail,
+      foodSpotId,
+      foodSpotName,
+      suggestionType,
+      dishName,
+      currentPrice,
+      suggestedPrice,
+      category,
+      notes,
+      status,
+      createdAt: new Date().toISOString()
+    };
+  }
+
+  async getSuggestions(filters = {}) {
+    let sql = `SELECT s.*, f.name as spot_name_db, f.slug as spot_slug, f.location_id
+               FROM suggestions s
+               LEFT JOIN food_spots f ON s.food_spot_id = f.id OR s.food_spot_id = f.slug
+               WHERE 1=1`;
+    const params = [];
+
+    if (filters.status && filters.status !== 'all') {
+      sql += ' AND s.status = ?';
+      params.push(filters.status);
+    }
+    if (filters.foodSpotId && filters.foodSpotId !== 'all') {
+      sql += ' AND (s.food_spot_id = ? OR f.slug = ?)';
+      params.push(filters.foodSpotId, filters.foodSpotId);
+    }
+    if (filters.suggestionType && filters.suggestionType !== 'all') {
+      sql += ' AND s.suggestion_type = ?';
+      params.push(filters.suggestionType);
+    }
+
+    const countSql = sql.replace('SELECT s.*, f.name as spot_name_db, f.slug as spot_slug, f.location_id', 'SELECT COUNT(*) as count');
+    const countRes = await query(countSql, params);
+    const total = countRes[0] ? countRes[0].count : 0;
+
+    sql += ' ORDER BY s.created_at DESC';
+
+    const limit = Number(filters.limit) || 100;
+    const skip = Number(filters.skip) || 0;
+    sql += ' LIMIT ? OFFSET ?';
+    params.push(limit, skip);
+
+    const rows = await query(sql, params);
+    const items = rows.map(r => ({
+      id: r.id,
+      userId: r.user_id,
+      userName: r.user_name,
+      userEmail: r.user_email,
+      foodSpotId: r.food_spot_id,
+      foodSpotName: r.food_spot_name || r.spot_name_db || r.food_spot_id,
+      foodSpotSlug: r.spot_slug || r.food_spot_id,
+      locationId: r.location_id,
+      suggestionType: r.suggestion_type,
+      dishName: r.dish_name,
+      currentPrice: r.current_price,
+      suggestedPrice: r.suggested_price,
+      category: r.category,
+      notes: r.notes,
+      status: r.status,
+      createdAt: r.created_at
+    }));
+
+    return { total, limit, skip, items };
+  }
+
+  async getSuggestionById(id) {
+    const row = await queryOne('SELECT * FROM suggestions WHERE id = ?', [id]);
+    return row || null;
+  }
+
+  async updateSuggestionStatus(id, status) {
+    await execute('UPDATE suggestions SET status = ? WHERE id = ?', [status, id]);
+    return this.getSuggestionById(id);
+  }
+
+  async deleteSuggestion(id) {
+    await execute('DELETE FROM suggestions WHERE id = ?', [id]);
+    return true;
+  }
+
   // --- Admin Stats ---
   async getAdminStats() {
     const spotsCount = (await query('SELECT COUNT(*) as c FROM food_spots'))[0].c;
@@ -458,6 +567,8 @@ class RelationalDataStore {
     const unpricedCount = (await query('SELECT COUNT(*) as c FROM menu_items WHERE price IS NULL'))[0].c;
     const feedbackCount = (await query('SELECT COUNT(*) as c FROM feedback'))[0].c;
     const usersCount = (await query('SELECT COUNT(*) as c FROM users'))[0].c;
+    const pendingSuggestions = (await query("SELECT COUNT(*) as c FROM suggestions WHERE status = 'pending'"))[0]?.c || 0;
+    const totalSuggestions = (await query('SELECT COUNT(*) as c FROM suggestions'))[0]?.c || 0;
 
     return {
       totalOutlets: spotsCount,
@@ -466,6 +577,8 @@ class RelationalDataStore {
       pricedDishes: itemsCount - unpricedCount,
       totalReviews: feedbackCount,
       registeredUsers: usersCount,
+      pendingSuggestions,
+      totalSuggestions,
       databaseEngine: (require('../config/db').getDatabaseStatus()).engine
     };
   }

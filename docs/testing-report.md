@@ -1,6 +1,6 @@
 # Testing Report: VIT Food Spot Guide (Final Architecture)
 
-Execution Timestamp: **2026-10-25T15:46:31.703Z**  
+Execution Timestamp: **2026-10-25T16:30:03.393Z**  
 Environment: **Windows / Node.js v24.19.0 / Java 21 LTS / Relational Database (MySQL / SQLite) + JDBC**  
 Overall Result: **33 / 33 Tests Passed** (Pass Rate: 100%)
 
@@ -10,7 +10,7 @@ Overall Result: **33 / 33 Tests Passed** (Pass Rate: 100%)
 
 | Test ID | Test Name | Expected Behavior | Actual Observed Output | Status | Notes |
 |---|---|---|---|---|---|
-| **TEST-01** | Application Startup & Relational DB Connection | HTTP server running + Relational DB connected | Listening on port 58614, Engine: sqlite | **PASSED** | Zero-crash startup with MySQL/SQLite relational driver |
+| **TEST-01** | Application Startup & Relational DB Connection | HTTP server running + Relational DB connected | Listening on port 64176, Engine: sqlite | **PASSED** | Zero-crash startup with MySQL/SQLite relational driver |
 | **TEST-02** | Relational Schema & Tables | All 6 relational tables exist and accessible | Verified: food_spots, menu_items, locations, users, feedback, favorites | **PASSED** | Relational schema initialized |
 | **TEST-03** | CSV Menu Dataset Ingestion | >= 30 verified spots & > 3,000 dishes preserved | Spots: 31, Dishes: 3423 | **PASSED** | All supplied CSV datasets preserved without loss |
 | **TEST-04** | Excel (XLSX) Ingestion Engine | nama-chai menu items imported from binary namachai.xlsx | Nama Chai items: 19 | **PASSED** | Binary XLSX parsing verified |
@@ -22,7 +22,7 @@ Overall Result: **33 / 33 Tests Passed** (Pass Rate: 100%)
 | **TEST-10** | Food Spots Directory API (GET /api/food-spots) | HTTP 200 with 31 verified food spots | Status: 200, Spots count: 31 | **PASSED** | Relational database query |
 | **TEST-11** | Menu Items API (GET /api/menu-items) | HTTP 200 with paginated array of menu items | Returned: 15 dishes, Total in DB: 3423 | **PASSED** | SQL LIMIT & OFFSET execution |
 | **TEST-12** | Biryani Dish Search API | Returns biryani dishes including null-priced & priced items | Total biryanis: 29, Null-priced included: true, Priced included: true | **PASSED** | Matches biryani and biriyani across campus outlets |
-| **TEST-13** | Fried Rice Search API | Returns 25+ fried rice dishes across campus | Matched: 39 fried rice items | **PASSED** | SQL LIKE pattern search |
+| **TEST-13** | Fried Rice Search API | Returns 25+ fried rice dishes across campus | Matched: 100 fried rice items | **PASSED** | SQL LIKE pattern search |
 | **TEST-14** | Partial "fried" Search API | Matches Fried Rice, French Fries, Fried Chicken | Matched: 100 items | **PASSED** | Substring partial matching |
 | **TEST-15** | Chicken Search API | Returns chicken dishes across campus outlets | Matched: 100 chicken items | **PASSED** | SQL search matching chicken |
 | **TEST-16** | Dual Search Results & Comprehensive Keyword Search | Matches dishes & spots for flora, coffee, pizza, amul, nescafe | Flora spots: 1, Coffee: 100, Pizza: 100, Amul: 15 | **PASSED** | Unified search pipeline |

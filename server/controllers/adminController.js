@@ -483,6 +483,60 @@ async function deleteMenuItem(req, res, next) {
   }
 }
 
+// --- Suggestions Management for Admin ---
+async function getAdminSuggestions(req, res, next) {
+  try {
+    const { status, foodSpotId, limit, skip } = req.query;
+    const result = await dataStore.getSuggestions({
+      status,
+      foodSpotId,
+      limit,
+      skip
+    });
+    res.json({
+      success: true,
+      total: result.total,
+      data: result.items
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function updateAdminSuggestion(req, res, next) {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+    if (!status) {
+      return res.status(400).json({ success: false, error: 'Status is required.' });
+    }
+    const updated = await dataStore.updateSuggestionStatus(id, status);
+    if (!updated) {
+      return res.status(404).json({ success: false, error: 'Suggestion not found.' });
+    }
+    res.json({
+      success: true,
+      message: `Suggestion marked as ${status}.`,
+      data: updated
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function deleteAdminSuggestion(req, res, next) {
+  try {
+    const { id } = req.params;
+    await dataStore.deleteSuggestion(id);
+    res.json({
+      success: true,
+      message: 'Suggestion removed successfully.'
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   login,
   logout,
@@ -498,5 +552,8 @@ module.exports = {
   getAdminMenuItems,
   addMenuItem,
   updateMenuItem,
-  deleteMenuItem
+  deleteMenuItem,
+  getAdminSuggestions,
+  updateAdminSuggestion,
+  deleteAdminSuggestion
 };

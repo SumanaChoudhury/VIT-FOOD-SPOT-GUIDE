@@ -36,4 +36,9 @@ router.post('/menu-items', requireAdminAuth, adminController.addMenuItem);
 router.put('/menu-items/:id', requireAdminAuth, adminController.updateMenuItem);
 router.delete('/menu-items/:id', requireAdminAuth, adminController.deleteMenuItem);
 
+// Community Suggestions (Admin-only)
+router.get('/suggestions', requireAdminAuth, adminController.getAdminSuggestions);
+router.put('/suggestions/:id', requireAdminAuth, adminController.updateAdminSuggestion);
+router.delete('/suggestions/:id', requireAdminAuth, adminController.deleteAdminSuggestion);
+
 module.exports = router;

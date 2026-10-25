@@ -59,6 +59,7 @@ $(document).ready(function() {
     loadQualityMetrics();
     loadAdminSpots();
     loadAdminDishes();
+    loadAdminSuggestions();
   }
 
   // Handle Login Submit
@@ -98,22 +99,29 @@ $(document).ready(function() {
   $('#tab-btn-quality').on('click', function() {
     $(this).addClass('active').siblings().removeClass('active');
     $('#tab-content-quality').show();
-    $('#tab-content-spots, #tab-content-dishes').hide();
+    $('#tab-content-spots, #tab-content-dishes, #tab-content-suggestions').hide();
     loadQualityMetrics();
   });
 
   $('#tab-btn-spots').on('click', function() {
     $(this).addClass('active').siblings().removeClass('active');
     $('#tab-content-spots').show();
-    $('#tab-content-quality, #tab-content-dishes').hide();
+    $('#tab-content-quality, #tab-content-dishes, #tab-content-suggestions').hide();
     loadAdminSpots();
   });
 
   $('#tab-btn-dishes').on('click', function() {
     $(this).addClass('active').siblings().removeClass('active');
     $('#tab-content-dishes').show();
-    $('#tab-content-quality, #tab-content-spots').hide();
+    $('#tab-content-quality, #tab-content-spots, #tab-content-suggestions').hide();
     loadAdminDishes();
+  });
+
+  $('#tab-btn-suggestions').on('click', function() {
+    $(this).addClass('active').siblings().removeClass('active');
+    $('#tab-content-suggestions').show();
+    $('#tab-content-quality, #tab-content-spots, #tab-content-dishes').hide();
+    loadAdminSuggestions();
   });
 
   // =========================================================================
@@ -575,6 +583,199 @@ $(document).ready(function() {
       loadQualityMetrics();
     } catch (err) {
       alert(`Error deleting dish: ${err.message}`);
+    }
+  });
+
+  // =========================================================================
+  // 4. USER MENU & PRICE SUGGESTIONS (ADMIN ONLY)
+  // =========================================================================
+
+  async function loadAdminSuggestions() {
+    const $tbody = $('#admin-suggestions-tbody');
+    $tbody.html('<tr><td colspan="10" style="text-align:center; padding:30px;"><div class="loading-spinner"></div></td></tr>');
+
+    try {
+      const statusFilter = $('#admin-sug-status-filter').val() || 'pending';
+      const spotFilter = $('#admin-sug-spot-filter').val() || 'all';
+      const typeFilter = $('#admin-sug-type-filter').val() || 'all';
+
+      const res = await API.getAdminSuggestions({
+        status: statusFilter,
+        foodSpotId: spotFilter,
+        suggestionType: typeFilter,
+        limit: 200
+      });
+
+      const suggestions = res.data || [];
+      const pendingCount = suggestions.filter(s => s.status === 'pending').length;
+      $('#admin-sug-badge-count').text(pendingCount);
+
+      // Populate spot filter if empty
+      const $spotSelect = $('#admin-sug-spot-filter');
+      if ($spotSelect.find('option').length <= 1 && allAdminSpots.length > 0) {
+        allAdminSpots.forEach(s => {
+          $spotSelect.append(`<option value="${s.id}">${escapeHtml(s.name)}</option>`);
+        });
+      }
+
+      $tbody.empty();
+
+      if (suggestions.length === 0) {
+        $tbody.html(`
+          <tr>
+            <td colspan="10" style="text-align:center; padding:36px; color:var(--text-muted);">
+              No suggestions found matching this filter.
+            </td>
+          </tr>
+        `);
+        return;
+      }
+
+      suggestions.forEach(sug => {
+        const dateStr = sug.createdAt ? new Date(sug.createdAt).toLocaleDateString('en-IN', {
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }) : 'Recent';
+
+        let typeBadge = '';
+        if (sug.suggestionType === 'price_change') {
+          typeBadge = '<span class="admin-badge" style="background:rgba(30,136,229,0.14); color:#1565c0; border:1px solid rgba(30,136,229,0.3);">Price Change</span>';
+        } else if (sug.suggestionType === 'new_dish') {
+          typeBadge = '<span class="admin-badge" style="background:rgba(46,125,50,0.14); color:#2e7d32; border:1px solid rgba(46,125,50,0.3);">New Item</span>';
+        } else {
+          typeBadge = '<span class="admin-badge" style="background:rgba(123,31,162,0.14); color:#6a1b9a; border:1px solid rgba(123,31,162,0.3);">Correction</span>';
+        }
+
+        let priceText = '—';
+        if (sug.suggestionType === 'price_change') {
+          priceText = `<strong>₹${sug.suggestedPrice || 0}</strong> <span style="font-size:0.78rem; color:var(--text-muted);">(was: ${sug.currentPrice !== null ? `₹${sug.currentPrice}` : 'unlisted'})</span>`;
+        } else if (sug.suggestedPrice !== null && sug.suggestedPrice !== undefined) {
+          priceText = `<strong>₹${sug.suggestedPrice}</strong>`;
+        }
+
+        let statusBadge = '';
+        if (sug.status === 'pending') {
+          statusBadge = '<span class="admin-badge" style="background:rgba(230,81,0,0.14); color:#e65100; border:1px solid rgba(230,81,0,0.3);">Pending</span>';
+        } else if (sug.status === 'applied') {
+          statusBadge = '<span class="admin-badge" style="background:rgba(46,125,50,0.14); color:#2e7d32; border:1px solid rgba(46,125,50,0.3);">Applied ✓</span>';
+        } else {
+          statusBadge = '<span class="admin-badge" style="background:rgba(100,116,139,0.14); color:#64748b; border:1px solid rgba(100,116,139,0.3);">Dismissed</span>';
+        }
+
+        const submitter = sug.userName
+          ? `<strong>${escapeHtml(sug.userName)}</strong>${sug.userEmail ? `<br><span style="font-size:0.75rem; color:var(--text-muted);">${escapeHtml(sug.userEmail)}</span>` : ''}`
+          : '<span style="color:var(--text-muted);">Anonymous</span>';
+
+        const row = `
+          <tr data-id="${sug.id}">
+            <td style="white-space:nowrap; font-size:0.82rem; color:var(--text-muted);">${dateStr}</td>
+            <td><strong>${escapeHtml(sug.foodSpotName || sug.foodSpotId)}</strong></td>
+            <td>${typeBadge}</td>
+            <td style="font-weight:600; color:var(--text-dark);">${escapeHtml(sug.dishName)}</td>
+            <td style="white-space:nowrap;">${priceText}</td>
+            <td><span class="admin-badge badge-neutral">${escapeHtml(sug.category || 'General')}</span></td>
+            <td style="font-size:0.85rem; max-width:240px; word-break:break-word;">${escapeHtml(sug.notes || '—')}</td>
+            <td style="font-size:0.82rem;">${submitter}</td>
+            <td>${statusBadge}</td>
+            <td style="text-align:right; white-space:nowrap;">
+              ${sug.status === 'pending' ? `
+                <button type="button" class="admin-action-btn edit btn-apply-sug" data-id="${sug.id}" data-spot="${sug.foodSpotId}" data-name="${escapeHtml(sug.dishName)}" data-price="${sug.suggestedPrice || ''}" data-cat="${escapeHtml(sug.category || '')}" data-type="${sug.suggestionType}" title="Mark as applied">
+                  ✓ Apply
+                </button>
+                <button type="button" class="admin-action-btn btn-dismiss-sug" data-id="${sug.id}" title="Dismiss suggestion">
+                  ✗ Dismiss
+                </button>
+              ` : ''}
+              <button type="button" class="admin-action-btn delete btn-delete-sug" data-id="${sug.id}" title="Delete suggestion">
+                Delete
+              </button>
+            </td>
+          </tr>
+        `;
+        $tbody.append(row);
+      });
+
+    } catch (err) {
+      console.error('Error loading suggestions:', err);
+      $tbody.html(`<tr><td colspan="10" style="text-align:center; padding:30px; color:#c00;">Error loading suggestions: ${err.message}</td></tr>`);
+    }
+  }
+
+  // Filter change & refresh handlers
+  $('#admin-sug-status-filter, #admin-sug-spot-filter, #admin-sug-type-filter').on('change', function() {
+    loadAdminSuggestions();
+  });
+
+  $('#btn-refresh-suggestions').on('click', function() {
+    loadAdminSuggestions();
+  });
+
+  // Action: Apply Suggestion
+  $(document).on('click', '.btn-apply-sug', async function() {
+    const id = $(this).data('id');
+    const spot = $(this).data('spot');
+    const name = $(this).data('name');
+    const price = $(this).data('price');
+    const cat = $(this).data('cat');
+    const type = $(this).data('type');
+
+    if (!confirm(`Mark this suggestion for "${name}" as APPLIED?\n\nStatus will be updated to 'applied'.`)) {
+      return;
+    }
+
+    try {
+      await API.updateAdminSuggestion(id, 'applied');
+
+      const wantUpdateMenu = confirm(`Suggestion marked as applied!\n\nWould you like to open the menu editor now to update/add "${name}" for this restaurant?`);
+      if (wantUpdateMenu) {
+        if (type === 'new_dish') {
+          $('#dish-form-mode').val('add');
+          $('#dish-form-target-id').val('');
+          $('#dish-form-title').text('Add New Menu Dish (From Suggestion)');
+          $('#dish-form-spot').val(spot);
+          $('#dish-form-name').val(name);
+          $('#dish-form-category').val(cat || 'Meals');
+          $('#dish-form-price').val(price);
+          $('#dish-form-dietary').val('veg');
+          $('#dish-form-must-try').prop('checked', false);
+          $('#modal-dish-form').addClass('open active');
+        } else {
+          $('#tab-btn-dishes').trigger('click');
+          $('#admin-dishes-spot-filter').val(spot).trigger('change');
+          $('#admin-dish-search-input').val(name).trigger('input');
+        }
+      }
+
+      loadAdminSuggestions();
+    } catch (err) {
+      alert(`Error updating suggestion: ${err.message}`);
+    }
+  });
+
+  // Action: Dismiss Suggestion
+  $(document).on('click', '.btn-dismiss-sug', async function() {
+    const id = $(this).data('id');
+    try {
+      await API.updateAdminSuggestion(id, 'dismissed');
+      loadAdminSuggestions();
+    } catch (err) {
+      alert(`Error dismissing suggestion: ${err.message}`);
+    }
+  });
+
+  // Action: Delete Suggestion Record
+  $(document).on('click', '.btn-delete-sug', async function() {
+    const id = $(this).data('id');
+    if (!confirm('Are you sure you want to permanently delete this suggestion record?')) {
+      return;
+    }
+    try {
+      await API.deleteAdminSuggestion(id);
+      loadAdminSuggestions();
+    } catch (err) {
+      alert(`Error deleting suggestion: ${err.message}`);
     }
   });
 

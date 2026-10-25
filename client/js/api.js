@@ -299,5 +299,32 @@ const API = {
       method: 'POST',
       body: formData
     });
+  },
+
+  // Suggestions (Public Submission)
+  submitSuggestion(data) {
+    return this.request('/suggestions', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+  },
+
+  // Suggestions (Admin Management)
+  getAdminSuggestions(params = {}) {
+    const q = new URLSearchParams(cleanParams(params)).toString();
+    return this.request(`/admin/suggestions${q ? `?${q}` : ''}`);
+  },
+
+  updateAdminSuggestion(id, status) {
+    return this.request(`/admin/suggestions/${encodeURIComponent(id)}`, {
+      method: 'PUT',
+      body: JSON.stringify({ status })
+    });
+  },
+
+  deleteAdminSuggestion(id) {
+    return this.request(`/admin/suggestions/${encodeURIComponent(id)}`, {
+      method: 'DELETE'
+    });
   }
 };

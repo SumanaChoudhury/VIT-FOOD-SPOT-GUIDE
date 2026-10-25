@@ -214,7 +214,7 @@ window.triggerGlobalSearchFocus = function() {
 };
 
 function switchView(viewName) {
-  const validViews = ['explore', 'hostels', 'mens-hostel', 'ladies-hostel', 'academic-blocks', 'chatbot', 'feedback', 'favorites'];
+  const validViews = ['explore', 'hostels', 'mens-hostel', 'ladies-hostel', 'academic-blocks', 'chatbot', 'feedback', 'suggestions', 'favorites'];
   const targetView = validViews.includes(viewName) ? viewName : 'explore';
 
   AppState.activeView = targetView;
@@ -249,6 +249,8 @@ function switchView(viewName) {
       showAcademicBlock(AppState.activeBlock || 'prp');
     } else if (targetView === 'feedback') {
       loadFeedbackView();
+    } else if (targetView === 'suggestions') {
+      initSuggestionsView();
     } else if (targetView === 'favorites') {
       loadFavoritesView();
     }
@@ -259,6 +261,17 @@ function switchView(viewName) {
 
 function showHostelTab(tab) {
   AppState.activeHostelTab = tab;
+
+  // Ensure hostels view is active
+  if (AppState.activeView !== 'hostels' && AppState.activeView !== 'mens-hostel' && AppState.activeView !== 'ladies-hostel') {
+    AppState.activeView = 'hostels';
+    $('.nav-link').removeClass('active');
+    $('.nav-link[data-view="hostels"]').addClass('active');
+    $('.spa-view').hide();
+    $('#view-hostels').show();
+    window.location.hash = 'hostels';
+  }
+
   if (tab === 'girls' || tab === 'ladies-hostel') {
     $('#tab-hostel-girls').addClass('active');
     $('#tab-hostel-boys').removeClass('active');
@@ -272,7 +285,10 @@ function showHostelTab(tab) {
     $('#hostel-boys-content').show();
     renderMensHostelView();
   }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+window.showHostelTab = showHostelTab;
 
 async function initializeApp() {
   showLoader('#outlets-grid');
@@ -376,9 +392,12 @@ function bindEventHandlers() {
   $('#btn-close-search').on('click', () => {
     $('#global-search-input').val('');
     $('#dish-search-section').slideUp(150);
+    $('.craving-card, .craving-pill-chip').removeClass('active');
     $('#cravings-section').show();
     $('#food-spots-directory').show();
     $('#blocks-quicknav-section').show();
+    $('#category-filter-select').val('');
+    AppState.activeCategory = '';
     applyActiveFilters();
   });
 
@@ -387,15 +406,66 @@ function bindEventHandlers() {
     const cat = $(this).data('category');
     const isAlreadyActive = $(this).hasClass('active');
     $('.craving-card, .craving-pill-chip').removeClass('active');
+
     if (isAlreadyActive) {
-      $('#category-filter-select').val('').trigger('change');
+      $('#dish-search-section').slideUp(150);
+      $('#food-spots-directory').show();
+      $('#blocks-quicknav-section').show();
+      $('#category-filter-select').val('');
+      AppState.activeCategory = '';
+      applyActiveFilters();
     } else {
       $(this).addClass('active');
-      $('#category-filter-select').val(cat).trigger('change');
-      const $spots = $('#food-spots-directory');
-      if ($spots.length && $spots.is(':visible')) {
-        $('html, body').animate({ scrollTop: $spots.offset().top - 80 }, 300);
-      }
+      $('#category-filter-select').val(cat);
+      AppState.activeCategory = cat;
+
+      const cravingConfigs = {
+        'Beverages': {
+          query: 'juice shake smoothie lassi',
+          title: 'Fresh Juices & Shakes Available on Campus',
+          subtitle: 'Available fresh fruit juices, thick shakes, smoothies & lassis across campus outlets',
+          groupTitle: 'AVAILABLE JUICES & SHAKES'
+        },
+        'Chai': {
+          query: 'chai tea coffee brew',
+          title: 'Chai, Tea & Coffee on Campus',
+          subtitle: 'Available hot brews, cutting chai, filter coffee and snacks across campus outlets',
+          groupTitle: 'AVAILABLE CHAI & BEVERAGES'
+        },
+        'Fast Food': {
+          query: 'roll snack burger wrap sandwich frankie',
+          title: 'Rolls, Snacks & Fast Food on Campus',
+          subtitle: 'Available frankies, rolls, burgers, sandwiches and quick bites across campus outlets',
+          groupTitle: 'AVAILABLE ROLLS & SNACKS'
+        },
+        'Meals': {
+          query: 'biryani meal thali rice combo',
+          title: 'Meals, Biryanis & Thalis on Campus',
+          subtitle: 'Available thalis, biryanis, meals and combo plates across campus outlets',
+          groupTitle: 'AVAILABLE MEALS & BIRYANIS'
+        },
+        'South Indian': {
+          query: 'dosa idli vada pongal uthappam',
+          title: 'South Indian Specials on Campus',
+          subtitle: 'Available crispy dosas, fluffy idlis, vadas and tiffins across campus outlets',
+          groupTitle: 'AVAILABLE SOUTH INDIAN SPECIALS'
+        },
+        'Desserts': {
+          query: 'ice cream waffle cake pastry dessert brownie sundae',
+          title: 'Bakery, Ice Creams & Desserts on Campus',
+          subtitle: 'Available waffles, cakes, ice cream scoops, pastries and sweet treats across campus outlets',
+          groupTitle: 'AVAILABLE DESSERTS & SWEETS'
+        }
+      };
+
+      const config = cravingConfigs[cat] || {
+        query: cat,
+        title: `${cat} Available on Campus`,
+        subtitle: `Available ${cat} items and specialty outlets across campus`,
+        groupTitle: `AVAILABLE ${cat.toUpperCase()}`
+      };
+
+      handleGlobalDishSearch(config.query, true, config);
     }
   });
 
@@ -495,6 +565,9 @@ function bindEventHandlers() {
 
   // Feedback Form
   $('#inline-feedback-form').on('submit', handleInlineFeedbackSubmit);
+
+  // Public Menu Suggestion Form
+  $('#public-suggestion-form').on('submit', handlePublicSuggestionSubmit);
 
   // Close modals on Esc or backdrop click
   $(document).on('keydown', function(e) {
@@ -625,6 +698,17 @@ function renderLadiesHostelView() {
 // Academic Blocks View (Luxury Concourse Showcase)
 function showAcademicBlock(blockSlug) {
   AppState.activeBlock = blockSlug;
+
+  // Ensure academic-blocks view is active
+  if (AppState.activeView !== 'academic-blocks') {
+    AppState.activeView = 'academic-blocks';
+    $('.nav-link').removeClass('active');
+    $('.nav-link[data-view="academic-blocks"]').addClass('active');
+    $('.spa-view').hide();
+    $('#view-academic-blocks').show();
+    window.location.hash = 'academic-blocks';
+  }
+
   $('#academic-block-select').val(blockSlug);
   $('.luxury-block-tab').removeClass('active');
   $(`.luxury-block-tab[data-block="${blockSlug}"]`).addClass('active');
@@ -737,19 +821,18 @@ function showAcademicBlock(blockSlug) {
   if (nearby.length > 0) {
     renderFoodSpots(nearby, '#academic-nearby-grid');
   }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+window.showAcademicBlock = showAcademicBlock;
 
 // Global Navigate To Academic Block
 window.navigateToBlock = function(blockSlug) {
-  window.location.hash = '#academic-blocks';
-  setTimeout(() => {
-    $('#academic-block-select').val(blockSlug).trigger('change');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 60);
+  showAcademicBlock(blockSlug);
 };
 
 // Global Dish & Spot Search
-async function handleGlobalDishSearch(query, shouldScroll = false) {
+async function handleGlobalDishSearch(query, shouldScroll = false, customHeader = null) {
   if (!query || query.trim().length < 2) {
     $('#dish-search-section').slideUp(150);
     $('#cravings-section').show();
@@ -776,9 +859,6 @@ async function handleGlobalDishSearch(query, shouldScroll = false) {
     if (AppState.activeDietary && AppState.activeDietary !== 'all') {
       filters.dietary = AppState.activeDietary;
     }
-    if (AppState.activeCategory && AppState.activeCategory !== 'all') {
-      filters.category = AppState.activeCategory;
-    }
     if (AppState.activeLocation && AppState.activeLocation !== 'all') {
       filters.location = AppState.activeLocation;
     }
@@ -796,13 +876,18 @@ async function handleGlobalDishSearch(query, shouldScroll = false) {
     $grid.empty();
     $spotsGrid.empty();
 
-    $('#dish-search-heading').text(`Search results for "${trimmed}"`);
-    $('#dish-search-subheading').text(`${items.length} ${items.length === 1 ? 'dish' : 'dishes'} found${spots.length > 0 ? ` • ${spots.length} food ${spots.length === 1 ? 'spot' : 'spots'}` : ''}`);
+    const heading = customHeader?.title || `Search results for "${trimmed}"`;
+    const subheading = customHeader?.subtitle || `${items.length} ${items.length === 1 ? 'dish' : 'dishes'} found${spots.length > 0 ? ` • ${spots.length} food ${spots.length === 1 ? 'spot' : 'spots'}` : ''}`;
+    const dishGroupTitle = customHeader?.groupTitle || 'DISHES';
+
+    $('#dish-search-heading').text(heading);
+    $('#dish-search-subheading').text(subheading);
+    $('#matching-dishes-group-title').text(dishGroupTitle);
     $('#matching-dishes-count').text(`${items.length} ${items.length === 1 ? 'dish' : 'dishes'}`);
     $('#matching-spots-count').text(`${spots.length} food ${spots.length === 1 ? 'spot' : 'spots'}`);
 
-    // Hide default discovery sections while searching
-    $('#cravings-section').hide();
+    // Keep cravings section visible so user can see their active choice and pick others anytime
+    $('#cravings-section').show();
     $('#food-spots-directory').hide();
     $('#blocks-quicknav-section').hide();
     $('#dish-search-section').show();
@@ -819,9 +904,9 @@ async function handleGlobalDishSearch(query, shouldScroll = false) {
       $spotsContainer.hide();
     }
 
-    // Matching Dishes List (Compact clean rows)
+    // Matching Dishes List (with spot name, exact campus location, category & prices)
     if (items.length === 0) {
-      $grid.html('<p style="color:var(--text-muted); padding:20px 0;">No matching dishes found.</p>');
+      $grid.html('<p style="color:var(--text-muted); padding:20px 0;">No matching dishes found in campus menus.</p>');
     } else {
       items.forEach(dish => {
         const priceText = dish.price !== null ? `₹${dish.price}` : '<span class="dish-row-price unlisted">Price not listed</span>';
@@ -830,19 +915,30 @@ async function handleGlobalDishSearch(query, shouldScroll = false) {
         const dishId = dish.id;
         const spotKey = dish.foodSpotSlug || dish.foodSpotId || dish.foodSpot;
         const isFav = AppState.userFavoritesSet.has(dishId);
+        const spotName = dish.foodSpotName || dish.spotName || 'Campus Outlet';
+        const spotLoc = dish.spotLocation || dish.locationName || 'VIT Campus';
 
         const row = `
           <div class="dish-row-item" onclick="openSpotDetailModal('${spotKey}')" role="button" tabindex="0">
             <div class="dish-row-left">
-              <div class="dish-row-name">
+              <div class="dish-row-name-line">
                 ${isVeg ? '<span class="diet-dot veg" title="Vegetarian"></span>' : (isNonVeg ? '<span class="diet-dot non-veg" title="Non-vegetarian"></span>' : '')}
-                <span>${dish.name}</span>
+                <span class="dish-row-title">${dish.name}</span>
+                ${dish.isMustTry ? '<span class="dish-must-try-pill">Must Try</span>' : ''}
               </div>
               <div class="dish-row-meta">
-                <span>${dish.spotName}</span>
-                &bull;
-                <span>${dish.category || 'General'}</span>
-                ${dish.counterName ? `&bull; <span>${dish.counterName}</span>` : ''}
+                <span class="dish-meta-spot" title="Food Spot">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px; margin-right:4px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                  ${spotName}
+                </span>
+                <span class="dish-meta-divider">&bull;</span>
+                <span class="dish-meta-loc" title="Location on campus">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px; margin-right:3px; opacity:0.75;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  ${spotLoc}
+                </span>
+                <span class="dish-meta-divider">&bull;</span>
+                <span class="dish-meta-cat">${dish.category || 'General'}</span>
+                ${dish.counterName ? `<span class="dish-meta-divider">&bull;</span><span class="dish-meta-counter">${dish.counterName}</span>` : ''}
               </div>
             </div>
             <div class="dish-row-right">
@@ -850,7 +946,9 @@ async function handleGlobalDishSearch(query, shouldScroll = false) {
               <button class="btn-fav-toggle ${isFav ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite('${spotKey}', '${dishId}')" title="${isFav ? 'Remove bookmark' : 'Bookmark dish'}" aria-label="Bookmark">
                 ${isFav ? SVG_ICONS.heartFilled : SVG_ICONS.heartOutline}
               </button>
-              <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openSpotDetailModal('${spotKey}')">View menu</button>
+              <button class="btn btn-outline btn-sm btn-view-menu" onclick="event.stopPropagation(); openSpotDetailModal('${spotKey}')">
+                View menu &rarr;
+              </button>
             </div>
           </div>
         `;
@@ -1028,6 +1126,15 @@ async function openSpotDetailModal(spotSlug, filterCounter = null) {
           <div class="menu-items-list" id="modal-dishes-container">
             ${renderModalDishes(menuItems, filterCounter)}
           </div>
+        </div>
+
+        <div class="spot-modal-sug-footer" style="margin-top: 20px; padding: 12px 16px; background: var(--bg-sage-light); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+          <div style="font-size: 0.86rem; color: var(--text-dark);">
+            💡 Notice a changed price or a new item here?
+          </div>
+          <button type="button" class="btn btn-outline btn-sm" onclick="suggestUpdateForSpot('${spot.slug || spot.id}')">
+            Suggest Menu Update &rarr;
+          </button>
         </div>
       </div>
     `;
@@ -1482,4 +1589,140 @@ async function handleInlineFeedbackSubmit(e) {
 
 function showLoader(selector) {
   $(selector).html('<div style="grid-column:1/-1; text-align:center; padding:40px;"><div class="loader-spinner"></div><p style="margin-top:12px; color:var(--text-muted); font-size:0.88rem;">Loading...</p></div>');
+}
+
+// Community Suggestions (Private menu & price updates for Admin)
+function initSuggestionsView() {
+  const $select = $('#sug-food-spot-select');
+  if ($select.find('option').length <= 1 && AppState.allSpots && AppState.allSpots.length > 0) {
+    const sorted = [...AppState.allSpots].sort((a, b) => a.name.localeCompare(b.name));
+    sorted.forEach(s => {
+      $select.append(`<option value="${s.slug || s.id}">${escapeHtml(s.name)} (${s.locationId ? s.locationId.toUpperCase() : 'VIT'})</option>`);
+    });
+  }
+
+  // Pre-fill user details if logged in
+  if (AppState.currentUser) {
+    if (!$('#sug-user-name').val()) $('#sug-user-name').val(AppState.currentUser.name || '');
+    if (!$('#sug-user-email').val()) $('#sug-user-email').val(AppState.currentUser.email || '');
+  }
+}
+
+window.suggestUpdateForSpot = function(spotSlug) {
+  closeSpotDetailModal();
+  switchView('suggestions');
+  window.location.hash = 'suggestions';
+  setTimeout(() => {
+    initSuggestionsView();
+    $('#sug-food-spot-select').val(spotSlug).trigger('change');
+    $('html, body').stop().animate({
+      scrollTop: $('#view-suggestions').offset().top - 80
+    }, 250, () => {
+      $('#sug-dish-name').focus();
+    });
+  }, 120);
+};
+
+// Suggestion type pills change handler
+$(document).on('change', 'input[name="sug-type"]', function() {
+  const val = $(this).val();
+  $('.sug-type-pill').removeClass('active').css({
+    borderColor: 'var(--border-subtle)',
+    background: 'var(--bg-main)'
+  });
+  $(this).closest('.sug-type-pill').addClass('active').css({
+    borderColor: 'var(--coffee)',
+    background: 'var(--sunshine-light)'
+  });
+
+  const $dishLbl = $('#lbl-sug-dish-name');
+  const $dishInput = $('#sug-dish-name');
+  const $priceRow = $('#sug-price-fields-row');
+  const $newPriceLbl = $('#lbl-sug-new-price');
+  const $newPriceInput = $('#sug-new-price');
+
+  if (val === 'price_change') {
+    $dishLbl.text('Item / Dish Name *');
+    $dishInput.attr('placeholder', 'e.g. Veg Cheese Roll, Badham Milk, Chicken Biryani');
+    $priceRow.slideDown(150);
+    $newPriceLbl.text('New / Correct Price (₹) *');
+    $newPriceInput.prop('required', true);
+  } else if (val === 'new_dish') {
+    $dishLbl.text('New Dish Name *');
+    $dishInput.attr('placeholder', 'e.g. Dragon Fruit Smoothie, Peri Peri Fries');
+    $priceRow.slideDown(150);
+    $newPriceLbl.text('Price (₹) *');
+    $newPriceInput.prop('required', true);
+  } else {
+    $dishLbl.text('Item Name or Topic *');
+    $dishInput.attr('placeholder', 'e.g. Item no longer available, counter name change');
+    $newPriceLbl.text('Price (₹) (Optional)');
+    $newPriceInput.prop('required', false);
+  }
+});
+
+async function handlePublicSuggestionSubmit(e) {
+  e.preventDefault();
+  const $btn = $('#btn-submit-suggestion');
+  const $alert = $('#sug-success-alert');
+  $alert.hide();
+
+  const foodSpotId = $('#sug-food-spot-select').val();
+  const suggestionType = $('input[name="sug-type"]:checked').val() || 'price_change';
+  const dishName = $('#sug-dish-name').val().trim();
+  const currentPrice = $('#sug-current-price').val();
+  const suggestedPrice = $('#sug-new-price').val();
+  const category = $('#sug-category').val().trim();
+  const notes = $('#sug-notes').val().trim();
+  const userName = $('#sug-user-name').val().trim();
+  const userEmail = $('#sug-user-email').val().trim();
+
+  if (!foodSpotId) {
+    alert('Please select a campus food spot.');
+    $('#sug-food-spot-select').focus();
+    return;
+  }
+  if (!dishName) {
+    alert('Please enter the dish or item name.');
+    $('#sug-dish-name').focus();
+    return;
+  }
+
+  $btn.prop('disabled', true).text('Submitting...');
+
+  try {
+    const res = await API.submitSuggestion({
+      foodSpotId,
+      suggestionType,
+      dishName,
+      currentPrice: currentPrice || null,
+      suggestedPrice: suggestedPrice || null,
+      category: category || null,
+      notes: notes || null,
+      userName: userName || null,
+      userEmail: userEmail || null
+    });
+
+    $alert.slideDown(200);
+
+    // Reset fields except user info
+    $('#sug-dish-name').val('');
+    $('#sug-current-price').val('');
+    $('#sug-new-price').val('');
+    $('#sug-category').val('');
+    $('#sug-notes').val('');
+
+    $('html, body').animate({
+      scrollTop: $alert.offset().top - 90
+    }, 200);
+
+  } catch (err) {
+    console.error('Suggestion submit error:', err);
+    alert(`Could not submit suggestion: ${err.message}`);
+  } finally {
+    $btn.prop('disabled', false).html(`
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px; vertical-align:-2px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      Submit Suggestion to Admin
+    `);
+  }
 }

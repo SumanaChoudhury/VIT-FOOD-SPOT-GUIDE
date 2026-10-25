@@ -1473,17 +1473,48 @@ a:hover {
 .dish-row-left {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
 }
 
+.dish-row-name-line,
 .dish-row-name {
   font-family: var(--font-title);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-dark);
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dish-row-title {
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .dish-row-title,
+[data-theme="dark"] .dish-row-name {
+  color: var(--text-light);
+}
+
+.dish-must-try-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(230, 81, 0, 0.12);
+  color: #d84315;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(230, 81, 0, 0.3);
+}
+
+[data-theme="dark"] .dish-must-try-pill {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ffb74d;
+  border-color: rgba(255, 152, 0, 0.4);
 }
 
 .dish-row-meta {
@@ -1491,7 +1522,57 @@ a:hover {
   color: var(--text-muted);
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
+  line-height: 1.4;
+}
+
+.dish-meta-spot {
+  font-weight: 700;
+  color: var(--coffee);
+  display: inline-flex;
+  align-items: center;
+}
+
+[data-theme="dark"] .dish-meta-spot {
+  color: var(--sunshine);
+}
+
+.dish-meta-loc {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .dish-meta-loc {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+
+.dish-meta-cat {
+  font-size: 0.78rem;
+  background: var(--bg-sage-light);
+  padding: 1px 7px;
+  border-radius: 4px;
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .dish-meta-cat {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+.dish-meta-divider {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.btn-view-menu {
+  white-space: nowrap;
 }
 
 .diet-dot {
@@ -4102,5 +4183,47 @@ body {
 .admin-diet-dot.non-veg {
   background: #dc2626 !important;
   box-shadow: 0 0 0 2px #fecaca !important;
+}
+
+/* Suggestions Module */
+.suggestion-form-card {
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .suggestion-privacy-banner {
+  background: rgba(252, 191, 39, 0.08) !important;
+  border-color: rgba(252, 191, 39, 0.2) !important;
+}
+
+[data-theme="dark"] .suggestion-privacy-banner svg {
+  color: var(--sunshine) !important;
+}
+
+[data-theme="dark"] .sug-type-pill {
+  background: var(--bg-card) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .sug-type-pill.active {
+  background: rgba(252, 191, 39, 0.15) !important;
+  border-color: var(--sunshine) !important;
+  color: var(--sunshine) !important;
+}
+
+.sug-type-pill:hover {
+  border-color: var(--coffee) !important;
+}
+
+[data-theme="dark"] .sug-type-pill:hover {
+  border-color: var(--sunshine) !important;
+}
+
+.spot-modal-sug-footer {
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .spot-modal-sug-footer {
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 

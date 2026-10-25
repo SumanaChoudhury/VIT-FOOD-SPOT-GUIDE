@@ -101,3 +101,25 @@ CREATE TABLE IF NOT EXISTS favorites (
 
 CREATE INDEX IF NOT EXISTS idx_favorites_user ON favorites(user_id);
 CREATE INDEX IF NOT EXISTS idx_favorites_spot ON favorites(food_spot_id);
+
+CREATE TABLE IF NOT EXISTS suggestions (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NULL,
+  user_name TEXT NULL,
+  user_email TEXT NULL,
+  food_spot_id TEXT NOT NULL,
+  food_spot_name TEXT NULL,
+  suggestion_type TEXT NOT NULL,
+  dish_name TEXT NOT NULL,
+  current_price REAL NULL,
+  suggested_price REAL NULL,
+  category TEXT NULL,
+  notes TEXT NULL,
+  status TEXT DEFAULT 'pending',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (food_spot_id) REFERENCES food_spots(id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_suggestions_spot ON suggestions(food_spot_id);
+CREATE INDEX IF NOT EXISTS idx_suggestions_status ON suggestions(status);
+CREATE INDEX IF NOT EXISTS idx_suggestions_created ON suggestions(created_at);

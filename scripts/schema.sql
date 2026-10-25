@@ -129,3 +129,28 @@ CREATE TABLE IF NOT EXISTS favorites (
 
 CREATE INDEX idx_favorites_user ON favorites(user_id);
 CREATE INDEX idx_favorites_spot ON favorites(food_spot_id);
+
+-- ----------------------------------------------------------------------------
+-- Table 7: Suggestions (Private User Menu & Price Suggestions for Admins)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS suggestions (
+  id VARCHAR(64) PRIMARY KEY,
+  user_id VARCHAR(64) NULL,
+  user_name VARCHAR(255) NULL,
+  user_email VARCHAR(255) NULL,
+  food_spot_id VARCHAR(64) NOT NULL,
+  food_spot_name VARCHAR(255) NULL,
+  suggestion_type VARCHAR(50) NOT NULL,
+  dish_name VARCHAR(255) NOT NULL,
+  current_price DECIMAL(10,2) NULL,
+  suggested_price DECIMAL(10,2) NULL,
+  category VARCHAR(100) NULL,
+  notes TEXT NULL,
+  status VARCHAR(20) DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_sug_foodspot FOREIGN KEY (food_spot_id) REFERENCES food_spots(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE INDEX idx_suggestions_spot ON suggestions(food_spot_id);
+CREATE INDEX idx_suggestions_status ON suggestions(status);
+CREATE INDEX idx_suggestions_created ON suggestions(created_at);

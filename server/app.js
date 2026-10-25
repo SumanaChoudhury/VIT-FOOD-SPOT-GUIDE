@@ -18,6 +18,7 @@ const authRoutes = require('./routes/authRoutes');
 const chatRoutes = require('./routes/chatRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const exportRoutes = require('./routes/exportRoutes');
+const suggestionRoutes = require('./routes/suggestionRoutes');
 
 const app = express();
 
@@ -74,6 +75,7 @@ app.use('/api/favorites', favoritesRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/suggestions', suggestionRoutes);
 app.use('/api/export', exportRoutes);
 app.get('/api/search', require('./controllers/menuItemController').searchDishes);
 
