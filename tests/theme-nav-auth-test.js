@@ -79,6 +79,11 @@ assert(
   'Dark theme rules for spot card title, location and description must be present'
 );
 assert(
+  styleCss.includes('[data-theme="dark"] .site-header') &&
+  styleCss.includes('[data-theme="dark"] .main-nav .nav-link'),
+  'Dark theme rules for site header background and main nav links must be present'
+);
+assert(
   styleCss.includes('[data-theme="dark"] select option'),
   'Dark theme styles for native select options must be present'
 );
@@ -86,7 +91,7 @@ assert(
   styleCss.includes('[data-theme="dark"] .luxury-block-tab .tab-label'),
   'Dark theme styles for academic block tab labels must be present'
 );
-console.log('[PASS] Contrast rules in place for all headings, cards, tabs, and form elements');
+console.log('[PASS] Contrast rules in place for header, nav tabs, cards, and form elements');
 
 // Test 5: Responsive Layout Adaptation
 console.log('\nTest 5: Responsive layout rules across screen sizes');
